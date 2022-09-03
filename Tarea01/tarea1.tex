@@ -18,7 +18,25 @@ Tarea 1: Conceptos básicos}
 		\begin{enumerate}
 			\item Describe las principales características del enfoque de bases de datos y contrástalo con el enfoque
 				basado en archivos. ¿En qué casos no tendría sentido utilizar una base de datos?
+				
+				Algunas de las principales caracteristicas del enfoque de bases de datos son:
+				-Almacenar grandes cantidades de datos (hasta cientos o miles de GB) por mucho tiempo.
+				-Evitar cualquier tipo de perdida de los datos, ya sea protegiendolos de desastres (al hardware principalmente) o protegiendolos de usos no deseados de algunos usuarios.
+				-Permitir la creacion de nuevos datos.
+				-Permitir la lectura de los datos, asi como consultas especificas acerca de la informacion almacenada.
+				-Permitir la actualizacion o modificacion de los datos.
+				-Permitir la eliminacion de los datos.
+				-Permitir el acceso a cuantos usuarios se desee (con sus respectivas medidas de autorizacion).
+				-Permitir modificar el esquema de la misma base de datos.
 
+				Ahora contrastemos algunos aspectos de el Enfoque de Bases de Datos (EBD) con el Enfoque Basado en Archivos (EBA):
+				-En el EBA tenemos capacidad de almacenamiento muy limitada vs los cientos de GB que nos proporciona el EBD.
+				-En el EBA los datos pueden perderse dada una caida del sistema.
+				-En el EBA puede llegar a ser muy engorroso escribir un programa para cada tipo de consulta de la informacion, mientras que en el EBD esto se resuelve con queries.
+				-El EBA es muy propenso a alterar la realidad de los datos ya que multiples usuarios pueden modificar de maneras distintas los mismos datos o informacion, lo que nos implica fragmentar la realidad y no tener consistencia en los datos. En el EBD no sucede esto gracias a los SMBD.
+
+				Finalmente, los casos donde no tiene mucho sentido utilizar una base de datos es cuando no almacenaremos ni muchos datos ni mucha informacion. Cuando no necesitamos hacer muchas consultas ni modificar constantemente los datos y cuando no habra multiples usuarios leyendo y escribiendo los datos.
+				
 			\item ¿Qué ventajas y desventajas encuentras al trabajar con una base de datos?
 			
                         	Las ventajas son la consulta, actualización y almacenamiento de datos, ya que de hecho ese es su prinicipal propósito y 			        pueden almacenar cantidades muy grandes de información y permiten la rápida consulta y actualización de esta, por otro                                   lado también tenemos la validación de dichos datos, la seguridad y el tener todos los datos en un mismo sistema en vez                                   de varios sistemas que no se puedan sincronizar, validar o cualquier problema de ese estilo.\\ \\
@@ -69,6 +87,11 @@ Tarea 1: Conceptos básicos}
 				en ejecutar sus propias consultas, ¿necesita entender y/o conocer el modelo de datos lógico de la
 				base de datos? Justifica tu respuesta.
 
+				Si. Dado a que algunas de las principales responsabilidades de un DBA son el crear y configurar las bases de datos relacionales asi como producir diagramas de entidades relacionales, localización lógica y física de bases de datos y parámetros de tablas (segun Wikipedia^[1]), es fundamental que el DBA entienda el modelo de datos logico ya que debe ser capaz de disenhar el diagrama E/R y traducirlo al modelo relacional. Lo que lo hace capaz de disenhar el esquema de la base de datos, es decir, entiende el modelo de datos logico de la misma.
+
+				[1] https://es.wikipedia.org/wiki/Administrador_de_base_de_datoshttps://es.wikipedia.org/wiki/Administrador_de_base_de_datos
+	
+				
 			\item Entrevista a algún usuario de sistemas de bases de datos, ¿qué características de SMBD encuentran
 				más útiles y por qué? ¿qué instalación(es) de SMBD encuentran más/menos complicada y por qué?
 				¿cuáles perciben estos usuarios que son las ventajas y desventajas de un SMBD?
@@ -246,7 +269,25 @@ Tarea 1: Conceptos básicos}
 				con el medio ambiente y puede impulsarnos como sociedad para crecer tanto económicamente 
 				como en calidad de vida.\\
 
+				\textbf{Fernando:}\\
+				Bajo mi punto de vista el texto trata de convencernos de que los datos tienen y tendran muchisimo poder en nuestra sociedad, que este poder se esta ganando exponencialmente pero que desafortunadamente hay una carencia de informacion (aunque abundancia de datos), y es aqui donde entra en papel nuestra materia ya que en Fundamentos de Bases de Datos nos enfocaremos en administrar de manera correcta, limpia y legible los datos para poder evitar algunos de los problemas que se presentan en el texto. Pudiendo sacar el maximo provecho que nos otorgan las tecnologias desarrolladas y en desarrollo teniendo a la mano bases de datos con muchisimo conocimiento valioso y tomar buenas decisiones en nuestras vidas (y/o negocios).
 
+				El texto gira al rededor del poder de los datos y sin duda nos hace ver que en este campo de los datos hay muchisima, pero muchisima demanda laboral, ya sea en la creacion de las bases de datos, en la limpieza de los datos, en el analisis de los datos o en una mezcla de estas. Nos hace ver la necesidad que hay en el mundo de poder analizar, almacenar y consultar datos para el avance en el desarrollo de la sociedad y la economia.
+
+				A pesar de que la lectura se siente un tanto optimista, creo que solo se ven los lados buenos (que estoy totalmente de acuerdo, creo que con estas cantidades masivas de informacion se pueden hacer maravillas como sociedad).
+				No me gustan los superheroes, pero todo gran poder conlleva una gran responsabilidad, y el poder que nos pueden dar los datos creo que es inigualable, por lo que tambien se debe tener una enorme responsabilidad (la cual veo que no sucede siempre ~empresas como Meta~).
+				Hay muchisimo potencial aqui, pero si solo se ve para fines lucrativos de algunas empresas siento que se esta desperdiciando algo que puede resultar maravilloso para todos, y si solo se quieren datos para saber que producto eres mas propenso a comprar creo que no es el camino correcto.
+
+				A pesar de todo soy optimista y pienso que la evolucion de estas tecnologias adquirira un poder suficiente para que sin importar a donde nos lleve, sera un buen camino al final del dia.Bajo mi punto de vista el texto trata de convencernos de que los datos tienen y tendran muchisimo poder en nuestra sociedad, que este poder se esta ganando exponencialmente pero que desafortunadamente hay una carencia de informacion (aunque abundancia de datos), y es aqui donde entra en papel nuestra materia ya que en Fundamentos de Bases de Datos nos enfocaremos en administrar de manera correcta, limpia y legible los datos para poder evitar algunos de los problemas que se presentan en el texto. Pudiendo sacar el maximo provecho que nos otorgan las tecnologias desarrolladas y en desarrollo teniendo a la mano bases de datos con muchisimo conocimiento valioso y tomar buenas decisiones en nuestras vidas (y/o negocios).
+
+				El texto gira al rededor del poder de los datos y sin duda nos hace ver que en este campo de los datos hay muchisima, pero muchisima demanda laboral, ya sea en la creacion de las bases de datos, en la limpieza de los datos, en el analisis de los datos o en una mezcla de estas. Nos hace ver la necesidad que hay en el mundo de poder analizar, almacenar y consultar datos para el avance en el desarrollo de la sociedad y la economia.
+
+				A pesar de que la lectura se siente un tanto optimista, creo que solo se ven los lados buenos (que estoy totalmente de acuerdo, creo que con estas cantidades masivas de informacion se pueden hacer maravillas como sociedad).
+				No me gustan los superheroes, pero todo gran poder conlleva una gran responsabilidad, y el poder que nos pueden dar los datos creo que es inigualable, por lo que tambien se debe tener una enorme responsabilidad (la cual veo que no sucede siempre ~empresas como Meta~).
+				Hay muchisimo potencial aqui, pero si solo se ve para fines lucrativos de algunas empresas siento que se esta desperdiciando algo que puede resultar maravilloso para todos, y si solo se quieren datos para saber que producto eres mas propenso a comprar creo que no es el camino correcto.
+
+				A pesar de todo soy optimista y pienso que la evolucion de estas tecnologias adquirira un poder suficiente para que sin importar a donde nos lleve, sera un buen camino al final del dia.	
+					
 
 			\item Mitos sobre los datos (páginas 17 a 27). Cada integrante del equipo deberá seleccionar al menos 2
 				mitos que le hayan parecido curiosos y/o interesantes sobre los datos e indicar qué pensaban antes de
@@ -306,6 +347,18 @@ Tarea 1: Conceptos básicos}
 				parte de las grandes vendedoras de servicios, pero es bueno saber que algunas empresas 
 				como Microsoft están adoptando políticas más estrictas para proteger la privacidad de 
 				sus clientes.
+				
+				\textbf{Fernando}\\
+				\textit {A las empresas no les preocupa la protección de los datos personales.} \\
+
+				Antes de leer el mito, creia que era verdad, pero despues de leer su seccion "Realidad" me quedo en las mismas.
+				Entiendo que hay empresas que si les interesa protejer nuestros datos, pero creo que no se puede generalizar. Lo unico que nos puede garantizar que no daran un uso indebido a nuestros datos personales es si leemos los terminos y condiciones de todo lo que firmamos, y no creo que decir que muchas empresas siguen buenas practicas sea suficiente para no dar un mal uso de nuestros datos pesonales (aunque tengan nuestro consentimiento ignorante).
+
+
+				\textit {Los datos nunca se pueden desidentificar por completo. La desidentificación de los datos no es efectiva.} \\
+
+				Nunca habia escuchado el termino "desidentificar", por lo cual este punto llamo mi atencion.
+				Fue algo interesante y agradable de saber que esto sea posible, ya que creo que puede haber muchas personas que de saber esto y en caso de ser posible la desidentificacion, accederian de forma voluntaria y conciente a ceder sus datos.
 				
 		\end{enumerate}
 
