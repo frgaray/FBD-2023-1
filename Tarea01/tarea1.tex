@@ -5,6 +5,7 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{hyperref}
 \usepackage[shortlabels]{enumitem}
 \newcommand{\p}{\phantom{......}}
 
@@ -19,40 +20,44 @@ Tarea 1: Conceptos básicos}
 			\item Describe las principales características del enfoque de bases de datos y contrástalo con el enfoque
 				basado en archivos. ¿En qué casos no tendría sentido utilizar una base de datos?
 				
-				Algunas de las principales caracteristicas del enfoque de bases de datos son:
-				-Almacenar grandes cantidades de datos (hasta cientos o miles de GB) por mucho tiempo.
-				-Evitar cualquier tipo de perdida de los datos, ya sea protegiendolos de desastres (al hardware principalmente) o 
-				 protegiendolos de usos no deseados de algunos usuarios.
-				-Permitir la creacion de nuevos datos.
-				-Permitir la lectura de los datos, asi como consultas especificas acerca de la informacion almacenada.
-				-Permitir la actualizacion o modificacion de los datos.
-				-Permitir la eliminacion de los datos.
-				-Permitir el acceso a cuantos usuarios se desee (con sus respectivas medidas de autorizacion).
-				-Permitir modificar el esquema de la misma base de datos.
+				Algunas de las principales características del enfoque de bases de datos son:\\
+				\begin{itemize}
+					\item Almacenar grandes cantidades de datos (hasta cientos o miles de GB) por mucho tiempo.
+					\item Evitar cualquier tipo de perdida de los datos, ya sea protegiéndolos de desastres (al hardware principalmente) o 
+					\item protegiéndolos de usos no deseados de algunos usuarios.
+					\item Permitir la creación de nuevos datos.
+					\item Permitir la lectura de los datos, así como consultas especificas acerca de la información almacenada.
+					\item Permitir la actualización o modificación de los datos.
+					\item Permitir la eliminación de los datos.
+					\item Permitir el acceso a cuantos usuarios se desee (con sus respectivas medidas de autorización).
+					\item Permitir modificar el esquema de la misma base de datos.
+				\end{itemize}
 
 				Ahora contrastemos algunos aspectos de el Enfoque de Bases de Datos (EBD) con el Enfoque Basado en Archivos (EBA):
-				-En el EBA tenemos capacidad de almacenamiento muy limitada vs los cientos de GB que nos proporciona el EBD.
-				-En el EBA los datos pueden perderse dada una caida del sistema.
-				-En el EBA puede llegar a ser muy engorroso escribir un programa para cada tipo de consulta de la informacion, mientras
+				\begin{itemize}
+					\item En el EBA tenemos capacidad de almacenamiento muy limitada vs los cientos de GB que nos proporciona el EBD.
+					\item En el EBA los datos pueden perderse dada una caída del sistema.
+					\item En el EBA puede llegar a ser muy engorroso escribir un programa para cada tipo de consulta de la información, mientras
 				 que en el EBD esto se resuelve con queries.
-				-El EBA es muy propenso a alterar la realidad de los datos ya que multiples usuarios pueden modificar de maneras distintas 
-				 los mismos datos o informacion, lo que nos implica fragmentar la realidad y no tener consistencia en los datos. En el EBD 
-				 no sucede esto gracias a los SMBD.
+			 \item El EBA es muy propenso a alterar la realidad de los datos ya que múltiples usuarios
+				 pueden modificar de maneras distintas los mismos datos o información, lo que nos implica
+						fragmentar la realidad y no tener consistencia en los datos. En el EBD no sucede esto gracias a los SMBD.
+				\end{itemize}
 
-				Finalmente, los casos donde no tiene mucho sentido utilizar una base de datos es cuando no almacenaremos ni muchos datos 
-				ni mucha informacion. Cuando no necesitamos hacer muchas consultas ni modificar constantemente los datos y cuando no habra
-				multiples usuarios leyendo y escribiendo los datos.
+				Finalmente, los casos donde no tiene mucho sentido utilizar una base de datos es cuando no almacenaremos ni muchos datos ni mucha información.
+				Cuando no necesitamos hacer muchas consultas ni modificar constantemente los datos y cuando no habrá múltiples usuarios leyendo y escribiendo los datos.
 				
+			\pagebreak
 			\item ¿Qué ventajas y desventajas encuentras al trabajar con una base de datos?
 			
-                        	Las ventajas son la consulta, actualización y almacenamiento de datos, ya que de hecho ese es su prinicipal propósito y 			        pueden almacenar cantidades muy grandes de información y permiten la rápida consulta y actualización de esta, por otro                                   lado también tenemos la validación de dichos datos, la seguridad y el tener todos los datos en un mismo sistema en vez                                   de varios sistemas que no se puedan sincronizar, validar o cualquier problema de ese estilo.\\ \\
+                        	Las ventajas son la consulta, actualización y almacenamiento de datos, ya que de hecho ese es su principal propósito y 			        pueden almacenar cantidades muy grandes de información y permiten la rápida consulta y actualización de esta, por otro                                   lado también tenemos la validación de dichos datos, la seguridad y el tener todos los datos en un mismo sistema en vez                                   de varios sistemas que no se puedan sincronizar, validar o cualquier problema de ese estilo.\\ \\
     
     			 	Entre las principales desventajas se encuentran\\
       				\begin{itemize}
      				\item La falta de personal \textbf{capacitado} para manipular dichas bases de datos.
    			        \item El costo, ya que aparte del costo del desarrollo de estas también está el costo del servidor en el que se va a 	                                 alojar la base de datos.
     				\item El peso de estas puede llegar a ser muy grande ya que se busca tener los datos centralizados, y puede llegar a                                     alentarse si ésta crece mucho (más de lo esperado inicialmente).
-   			        \item require personal de mantenimiento.
+   			        \item requiere personal de mantenimiento.
                                 \item Hay que actualizar la base de datos según las necesidades lo requieran.
                                 \end{itemize}				
 				
@@ -70,10 +75,10 @@ La independencia física se refiere a la inmunidad del nivel lógico a cambios e
 
 				El esquema externo tiene que ver con las vistas que cada usuario tiene de los datos.
 				
-				El esquema interno tiene que ver con la descripcion fisica de los datos.
+				El esquema interno tiene que ver con la descripción física de los datos.
 				
-				El esquema conceptual se encuentra, de cierta manera, "entre estos 2", pues es una desscripcion logica 
-				(como el esquema externo), unica y global (como el esquema interno) de nuestros datos.
+				El esquema conceptual se encuentra, de cierta manera, "entre estos 2", pues es una descripción lógica 
+				(como el esquema externo), única y global (como el esquema interno) de nuestros datos.
 
 			\item Investiga qué es la redundancia de datos. ¿Cuál sería la diferencia entre redundancia de datos
 				controlada y no controlada?\\
@@ -100,13 +105,13 @@ La independencia física se refiere a la inmunidad del nivel lógico a cambios e
 				base de datos? Justifica tu respuesta.
 
 				Si. Dado a que algunas de las principales responsabilidades de un DBA son el crear y configurar las bases de datos 
-				relacionales asi como producir diagramas de entidades relacionales, localización lógica y física de bases de datos y 
-				parámetros de tablas (segun Wikipedia^[1]), es fundamental que el DBA entienda el modelo de datos logico ya que debe ser
-				capaz de disenhar el diagrama E/R y traducirlo al modelo relacional. Lo que lo hace capaz de disenhar el esquema de la 
-				base de datos, es decir, entiende el modelo de datos logico de la misma.
-
-				[1] https://es.wikipedia.org/wiki/Administrador_de_base_de_datoshttps://es.wikipedia.org/wiki/Administrador_de_base_de_datos
-	
+				relacionales así como producir diagramas de entidades relacionales, localización lógica y física de bases de datos y 
+				parámetros de tablas
+				(\href{https://es.wikipedia.org/wiki/Administrador_de_base_de_datos}{según Wikipedia}),
+				es fundamental que el DBA entienda el modelo de datos lógico ya que debe ser
+				capaz de diseñar el diagrama E/R y traducirlo al modelo relacional.
+				Lo que lo hace capaz de diseñar el esquema de la base de datos,
+				es decir, entiende el modelo de datos lógico de la misma.
 				
 			\item Entrevista a algún usuario de sistemas de bases de datos, ¿qué características de SMBD encuentran
 				más útiles y por qué? ¿qué instalación(es) de SMBD encuentran más/menos complicada y por qué?
@@ -114,10 +119,10 @@ La independencia física se refiere a la inmunidad del nivel lógico a cambios e
 				
 			      Entrevistado: Fernando López Balcazar.	
 				
-			      Algunas de las caracteristicas mas importantes son:
+			      Algunas de las características mas importantes son:
                               
 			      - Los drivers:
-                              Que los drivers que tengan los lenguajes de programacion con el SMBD y qué tan bien funcionan estos ya que al momento de          		       desarrollar un sistema es importante decidir cuál es el lenguaje que más beneficios o facilidades aporta. Tambien es 				      importante que tengan facilidad al establecer conexiones.
+                              Que los drivers que tengan los lenguajes de programación con el SMBD y qué tan bien funcionan estos ya que al momento de          		       desarrollar un sistema es importante decidir cuál es el lenguaje que más beneficios o facilidades aporta. También es 				      importante que tengan facilidad al establecer conexiones.
 
 			      - Sistemas de tipos:	
 			      Es importante conocer la forma en que el SMBD va a guardar los atributos ya que es importante el uso de memoria.
@@ -125,9 +130,9 @@ La independencia física se refiere a la inmunidad del nivel lógico a cambios e
 			      - Soporte y comunidad:
 			      Es importante conocer el soporte que el SMBD que estemos utilizando así como qué tan actualizado está.
 
-		              MariaDB ha sido el SMBD que mas me ha costado trabajo instalar debido a su incompatibilidad con MySQL en la distribucion 				      Linux Fedora pues son prácticamente el mismo sistema y trabajan muchas configuraciones iguales. El mas sencillo ha sido 				      PostgreSQL pues fue de manera bastante intuitiva y mi sistema operativo no presento incomptabilidad.
+		              MariaDB ha sido el SMBD que mas me ha costado trabajo instalar debido a su incompatibilidad con MySQL en la distribución 				      Linux Fedora pues son prácticamente el mismo sistema y trabajan muchas configuraciones iguales. El mas sencillo ha sido 				      PostgreSQL pues fue de manera bastante intuitiva y mi sistema operativo no presento incompatibilidad.
 
-			      Las principales ventajasd e utilizar un SMBD es la versatilidad, seguridad y si estamos en un proyecto lo suficientemente 			      robusto entonces el uso de un SMBD es indispensable.
+			      Las principales ventajas e utilizar un SMBD es la versatilidad, seguridad y si estamos en un proyecto lo suficientemente 			      robusto entonces el uso de un SMBD es indispensable.
 	
 				
 			\item Supón que deseas crear un sitio de videos similar a TikTok. Considera cada uno de los puntos
@@ -138,7 +143,7 @@ La independencia física se refiere a la inmunidad del nivel lógico a cambios e
 				
 			Todos los puntos son bastante relevantes, en la inconsistencia y redundancia de datos, debido a las múltiples relaciones entre los datos, por ejemplo que un creador puede tener múltiples videos si se usaran archivos comunes para almacenar dicha información, el usuario del creador quedaría escrito múltiples veces.
 
-Al momento de registrar las views o likes, Habra problemas de acceso concurrente y seria difícil mantener registro de estos eventos frecuentes.
+Al momento de registrar las views o likes, Habrá problemas de acceso concurrente y seria difícil mantener registro de estos eventos frecuentes.
 
 Por cuestiones similares, buscar videos por creador por ejemplo, se vuelve difícil.
 También seria difícil escalar o modificar las funciones de la aplicación pues el esquema no seria flexible.
@@ -146,12 +151,13 @@ También seria difícil escalar o modificar las funciones de la aplicación pues
 Igualmente la seguridad estaría comprometida pues hay mucha información que no debe ser accesible al usuario.
 
 
+			\pagebreak
 			\item Investiga por qué surgieron los sistemas NoSQL en la década de 2000 y compara a través de una tabla
 				sus características vs. los sistemas de bases de datos tradicionales.
 
-				La llegada del "big data" y el requerimiento de procesar cantidades gigantescas de datos lleva 
-				a compañias como amazon (SimpleDB, DynamoDB) y google (Bigtable, MapReduce) a desarollar sistemas 
-				manejadores de bases de datos que sean mas rapidos, altamente paralelizables y flexibles. 
+				La llegada del ``big data'' y el requerimiento de procesar cantidades gigantescas de datos lleva 
+				a compañías como amazon (SimpleDB, DynamoDB) y google (Bigtable, MapReduce) a desarrollar sistemas 
+				manejadores de bases de datos que sean mas rápidos, altamente paralelizables y flexibles. 
 
 			\item Asumiendo que una base de datos es un lugar donde se almacenan datos de forma sistemática y que
 				la información se obtiene al consultar los datos entonces, un diccionario puede considerarse como una
@@ -186,16 +192,16 @@ Igualmente la seguridad estaría comprometida pues hay mucha información que no
 				\textbf{Resumen}\\
 				Nos encontramos al frente de una revolución.
 				Los avances tecnológicos recientes han impulsado
-				un evanze secundario en si mismo, el de los datos masivos.
+				un avance secundario en si mismo, el de los datos masivos.
 				Hemos pasado de ser capaces de almacenar unos cuantos
 				archivos de texto en una computadora a poder guardar
 				millones de libros sin esfuerzo alguno.
 				Este cambio en almacenamiento y procesamiento
-				de la información digital ha traido consigo
+				de la información digital ha traído consigo
 				una revolución en como hacemos negocios y tomamos decisiones.
 
 				La velocidad a la que producimos datos, ha crecido
-				enormente, se estima que hasta el 90 porciento
+				enormemente, se estima que hasta el 90 por ciento
 				de todos los datos en existencia se crearon
 				en los últimos dos años y esta abundancia
 				ha transformado los datos en un nuevo y valioso
@@ -207,13 +213,13 @@ Igualmente la seguridad estaría comprometida pues hay mucha información que no
 				Primero, conseguir los datos.
 				Esto que era tarea complicada hace algunos años
 				ya no lo es, cientos de sensores cubren cada
-				posible area de interes y su conectividad con internet significa
-				que "recojerlos" es cuestión de milisegundos.
+				posible área de interés y su conectividad con internet significa
+				que "recogerlos" es cuestión de milisegundos.
 
 				Segundo, estos datos necesitamos
 				almacenarlos en algún lugar, pero de nuevo el progreso de
 				tecnologías de almacenamiento significa que
-				el costo representa una fracción miniscula comparada
+				el costo representa una fracción minúscula comparada
 				a la de inicios del siglo.
 
 				Tercero, la parte complicada:
@@ -225,7 +231,7 @@ Igualmente la seguridad estaría comprometida pues hay mucha información que no
 				nos ayudarán.
 
 				Finalmente, usando lo que aprendimos podremos
-				decidir en formas nuevas e inovadoras.
+				decidir en formas nuevas e innovadoras.
 				Aprovechando avances como la inteligencia
 				artificial y la toma automática de decisiones.
 
@@ -233,7 +239,7 @@ Igualmente la seguridad estaría comprometida pues hay mucha información que no
 				el cambio en magnitud del acceso a los datos
 				se ha vuelto un cambio en tipo.Han desaparecido
 				los límites de la humanidad. Ahora podemos
-				predecir muchisimas cosas de nuestro futuro
+				predecir muchísimas cosas de nuestro futuro
 				y explorar millones de posibilidades sin arriesgar
 				nada. Este campo será nuestra guía hacia el futuro.
 
@@ -312,12 +318,12 @@ Igualmente la seguridad estaría comprometida pues hay mucha información que no
 				los datos son recabados y utilizados para la solución de una amplia 
 				cantidad de problemas e incluso menciona que el estudio de los mismos 
 				se está convirtiendo día a día en una disciplina indispensable para 
-				todos los sectores ecónomicos. Concuerdo totalmente con esta postura, 
+				todos los sectores económicos. Concuerdo totalmente con esta postura, 
 				pues como bien dice el autor, cantidades enormes de datos se están 
 				produciendo diariamente; estos datos contienen información vital para 
 				conocer mejor el panorama/las dinámicas que ocurren en algún contexto 
 				(sector financiero, agricultura, medicina, producción, etc...) Por lo 
-				que aquella empresa incapaz de tomar provecho de estas nuevas tecnologias, 
+				que aquella empresa incapaz de tomar provecho de estas nuevas tecnologías, 
 				simplemente estaría perdiendo la información que necesita para mantenerse 
 				vigente.
 
@@ -344,41 +350,41 @@ Igualmente la seguridad estaría comprometida pues hay mucha información que no
 				económicas e impulsar el empleo, y de hecho se hizo una estimación de que el 
 				PIB mundial tendía a crecer por el uso de los datos.
 				Pero estos no son los únicos sectores afectados de manera positiva por los datos, 
-				tamién se encuentran la medicina, la agricultura y ganadería, las TI, entre otros.
-				Creo que el buen uso de los datos nos puede llevar a ser una sociedad más conciente
+				también se encuentran la medicina, la agricultura y ganadería, las TI, entre otros.
+				Creo que el buen uso de los datos nos puede llevar a ser una sociedad más consciente
 				con el medio ambiente y puede impulsarnos como sociedad para crecer tanto económicamente 
 				como en calidad de vida.\\
 
 				\textbf{Fernando:}\\
-				Bajo mi punto de vista el texto trata de convencernos de que los datos tienen y tendran muchisimo poder en nuestra 
-				sociedad, que este poder se esta ganando exponencialmente pero que desafortunadamente hay una carencia de informacion 
-				(aunque abundancia de datos), y es aqui donde entra en papel nuestra materia ya que en Fundamentos de Bases de Datos nos
+				Bajo mi punto de vista el texto trata de convencernos de que los datos tienen y tendrán muchísimo poder en nuestra 
+				sociedad, que este poder se esta ganando exponencialmente pero que desafortunadamente hay una carencia de información 
+				(aunque abundancia de datos), y es aquí donde entra en papel nuestra materia ya que en Fundamentos de Bases de Datos nos
 				enfocaremos en administrar de manera correcta, limpia y legible los datos para poder evitar algunos de los problemas que
-				se presentan en el texto. Pudiendo sacar el maximo provecho que nos otorgan las tecnologias desarrolladas y en desarrollo 
-				teniendo a la mano bases de datos con muchisimo conocimiento valioso y tomar buenas decisiones en nuestras vidas (y/o 
+				se presentan en el texto. Pudiendo sacar el máximo provecho que nos otorgan las tecnologías desarrolladas y en desarrollo 
+				teniendo a la mano bases de datos con muchísimo conocimiento valioso y tomar buenas decisiones en nuestras vidas (y/o 
 				negocios).
 
-				El texto gira al rededor del poder de los datos y sin duda nos hace ver que en este campo de los datos hay muchisima,
-				pero muchisima demanda laboral, ya sea en la creacion de las bases de datos, en la limpieza de los datos, en el analisis 
+				El texto gira al rededor del poder de los datos y sin duda nos hace ver que en este campo de los datos hay muchísima,
+				pero muchísima demanda laboral, ya sea en la creación de las bases de datos, en la limpieza de los datos, en el análisis 
 				de los datos o en una mezcla de estas. Nos hace ver la necesidad que hay en el mundo de poder analizar, almacenar y 
-				consultar datos para el avance en el desarrollo de la sociedad y la economia.
+				consultar datos para el avance en el desarrollo de la sociedad y la economía.
 
 				A pesar de que la lectura se siente un tanto optimista, creo que solo se ven los lados buenos (que estoy totalmente de 
-				acuerdo, creo que con estas cantidades masivas de informacion se pueden hacer maravillas como sociedad).
+				acuerdo, creo que con estas cantidades masivas de información se pueden hacer maravillas como sociedad).
 				No me gustan los superheroes, pero todo gran poder conlleva una gran responsabilidad, y el poder que nos pueden dar los
-				datos creo que es inigualable, por lo que tambien se debe tener una enorme responsabilidad (la cual veo que no sucede 
+				datos creo que es inigualable, por lo que también se debe tener una enorme responsabilidad (la cual veo que no sucede 
 				siempre ~empresas como Meta~).
-				Hay muchisimo potencial aqui, pero si solo se ve para fines lucrativos de algunas empresas siento que se esta 
+				Hay muchísimo potencial aquí, pero si solo se ve para fines lucrativos de algunas empresas siento que se esta 
 				desperdiciando algo que puede resultar maravilloso para todos, y si solo se quieren datos para saber que producto eres mas
 				propenso a comprar creo que no es el camino correcto.
 
-				A pesar de todo soy optimista y pienso que la evolucion de estas tecnologias adquirira un poder suficiente para que sin
-				importar a donde nos lleve, sera un buen camino al final del dia.Bajo mi punto de vista el texto trata de convencernos de
-				que los datos tienen y tendran muchisimo poder en nuestra sociedad, que este poder se esta ganando exponencialmente pero 
-				que desafortunadamente hay una carencia de informacion (aunque abundancia de datos), y es aqui donde entra en papel 
+				A pesar de todo soy optimista y pienso que la evolución de estas tecnologías adquirirá un poder suficiente para que sin
+				importar a donde nos lleve, sera un buen camino al final del día.Bajo mi punto de vista el texto trata de convencernos de
+				que los datos tienen y tendrán muchísimo poder en nuestra sociedad, que este poder se esta ganando exponencialmente pero 
+				que desafortunadamente hay una carencia de información (aunque abundancia de datos), y es aquí donde entra en papel 
 				nuestra materia ya que en Fundamentos de Bases de Datos nos enfocaremos en administrar de manera correcta, limpia y legible 
-				los datos para poder evitar algunos de los problemas que se presentan en el texto. Pudiendo sacar el maximo provecho que 
-				nos otorgan las tecnologias desarrolladas y en desarrollo teniendo a la mano bases de datos con muchisimo conocimiento 
+				los datos para poder evitar algunos de los problemas que se presentan en el texto. Pudiendo sacar el máximo provecho que 
+				nos otorgan las tecnologías desarrolladas y en desarrollo teniendo a la mano bases de datos con muchísimo conocimiento 
 				valioso y tomar buenas decisiones en nuestras vidas (y/o negocios).
 				
 				
@@ -386,7 +392,7 @@ Igualmente la seguridad estaría comprometida pues hay mucha información que no
 				
 				En general, creo que ya se escucha mucho esta visión optimista y benévola de los datos y su minería, es la norma, por lo que creo que deberíamos de poner mucho más énfasis en cómo podemos hacer un uso responsable y justo de ellos.
 
-Los datos son un recurso extremadamente valioso y las herramientas que podemos crear con ello son muy poderosas, por eso mismo creo que necesitamos concientizar mas a la población general en su uso y la gran industria que hay detrás, para que de esta forma, ambas partes informadas, puedan velar por sus intereses. 
+Los datos son un recurso extremadamente valioso y las herramientas que podemos crear con ello son muy poderosas, por eso mismo creo que necesitamos conscientizar mas a la población general en su uso y la gran industria que hay detrás, para que de esta forma, ambas partes informadas, puedan velar por sus intereses. 
 
 La presentación me parece solo propaganda corporativa, fuertemente sesgada, poniendo demasiado benevolente a quienes las usan.
 
@@ -407,7 +413,7 @@ La presentación me parece solo propaganda corporativa, fuertemente sesgada, pon
 				un caso donde un solo actor malo
 				puede tener impactos enormes sobre la vida de
 				las personas. En particular tracking
-				a través del internet: \href{https://coveryourtracks.eff.org/}{-> un experimento acerca de rastreo digital <-}
+				a través del internet: \href{https://coveryourtracks.eff.org/}{un experimento acerca de rastreo digital}
 
 				Voy a admitir que si hay un control que todos
 				tenemos sobre nuestros datos y es en decidir no
@@ -426,6 +432,7 @@ La presentación me parece solo propaganda corporativa, fuertemente sesgada, pon
 				quería dejar mi información en manos de quienes no
 				están obligados a hacerme caso ?
 				
+				\pagebreak
 				\textbf{Rodrigo}\\
 				\textit {Los datos se utilizarán como una herramienta de exclusión a 
 				partir de la capacidad de reforzar los obstáculos que enfrentan 
@@ -435,7 +442,7 @@ La presentación me parece solo propaganda corporativa, fuertemente sesgada, pon
 				comunidades desfavorecidas, me parece que éstos raramente son usados para
 				ayudar a dichas comunidades. Desde mi punto de vista, muchos de los beneficios 
 				que las ciencias de datos brindan únicamente son accesibles para personas con un 
-				cierto privilegio socioeconómico. Según el artículo, los datos usados de manera 
+				cierto privilegio socio-económico. Según el artículo, los datos usados de manera 
 				\textit{responsable} son una herramienta para estudiar las causas y las soluciones 
 				de problemáticas sociales como la marginación, la pobreza, la falta de acceso a la educación,
 				entre otras. Desgraciadamente, los datos siguen sin ser usados de la manera adecuada; 
@@ -444,8 +451,8 @@ La presentación me parece solo propaganda corporativa, fuertemente sesgada, pon
 				\textit {No se puede confiar en las empresas que utilizan los datos.}\\
 				
         			Con controversias como fue el caso de Facebook, acusado de vender 
-				datos personales de sus usarios a mas de 150 empresas, muchas personas (incluyendome) 
-				tenemos la sensación de que nuestros datos personales son comerciados deliberadamenete 
+				datos personales de sus usuarios a mas de 150 empresas, muchas personas (incluyéndome) 
+				tenemos la sensación de que nuestros datos personales son comerciados deliberadamente 
 				entre empresas con el objetivo de crear publicidad y promover la cultura del consumismo. 
 				El artículo nos dice que esto no sucede y que de hecho a las empresas les interesa cuidar 
 				la privacidad de sus usuarios. Personalmente no creo que este sea el caso de la mayor 
@@ -456,18 +463,18 @@ La presentación me parece solo propaganda corporativa, fuertemente sesgada, pon
 				\textbf{Fernando}\\
 				\textit {A las empresas no les preocupa la protección de los datos personales.} \\
 
-				Antes de leer el mito, creia que era verdad, pero despues de leer su seccion "Realidad" me quedo en las mismas.
-				Entiendo que hay empresas que si les interesa protejer nuestros datos, pero creo que no se puede generalizar. Lo unico que
-				nos puede garantizar que no daran un uso indebido a nuestros datos personales es si leemos los terminos y condiciones de
+				Antes de leer el mito, creía que era verdad, pero después de leer su sección "Realidad" me quedo en las mismas.
+				Entiendo que hay empresas que si les interesa proteger nuestros datos, pero creo que no se puede generalizar. Lo único que
+				nos puede garantizar que no darán un uso indebido a nuestros datos personales es si leemos los términos y condiciones de
 				todo lo que firmamos, y no creo que decir que muchas empresas siguen buenas practicas sea suficiente para no dar un mal 
-				uso de nuestros datos pesonales (aunque tengan nuestro consentimiento ignorante).
+				uso de nuestros datos personales (aunque tengan nuestro consentimiento ignorante).
 
 
 				\textit {Los datos nunca se pueden desidentificar por completo. La desidentificación de los datos no es efectiva.} \\
 
-				Nunca habia escuchado el termino "desidentificar", por lo cual este punto llamo mi atencion.
+				Nunca había escuchado el termino "desidentificar", por lo cual este punto llamo mi atención.
 				Fue algo interesante y agradable de saber que esto sea posible, ya que creo que puede haber muchas personas que de saber 
-				esto y en caso de ser posible la desidentificacion, accederian de forma voluntaria y conciente a ceder sus datos.
+				esto y en caso de ser posible la desidentificación, accederían de forma voluntaria y consciente a ceder sus datos.
 				
 				
 				\textbf{Josue}\\
@@ -476,9 +483,8 @@ la TI y no a otros sectores de la economía.
 } \\
 
 				Me parece importante reconocer el valor y la riqueza que se puede generar a partir de los datos. Ciertamente, tienen un gran impacto positivo (aunque a veces también negativo) en la población general.
-Por ejemplo, existe gran potencial en la creación de herramientas que ayuden en el diagnostico medico, eso o creaciones similares abaratarían mucho servicios necesarios, lo cual los haría mas accesibles para la población general.
+Por ejemplo, existe gran potencial en la creación de herramientas que ayuden en el diagnostico médico, eso o creaciones similares abaratarían mucho servicios necesarios, lo cual los haría mas accesibles para la población general.
 
-\\
 
 				\textit {-La única forma de que los datos puedan estar
 protegidos es que los gobiernos intervengan
