@@ -28,7 +28,24 @@ Tarea 1: Conceptos básicos}
 				diferentes capas de esquemas con los conceptos de independencia de datos lógica y física?
 
 			\item Investiga qué es la redundancia de datos. ¿Cuál sería la diferencia entre redundancia de datos
-				controlada y no controlada?
+				controlada y no controlada?\\
+
+				La redundancia de datos se refiere a que los datos se encuentran en más de un lugar de
+				la memoria que usamos (en el caso de bases de datos, tenemos datos que se repiten en la base).
+				Esta redundancia puede ser útil o contraproducente dependiendo de la situación.
+
+				La redundancia controlada es cuando repetimos los datos intencionalmente, lo solemos
+				hacer para protegernos de perdidas o fallos en nuestros sistemas o para amplificar las
+				capacidades de nuestras aplicaciones.
+				Las copias de seguridad \textit{offsite} por ejemplo nos protegen de perdidas de datos
+				causadas por accidentes o catástrofes.
+				Las caches aprovechan la redundancia para acelerar el tiempo de acceso a recursos,
+				por ejemplo una cache en un CDN nos deja servir archivos a muchos clientes sin
+				tener que remitirnos al servidor original para satisfacer la petición
+				(particularmente útil cuando los datos son estáticos, como una biblioteca de uso general).
+
+				La redundancia no controlada es cuando sin nuestra intención se repiten los datos,
+				no podemos aprovecharnos de esto y terminan alentando o obstruyendo nuestras necesidades.
 
 			\item Investiga cuáles son las responsabilidades de un DBA. Si asumimos que el DBA nunca está interesado
 				en ejecutar sus propias consultas, ¿necesita entender y/o conocer el modelo de datos lógico de la
@@ -53,6 +70,22 @@ Tarea 1: Conceptos básicos}
 				efectuarías la búsqueda y los problemas que enfrentarías con: un diccionario con palabras
 				desordenadas, un diccionario con palabras ordenadas (sin índice) y un diccionario con palabras
 				ordenadas (con índice).
+
+				Para el diccionario con palabras desordenadas no tenemos de otra más que ir revisando una por una
+				las palabras hasta encontrar \texttt{Luminiscencia} pues no tiene estructura que podamos aprovechar.
+				Esto puede ser particularmente malo si \texttt{Luminiscencia} resulta ser la última palabra del diccionario.
+
+				Si tenemos las palabras ordenadas podemos usar un algoritmo de búsqueda binaria:
+				Abrimos el diccionario a la mitad y vemos si la palabra es mayor o menor en orden
+				lexicográfico a la primer palabra de la página, si es mayor hacemos recursión con el lado izquierdo
+				del diccionario si es menor con la derecha.
+				Al final debemos de terminar entre dos páginas y de ahí seguimos la búsqueda binaria ahora
+				sobre la cantidad de palabras.
+
+				Finalmente con el índice solo tenemos que buscar la letra que buscamos y saltar directamente a
+				ese capítulo, de ahí hacemos búsqueda binaria sobre las todas las palabras que
+				empiezan con la letra \texttt{L} para encontrar \texttt{Luminiscencia}.
+
 		\end{enumerate}
 
 	\item \textbf{Lectura}
@@ -64,9 +97,71 @@ Tarea 1: Conceptos básicos}
 			\item Realizar un ensayo donde expresen sus comentarios (cada integrante del equipo deberá indicar este
 				punto de forma individual en el documento que redacten) sobre la lectura, considerando los siguientes puntos :...
 
+				\textbf{Angel:}\\
+				Considero que el texto leído es un intento mal realizado de
+				persuasión acerca de el valor de los datos.
+				No estoy en desacuerdo con que los datos son verdaderamente
+				valiosos, pase meses en la lista de espera de DALLE, sé
+				de que son capaces los datos masivos, pero siento que
+				en la lectura no se toman en serio los nuevos retos
+				que nos han traído los datos.
+
+				En pocas palabras, "Por que son importantes los datos"
+				es un texto hablando de los beneficios que nos han traído los
+				datos y como el pequeño rol que jugaban en el pasado
+				se esta volviendo una verdadera oportunidad de progreso,
+				se tocan las áreas de recopilación de datos, internet de las cosas,
+				algoritmos, análisis de datos y computación en la nube. 
+
+				La lectura se enfoca en las nuevas bondades que han traído
+				estos datos a nuestra vida diaria, desde mejores decisiones en los
+				negocios hasta beneficios en la medicina.
+				A la vez se ignoran los cientos de nuevos problemas que nos han traído
+				los datos, algoritmos de recomendación que nos desconectan de nuestros
+				seres queridos, inteligencia artificial enfocada al daño de seres
+				vivos y la extracción de hasta nuestro último centavo por parte
+				de las grandes empresas de comercio.
+
+				La explosión cambrica en los negocios que han causado
+				los datos masivos es una espada de doble filo, este cambio
+				paradigmático en como nos relacionamos con el mundo no necesariamente
+				será positivo a largo plazo, en lugar de la actitud temeraria y
+				sobre optimista debemos de ser escépticos y cuidadosos, no
+				sería la primera vez que un cambio en nuestra tecnología
+				terminará por mordernos la mano.
+
 			\item Mitos sobre los datos (páginas 17 a 27). Cada integrante del equipo deberá seleccionar al menos 2
 				mitos que le hayan parecido curiosos y/o interesantes sobre los datos e indicar qué pensaban antes de
 				leerlos y cómo cambio su perspectiva después de la lectura.
+
+				\textbf{Angel}\\
+				\textit{Las personas no tienen control alguno sobre sus datos.}\\
+
+				Siento que no se desmiente correctamente este
+				mito, es verdad que algunas empresas te permitan
+				no ser rastreado muchas no lo hacen y este es
+				un caso donde un solo actor malo
+				puede tener impactos enormes sobre la vida de
+				las personas. En particular tracking
+				a través del internet: \href{https://coveryourtracks.eff.org/}{-> un experimento acerca de rastreo digital <-}
+
+				Voy a admitir que si hay un control que todos
+				tenemos sobre nuestros datos y es en decidir no
+				crearlos, lo que no digitalizas no existe
+				en ninguna base de datos.
+
+				\textit{La única forma de que los datos puedan estar protegidos es que
+				los gobiernos intervengan para exigir su protección.}\\
+
+				Mi opinión acerca de este mito no cambia,
+				fuera de tratarse de detener el progreso de la tecnología
+				aislar los datos puede ser una medida para proteger los
+				derechos de los ciudadanos de los países.
+				Yo no puedo votar acerca de la legislación de datos
+				en Estados Unidos pero si en mi propio país, por que
+				quería dejar mi información en manos de quienes no
+				están obligados a hacerme caso ?
+
 		\end{enumerate}
 
 \end{enumerate}
