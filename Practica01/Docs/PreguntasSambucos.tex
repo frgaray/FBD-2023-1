@@ -16,58 +16,78 @@ Práctica 1: Preguntas}
 \maketitle
 
 \begin{enumerate}
-	\item ¿Qué otros SMBD existen actualmente en el mercado?\\
-		\begin{itemize}
-			\item MySQL + MariaDB
-			\item Oracle
-			\item Microsoft SQL Server
-			\item SQLite
-		\end{itemize}
+    \item ¿Qué otros SMBD existen actualmente en el mercado?\\
+        \begin{itemize}
+            \item MySQL + MariaDB
+            \item Oracle
+            \item Microsoft SQL Server
+            \item SQLite
+        \end{itemize}
 
-	\item ¿Cuáles son las principales diferencias con PostgreSQL?\\
-		\item Comportamiento NoSQL, como parejas llave-valor y compatibilidad con
-		JSON; licencia de codigo abierto (MIT); sintaxis poco compleja, cercano al
-		estandar SQL; tipos de datos avanzados tal como arreglos, hora-tiempo, XML
-		entre otros.
+    \item ¿Cuáles son las principales diferencias con PostgreSQL?\\
+        \item Comportamiento NoSQL, como parejas llave-valor y compatibilidad con
+        JSON; licencia de código abierto (MIT); sintaxis poco compleja, cercano al
+        estándar SQL; tipos de datos avanzados tal como arreglos, hora-tiempo, XML
+        entre otros.
 
-	\item ¿Por qué una empresa debería escoger una base de datos open source?\\
-		Una opción de código abierto trae dos grandes ventajas:
-		Primero, si la desarrolladora deja de soportar la base de datos la empresa
-		puede mantenerla por si misma.\\
-		También en caso de tener problemas o necesidades especiales se puede
-		modificar la base de datos a las nesecidades de la empresa.\\
+    \item ¿Por qué una empresa debería escoger una base de datos open source?\\
+        Una opción de código abierto trae dos grandes ventajas:
+        Primero, si la desarrolladora deja de soportar la base de datos la empresa
+        puede mantenerla por sí misma.\\
+        También en caso de tener problemas o necesidades especiales se puede
+        modificar la base de datos a las necesidades de la empresa.\\
 
-	\item ¿Cuáles son las ventajas, para un DBA el trabajar con un SMBD, open source?\\
+    \item ¿Cuáles son las ventajas, para un DBA el trabajar con un SMBD, open source?\\
 
-		La mayor ventaja es que existe una comunidad en linea mucho mas grande y al haber
-		considerablemente mas usuarios y gente con acceso al codigo, los bug fixes llegan bastante rapido
-		y en general son muy estables. Ademas por las mismas razones es facil encontrar apoyo en linea.
+        La mayor ventaja es que existe una comunidad en linea mucho mas grande y al haber
+        considerablemente más usuarios y gente con acceso al código, los bug fixes llegan bastante rápido
+        y en general son muy estables. Además por las mismas razones es fácil encontrar apoyo en línea.
 
-	\item Describir a detalle qué es y para que sirve Docker y dar al menos 2 ejemplos\\
-		de cómo podemos utilizar esta herramienta.
+    \item Describir a detalle qué es y para que sirve Docker y dar al menos 2 ejemplos\\
+        de cómo podemos utilizar esta herramienta.
 
-		Docker es como una máquina virtual pero comparte su kernel con un sistema operativo
-		anfitrión Linux, esto nos deja tener la comodidad de tener sistemas separados
-		corriendo diferentes programas como servidores http o dns sin tener que emular
-		completamente un sistema operativo.\\
+        Docker es como una máquina virtual pero comparte su kernel con un sistema operativo
+        anfitrión Linux, esto nos deja tener la comodidad de tener sistemas separados
+        corriendo diferentes programas como servidores http o dns sin tener que emular
+        completamente un sistema operativo.\\
 
-		En Docker es muy fácil describir configuraciones de sistemas y compartirlos
-		con otros usarios, además se puede usar software adicional para tener muchas
-		instancias del mismo programa corriendo simultaneamente.\\
+        En Docker es muy fácil describir configuraciones de sistemas y compartirlos
+        con otros usuarios, además se puede usar software adicional para tener muchas
+        instancias del mismo programa corriendo simultáneamente.\\
 
-		Primer ejemplo: Usando coordinación de contenedores se puede tener un servicio
-		web separado en muchos contenedores cada uno con su propia configuración.
-		Conforme aumenten o disminuyen las peticiones al servidor podemos ejecutar
-		más de un contenedor del mismo programa para soportar la demanda.
-		(Necesitando de un balanceador de carga, caches ...)\\
+        Primer ejemplo: Usando coordinación de contenedores se puede tener un servicio
+        web separado en muchos contenedores cada uno con su propia configuración.
+        Conforme aumenten o disminuyen las peticiones al servidor podemos ejecutar
+        más de un contenedor del mismo programa para soportar la demanda.
+        (Necesitando de un balanceador de carga, caches ...)\\
 
-		Segundo ejemplo: Se puede usar para distribuir aplicaciones o servicios
-		web de uso personal, los usuarios solo necesitan correr el contenedor
-		para tener acceso al programa, por ejemplo \texttt{pi-hole} o \texttt{gitea}.\\
+        Segundo ejemplo: Se puede usar para distribuir aplicaciones o servicios
+        web de uso personal, los usuarios sólo necesitan correr el contenedor
+        para tener acceso al programa, por ejemplo \texttt{pi-hole} o \texttt{gitea}.\\
 
-	\item ¿Qué son las bases de datos NoSQL? Menciona 3 ventajas y desventajas contra
-		las bases relacionales.\\
-		NoSQL (Not Only SQL) es 
+    \item ¿Qué son las bases de datos NoSQL? Menciona 3 ventajas y desventajas contra
+        las bases relacionales.\\
+
+        NoSQL (Not Only SQL) es un término que en general se utiliza para hablar
+        sobre bases de datos no relacionales, que aparecieron en la primera década
+        de este siglo para satisfacer las demandas que presentaba "la era de la
+        información", y resolver los problemas que aparecieron junto a la gran cantidad
+        de datos de esta misma.\\
+        
+        \textbf{Ventajas:}\\
+        \begin{enumerate}
+            \item Rendimiento: se evita el acceder a varias tablas, y hacer joins entre ellas, con lo que en algunos casos pueden tener mejor rendimiento.
+            \item Flexibilidad: no tienen la misma rigidez de una base de datos relacional, por lo que pueden adaptarse a cambios en los datos sin tener que cambiar la estructura de la base de datos.
+            \item Escalabilidad: mientras que en las bases de datos relacionales para aumentar la capacidad suele ser necesario migrar a un servidor que cumpla nuestras nuevas necesidades, muchas bases de datos NoSQL permiten agregar capacidad sin necesidad de cambiar de servidor.
+        \end{enumerate}
+        
+        \textbf{Desventajas:}\\
+        \begin{enumerate}
+            \item Falta de estandarización: usamos el término NoSQL para referirnos a un conjunto muy variado de soluciones, por lo que podemos encontrarnos con productos muy distintos unos de otros que caen en esta categoría (ej. almacenamiento llave - valor [DynamoDB] y bases de datos de archivos [MongoDB]).
+            \item Falta de madurez: ya que son productos relativamente nuevos y usados solamente en nichos de mercado específicos, son productos para los cuales es más complicado encontrar documentación, expertos y ayuda en general cuando aparece un problema.
+            \item Consistencia:muchas soluciones NoSQL sacrifican la consistencia en el intento de conseguir velocidad, escalabilidad y disponibilidad.
+        \end{enumerate}
+
 \end{enumerate}
 
 
