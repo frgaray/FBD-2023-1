@@ -15,4 +15,100 @@ Práctica 2: Análisis de requerimientos}
 \begin{document}
 \maketitle
 
+\section{Análisis de requerimientos}
+``El Gran Vivero'' necesita de una herramienta para almacenar sus datos
+mientras espera a que se le desarrolle una base de datos permanente.\\
+
+\begin{itemize}
+	\item La herramienta debe de ser poder añadir, consultar, editar y eliminar
+		entidades. Las consultas se hacen usando la llave primaria y deben
+		regresar la entidad completa.\\
+
+	\item Es necesario que se limpien los datos antes de meterlos a la base y
+		se debe asegurar la integridad de estos (en particular de los números).\\
+
+	\item La herramienta debe de ser robusta, ,anejar y comunicar los errores
+		de usuario limpiamente y proteger a los datos de los archivos.\\
+
+	\item Los archivos deben ser texto legible en formato \texttt{.csv} .\\
+
+	\item Las entidades que participarán en la base son \textbf{Vivero} (la tienda),
+		\textbf{Empleado} (los trabajadores de los viveros) y \textbf{Plantas}.\\
+
+	\item Para las plantas debemos almacenar:\\
+		\begin{itemize}
+			\item Precio.\\
+			\item Cantidad que cabe en un invernadero
+				(Aquí asumimos que refiere a cuantas pueden crecer en un invernadero,
+				no cuantas hay almacenadas en un vivero).\\
+			\item Nombre común (Actúa como identificador).\\
+			\item Género de la planta (pensando en nombre científico).\\
+			\item Si es africana o un cactus.\\
+			\item Los cuidados que debe de recibir.\\
+			\item El tipo de sustrato (alcalino, arcilla húmeda, etc).
+				Asumimos que puede haber cientos de ellos así que los
+				almacenaremos en una cadena.\\
+			\item Si la planta es de sol, de sombra o resolana.\\
+			\item Fecha de germinación (Suponemos que todas se plantan al mismo tiempo
+				ya que se usan invernaderos para crecerlas).\\
+			\item Horas entre riegos.\\
+			\item Volumen de agua en cada riego.\\
+		\end{itemize}
+		
+	\item Para los empleados:\\
+		\begin{itemize}
+			\item Identificador.\\
+			\item Nombre completo.\\
+			\item Dirección de residencia.\\
+			\item Correos electrónicos (Puede haber más de uno).\\
+			\item Teléfonos (Puede tener más de uno).\\
+			\item Fecha de nacimiento.\\
+			\item Salario.\\
+			\item Rol en el vivero (Gerente, Cuidador, Presentador o Cajero).\\
+			\item Nombre del Vivero en el que trabaja.\\
+		\end{itemize}
+
+	\item Para los viveros:\\
+		\begin{itemize}
+			\item Nombre del vivero (Identificador).\\
+			\item Dirección del vivero.\\
+			\item Números telefónicos (puede haber más de uno).\\
+			\item Fecha de apertura.\\
+		\end{itemize}
+
+	\item Un empleado trabaja en un solo vivero y tiene un único rol.
+		Esto ya esta reflejado en nuestras descripciones de entidad.\\
+\end{itemize}
+
+
+
+\section{Preguntas}
+\begin{itemize}
+	\item \textbf{Menciona 5 diferencias entre almacenar la información
+		utilizando un sistema de archivos a almacenarla utilizando una base de datos.}\\
+		\begin{enumerate}
+			\item Los archivos hacen complicado escribir en partes aleatorias de ellos
+				sin eliminar datos. Las bases de datos no.\\
+
+			\item Una base de datos asegura mantener las restricciones de cardinalidad
+				de nuestra información y los archivos no.\\
+
+			\item 3
+			\item 4
+			\item 5
+		\end{enumerate}
+
+
+	\item \textbf{Describe cual es mas conveniente utilizar (sistema de archivos o base de datos).}\\
+
+		La conveniencia de una u otra tecnología depende de donde la usamos.
+		No es lo mismo un problema con datos altamente estructurados donde
+		constantemente queremos escribir, borrar, modificar y leer comparada
+		con otra en la que solo pensamos escribir una sola vez.\\
+
+		Como ejemplo podemos considerar el representar un árbol binario, la base de
+		datos va a resultar algo incomoda para manipular el árbol mientras
+		que un archivo \texttt{.xml} va a ser más cómodo.\\
+\end{itemize}
+
 \end{document}
