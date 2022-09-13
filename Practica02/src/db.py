@@ -10,9 +10,8 @@ from CSVManager import CSVManager
 # 
 
 #Testing, delete afterwards----------------------------------------------------
-prueba = CSVManager('./test.csv')
-prueba.read()
-print(prueba['1'])
+prueba = CSVManager('./test.csv', [int, int, int, int, int], has_header= True)
+
 prueba.write()
 #------------------------------------------------------------------------------
 
