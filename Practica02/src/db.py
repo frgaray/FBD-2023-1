@@ -11,7 +11,7 @@ from CSVManager import CSVManager
 
 #Testing, delete afterwards----------------------------------------------------
 prueba = CSVManager('./test.csv', [int, int, int, int, int], has_header= True)
-
+prueba.add_row(['100', '101', '102', '103', '104'])
 prueba.write()
 #------------------------------------------------------------------------------
 

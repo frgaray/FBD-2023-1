@@ -21,7 +21,10 @@ class CSVManager:
             for index,row in enumerate(reader):
                 errs = self.check_row(row)
                 if len(errs) > 0:
-                    raise TypeError(f'En la fila {index} las columnas {errs} no coinciden con los tipos')
+                    if errs[0] == -1:
+                        raise TypeError(f'La fila {index} no tiene el numero correcto de columnas \n {row}')
+                    else:
+                        raise TypeError(f'En la fila {index} la(s) columna(s) {errs} no coincide(n) con los tipos \n {row}')
                 self.dict[row[0]] = row[1:]
 
     def write(self):
@@ -40,6 +43,9 @@ class CSVManager:
 
     def check_row(self, row:List[str]) -> List[int]:
         result:List[int] = [] 
+        if len(self.types) != len(row):
+            return [-1]
+
         for index, (typ, item) in enumerate(zip(self.types, row)):
             try:
                 typ(item)
@@ -48,7 +54,14 @@ class CSVManager:
         return result
         
     def add_row(self, row:List[str]):
-        pass
+        errs = self.check_row(row)
+        if len(errs) > 0:
+            if errs[0] == -1:
+                raise TypeError(f'La fila a agregar no tiene el numero correcto de columnas \n {row}')
+            else:
+                raise TypeError(f'La fila a agregar difiere de los tipos requeridos en la(s) columna(s) {errs} \n {row}')
+                
+        self.dict[row[0]] = row[1:]
 
     def __getitem__(self, key:str):
         return self.dict[key]
