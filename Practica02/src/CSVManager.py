@@ -30,16 +30,11 @@ class CSVManager:
     def write(self):
         with open(self.file_name, mode = 'w') as file:
             writer = csv.writer(file)
-            rows:List[List[str]] = []
 
             if self.header:
                 writer.writerow(self.header)
 
-            for i,j in self.dict.items():
-                j.insert(0, i)
-                rows.append(j)
-
-            writer.writerows(rows)
+            writer.writerows([[key, *lst] for key,lst in self.dict.items()])
 
     def check_row(self, row:List[str]) -> List[int]:
         result:List[int] = [] 
@@ -62,6 +57,22 @@ class CSVManager:
                 raise TypeError(f'La fila a agregar difiere de los tipos requeridos en la(s) columna(s) {errs} \n {row}')
                 
         self.dict[row[0]] = row[1:]
+    
+    def delete_row(self, key:str):
+        if not key in self.dict:
+            raise KeyError(f'No existe una columna con llave {key}')
+        del self.dict[key]
+    
+    def modify_row(self, key: str, row:List[str]):
+        if not key in self.dict:
+            raise KeyError(f'No existe una columna con llave {key}')
+        errs = self.check_row([key, *row])
+        if len(errs) > 0:
+            if errs[0] == -1:
+                raise TypeError(f'La fila modificada no tiene el numero correcto de columnas \n {row}')
+            else:
+                raise TypeError(f'La fila modificada difiere de los tipos requeridos en la(s) columna(s) {errs} \n {row}')
+        self.dict[key] = row 
 
     def __getitem__(self, key:str):
         return self.dict[key]
