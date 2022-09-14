@@ -37,9 +37,6 @@ class Empleados:
             if telefono in self.viveros_telefonos.dict:
                 raise ValueError(f'El telefono {telefono} esta registrado como telefono de un vivero')
             self.telefonos.add_row([telefono, str(id)])
-        self.correos.write()
-        self.telefonos.write()
-        self.empleados.write()
     
     def delete(self, id: str):
         for key,value in self.correos.dict.items():
@@ -50,13 +47,15 @@ class Empleados:
             if value[0] == id:
                 self.telefonos.delete_row(key)
         self.empleados.delete_row(id)
-        self.correos.write()
-        self.telefonos.write()
-        self.empleados.write()
     
     def modify(self, id:str, vivero:str, nombre:str, direccion:str, fecha_de_nacimiento: date, salario:int, cargo:str, correos: List[str], telefonos: List[str]):
         self.delete(id)
         self.add(vivero, nombre, direccion, fecha_de_nacimiento, salario, cargo, correos, telefonos)
+    
+    def write(self):
+        self.correos.write()
+        self.telefonos.write()
+        self.empleados.write()
 
     def __getitem__(self, key: int):
         correos:List[str] = []
