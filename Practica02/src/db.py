@@ -14,7 +14,7 @@ from datetime import date
 # Table type definitions ------------------------------------------------------
 # {primary key}
 # (foreign key)
-# {position}
+# [position]
 
 manager_empleados = CSVManager('./Empleados.csv', [
     int, # {id} [key]
@@ -48,7 +48,6 @@ manager_viveros_telefonos = CSVManager('./ViverosTelefonos.csv', [
     str # (vivero_nombre) [0]
 ])
 
-# [nombre] / precio / genero / 
 manager_plantas = CSVManager('./Plantas.csv', [
     str, # {nombre} [key]
     int, # precio [0]
@@ -60,7 +59,6 @@ manager_plantas = CSVManager('./Plantas.csv', [
     str # intervalo_riego [6]
 ])
 
-#
 manager_plantas_disponibilidad = CSVManager('./PlantasDisponibilidad.csv', [
    str, # (vivero_nombre [key, fst]
    str, # planta_nombre) [key, snd]
