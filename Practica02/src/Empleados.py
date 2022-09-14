@@ -21,7 +21,7 @@ class Empleados:
 
     def add(self, vivero:str, nombre:str, direccion:str, fecha_de_nacimiento: date, salario:int, cargo:str, correos: List[str], telefonos: List[str]):
         id = 10000
-        while not str(id) in self.empleados.dict:
+        while str(id) in self.empleados.dict:
             id = randint(0, 20000)
         self.empleados.add_row([str(id), vivero, nombre, direccion, fecha_de_nacimiento.isoformat(), str(salario), cargo])
         for correo in correos:
