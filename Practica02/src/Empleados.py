@@ -70,4 +70,4 @@ class Empleados:
                 telefonos.append(telefono)#type: ignore
                 #We ensure that keys of telefonos will be str, so we ignore type error
 
-        return [*self.empleados[str(key)], *correos, *telefonos] 
+        return [str(key), *self.empleados[str(key)], *correos, *telefonos] 
