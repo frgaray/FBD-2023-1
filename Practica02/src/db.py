@@ -3,6 +3,7 @@
 import sys
 from CSVManager import CSVManager
 from Empleados import Empleados
+from Viveros import Viveros
 from aditionalTypes import *
 from datetime import date
 
@@ -67,10 +68,21 @@ manager_plantas_disponibilidad = CSVManager('./PlantasDisponibilidad.csv', [
 ], keys = 2)
 
 # -----------------------------------------------------------------------------
-empleados = Empleados(manager_viveros, manager_empleados, manager_empleados_correos, manager_empleados_telefonos, manager_viveros_telefonos)
-empleados.add('viv0', 'John Doe', '1 Infinite loop', date.today(), 100, 'El pro', ['notmy@mail.xd'], ['55 1234 5678'])
+# viveros = Viveros(manager_viveros, manager_empleados, manager_viveros_telefonos, manager_plantas, manager_plantas_disponibilidad, manager_empleados_telefonos)
+# viveros.add('viv1', 'Av Iman 1005', date.today(), ['55 1234 5678'], {})
 
-a = empleados.seach_by_name('John Doe')
+# print(viveros['viv0'])
+
+
+# empleados = Empleados(manager_viveros, manager_empleados, manager_empleados_correos, manager_empleados_telefonos, manager_viveros_telefonos)
+# empleados.add('viv0', 'John Doe', '1 Infinite loop', date.today(), 100, 'El pro', ['notmy@mail.xd'], ['55 1234 5678'])
+
+# a = empleados.seach_by_name('John Doe')
+# print(a)
+# print(empleados[int(a[0])])
+
+# viveros.write()
+# empleados.write()
 
 def main():
     "Starting point for the database"
@@ -83,4 +95,3 @@ def main():
     print(sys.argv)
 
 main()
-
