@@ -67,7 +67,7 @@ manager_plantas_disponibilidad = CSVManager('./PlantasDisponibilidad.csv', [
 ], keys = 2)
 
 # -----------------------------------------------------------------------------
-empleados = Empleados(manager_viveros, manager_empleados, manager_empleados_correos, manager_empleados_telefonos)
+empleados = Empleados(manager_viveros, manager_empleados, manager_empleados_correos, manager_empleados_telefonos, manager_viveros_telefonos)
 empleados.add('viv0', 'John Doe', '1 Infinite loop', date.today(), 100, 'El pro', ['notmy@mail.xd'], ['55 1234 5678'])
 
 a = empleados.seach_by_name('John Doe')

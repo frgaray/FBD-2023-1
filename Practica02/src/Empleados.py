@@ -4,11 +4,12 @@ from datetime import date
 from random import randint
 
 class Empleados:
-    def __init__(self, viveros:CSVManager, empleados:CSVManager, correos:CSVManager, telefonos:CSVManager):
+    def __init__(self, viveros:CSVManager, empleados:CSVManager, correos:CSVManager, telefonos:CSVManager, viveros_telefonos:CSVManager):
         self.viveros = viveros
         self.empleados = empleados
         self.correos = correos
         self.telefonos = telefonos
+        self.viveros_telefonos = viveros_telefonos
     
     def seach_by_name(self, name:str) -> List[int]:
         result:List[int] = []
@@ -33,6 +34,8 @@ class Empleados:
         for telefono in telefonos:
             if telefono in self.telefonos.dict:
                 raise ValueError(f'El telefono {telefono} ya esta registrado por otra persona')
+            if telefono in self.viveros_telefonos.dict:
+                raise ValueError(f'El telefono {telefono} esta registrado como telefono de un vivero')
             self.telefonos.add_row([telefono, str(id)])
         self.correos.write()
         self.telefonos.write()
