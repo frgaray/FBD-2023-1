@@ -12,58 +12,59 @@ from datetime import date
 # 
 
 # Table type definitions ------------------------------------------------------
-# [primary key]
+# {primary key}
 # (foreign key)
+# {position}
 
 manager_empleados = CSVManager('./Empleados.csv', [
-    int, # [id]
-    str, # (vivero_nombre)
-    str, # nombre
-    str, # direccion
-    date.fromisoformat, # fecha de nacimiento
-    int, # salario
-    str # cargo
+    int, # {id} [key]
+    str, # (vivero_nombre) [0]
+    str, # nombre [1] 
+    str, # direccion [2] 
+    date.fromisoformat, # fecha de nacimiento [3] 
+    int, # salario [4] 
+    str # cargo [5]
 
 ])
 
 manager_empleados_correos = CSVManager('./EmpleadosCorreos.csv', [
-    str, # [correo]
-    str # (empleado_id)
+    str, # {correo} [key]
+    str # (empleado_id) [0]
 ])
 
 manager_empleados_telefonos = CSVManager('./EmpleadosTelefonos.csv', [
-    telephone, # telefono
-    str # (id_empleado)
+    telephone, # {telefono} [key]
+    str # (id_empleado) [0]
 ])
 
 manager_viveros = CSVManager('./Viveros.csv', [
-    str, # [nombre]
-    str, # direccion 
-    date.fromisoformat # fecha de apertura
+    str, # {nombre} [key]
+    str, # direccion [0]
+    date.fromisoformat # fecha de apertura [1]
 ])
 
 manager_viveros_telefonos = CSVManager('./ViverosTelefonos.csv', [
-    telephone, # telefono
-    str # (vivero_nombre)
+    telephone, # {telefono} [key]
+    str # (vivero_nombre) [0]
 ])
 
 # [nombre] / precio / genero / 
 manager_plantas = CSVManager('./Plantas.csv', [
-    str, # [nombre]
-    int, # precio
-    str, # genero
-    str, # cuidados_basicos
-    str, # tipo_sustrato
-    str, # sol/sombra/resolana
-    str, #fecha_germinacion
-    str # intervalo_riego
+    str, # {nombre} [key]
+    int, # precio [0]
+    str, # genero [1]
+    str, # cuidados_basicos [2]
+    str, # tipo_sustrato [3]
+    str, # sol/sombra/resolana [4]
+    str, #fecha_germinacion [5]
+    str # intervalo_riego [6]
 ])
 
 #
 manager_plantas_disponibilidad = CSVManager('./PlantasDisponibilidad.csv', [
-   str, # (vivero_nombre,
-   str, # planta_nombre)
-   int, # cantidad_disponible
+   str, # (vivero_nombre [key, fst]
+   str, # planta_nombre) [key, snd]
+   int, # cantidad_disponible [0]
 ], keys = 2)
 
 # -----------------------------------------------------------------------------
