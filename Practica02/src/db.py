@@ -66,20 +66,65 @@ manager_plantas_disponibilidad = CSVManager('./PlantasDisponibilidad.csv', [
    int, # cantidad_disponible [0]
 ], keys = 2)
 
-# -----------------------------------------------------------------------------
-empleados = Empleados(manager_viveros, manager_empleados, manager_empleados_correos, manager_empleados_telefonos, manager_viveros_telefonos)
-empleados.add('viv0', 'John Doe', '1 Infinite loop', date.today(), 100, 'El pro', ['notmy@mail.xd'], ['55 1234 5678'])
-
-a = empleados.seach_by_name('John Doe')
 
 def main():
-    "Starting point for the database"
+    
+    menu_options = {
+    1: 'Viveros',
+    2: 'Empleados',
+    3: 'Plantas',
+    4: 'Salir'
+    }
 
-    # parse arguments
-    # check & load database
-    # execute command into database
-    # write changes into files
-    # finish
+    sec_menu_options = {
+    1: 'Agregar',
+    2: 'Eliminar',
+    3: 'Buscar',
+    4: 'Editar',
+    5: 'Regresar'
+    }  
+    
+
+    def print_menu(menu):
+        for key in menu.keys():
+            print (key, '--', menu[key] )
+
+    def option1():
+        print('Handle option \'Option 1\'')
+
+    def option2():
+        print('Handle option \'Option 2\'')
+
+    def option3():
+        print('Handle option \'Option 3\'')
+
+    if __name__=='__main__':
+        while(True):
+            print_menu(menu=menu_options)
+            option = ''
+        
+            try:
+                option = int(input('Escribe el numero: '))
+            except:
+                print('Porfavor ingresa un numero')
+        
+        
+        
+            if option == 1:
+                option1()
+            elif option == 2:
+                option2()
+            elif option == 3:
+                option3()
+            elif option == 4:
+                print('Saliendo...\nSuerte')
+                exit()
+            else:
+                print('Opcion invalida, ingresa solo el numero de la opcion elegida')
+
+
+
+
     print(sys.argv)
 
 main()
