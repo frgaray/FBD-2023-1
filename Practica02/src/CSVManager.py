@@ -1,13 +1,14 @@
 import csv
-from typing import List, Dict
+from typing import Callable, List, Dict, Any, Tuple, Union
 import os
 
 class CSVManager:
 
-    def __init__(self, file_name: str, types:List[type], has_header:bool = True):
+    def __init__(self, file_name: str, types:List[Callable[[str], Any]], has_header:bool = True, keys:int = 1):
         self.file_name = file_name
-        self.dict:Dict[str, List[str]] = {}
+        self.dict:Dict[Union[str, Tuple[str, str]], List[str]] = {}
         self.types = types
+        self.keys = keys
         if not os.path.exists(file_name):
             raise FileNotFoundError('No existe el archivo')
 
@@ -25,7 +26,10 @@ class CSVManager:
                         raise TypeError(f'La fila {index} no tiene el numero correcto de columnas \n {row}')
                     else:
                         raise TypeError(f'En la fila {index} la(s) columna(s) {errs} no coincide(n) con los tipos \n {row}')
-                self.dict[row[0]] = row[1:]
+                if self.keys == 1:
+                    self.dict[row[0]] = row[1:]
+                else:
+                    self.dict[(row[0], row[1])] = row[2:]
 
     def write(self):
         with open(self.file_name, mode = 'w') as file:
@@ -34,7 +38,10 @@ class CSVManager:
             if self.header:
                 writer.writerow(self.header)
 
-            writer.writerows([[key, *lst] for key,lst in self.dict.items()])
+            for key,lst in self.dict.items():
+                if type(key) == str:
+                    key = [key]
+                writer.writerow([*key, *lst])
 
     def check_row(self, row:List[str]) -> List[int]:
         result:List[int] = [] 
@@ -56,17 +63,27 @@ class CSVManager:
             else:
                 raise TypeError(f'La fila a agregar difiere de los tipos requeridos en la(s) columna(s) {errs} \n {row}')
                 
-        self.dict[row[0]] = row[1:]
+        if self.keys == 1:
+            self.dict[row[0]] = row[1:]
+        else:
+            self.dict[(row[0], row[1])] = row[2:]
     
-    def delete_row(self, key:str):
+    def delete_row(self, key:Union[str, Tuple[str,str]]):
         if not key in self.dict:
             raise KeyError(f'No existe una columna con llave {key}')
         del self.dict[key]
     
-    def modify_row(self, key: str, row:List[str]):
+    def modify_row(self, key: Union[str, Tuple[str, str]], row:List[str]):
         if not key in self.dict:
             raise KeyError(f'No existe una columna con llave {key}')
-        errs = self.check_row([key, *row])
+
+        errs = []
+        if type(key) == str:
+           errs = self.check_row([key, *row]) #type: ignore
+           #Type checking can be ignored here because the type checker is dumb
+           #and doesn't realize we are checking for the right type in the if condition
+        else:
+            errs = self.check_row([*key, *row])
         if len(errs) > 0:
             if errs[0] == -1:
                 raise TypeError(f'La fila modificada no tiene el numero correcto de columnas \n {row}')
@@ -74,5 +91,5 @@ class CSVManager:
                 raise TypeError(f'La fila modificada difiere de los tipos requeridos en la(s) columna(s) {errs} \n {row}')
         self.dict[key] = row 
 
-    def __getitem__(self, key:str):
+    def __getitem__(self, key:Union[str, Tuple[str, str]]):
         return self.dict[key]
