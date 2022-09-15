@@ -36,7 +36,7 @@ class Viveros:
         for key,value in self.telefonos.dict.items():
             if value[0] == name:
                 self.telefonos.delete_row(key)
-        for planta in self.plantas:
+        for planta in self.plantas.dict.keys():
             self.plantas_disponibilidad.delete_row((name, planta))# type: ignore
             # This type error involves both the fact that plantas has a str type
             # for keys, and that plantas_disponibilidad has a Tuple[str, str] type
