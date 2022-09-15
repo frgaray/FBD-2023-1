@@ -72,13 +72,75 @@ viveros = Viveros(manager_viveros, manager_empleados, manager_viveros_telefonos,
 empleados = Empleados(manager_viveros, manager_empleados, manager_empleados_correos, manager_empleados_telefonos, manager_viveros_telefonos)
 
 def main():
-    "Starting point for the database"
+    
+    menu_options = {
+    1: 'Viveros',
+    2: 'Empleados',
+    3: 'Plantas',
+    4: 'Salir'
+    }
 
-    # parse arguments
-    # check & load database
-    # execute command into database
-    # write changes into files
-    # finish
+    sec_menu_options = {
+    1: 'Agregar',
+    2: 'Eliminar',
+    3: 'Buscar',
+    4: 'Editar',
+    5: 'Regresar'
+    }  
+    
+
+    def print_menu(menu):
+        for key in menu.keys():
+            print (key, '--', menu[key] )
+
+    def first_handler(opt):
+        for key in sec_menu_options.keys():
+            print (key, '--', sec_menu_options[key])
+        
+        
+    def add_handler():
+        print('Handle option \'Option 1\'')
+
+    def delete_handler():
+        print('Handle option \'Option 2\'')
+
+    def search_handler():
+        print('Handle option \'Option 3\'')
+        
+    def eddit_handler():
+        print('Handle option \'Option 3\'')
+        
+    def back_handler():
+        pass
+        
+
+    if __name__=='__main__':
+        while(True):
+            print_menu(menu=menu_options)
+            option = ''
+        
+            try:
+                option = int(input('Escribe el numero: '))
+            except:
+                print('Porfavor ingresa un numero')
+        
+        
+        
+            if option == 1:
+                first_handler()
+            elif option == 2:
+                first_handler()
+            elif option == 3:
+                first_handler()
+            elif option == 4:
+                print('Saliendo...\nSuerte')
+                exit()
+            else:
+                print('Opcion invalida, ingresa solo el numero de la opcion elegida')
+
+
+
+
     print(sys.argv)
 
 main()
