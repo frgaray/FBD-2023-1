@@ -21,7 +21,7 @@ class Viveros:
                 raise ValueError(f'El telefono {telefono} le pertenece a un empleado')
             self.telefonos.add_row([telefono, nombre])
         self.viveros.add_row([nombre, direccion, fecha_de_apertura.isoformat()])
-        for planta,disponibilidad in plantas_disponibles.items():
+        for planta in plantas_disponibles.keys():
             if planta not in self.plantas.dict:
                 raise ValueError(f'La planta {planta} no esta registrada')
         for planta in self.plantas.dict.keys():
