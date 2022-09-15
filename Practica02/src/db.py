@@ -94,14 +94,26 @@ def main():
         for key in menu.keys():
             print (key, '--', menu[key] )
 
-    def option1():
+    def first_handler(opt):
+        for key in sec_menu_options.keys():
+            print (key, '--', sec_menu_options[key])
+        
+        
+    def add_handler():
         print('Handle option \'Option 1\'')
 
-    def option2():
+    def delete_handler():
         print('Handle option \'Option 2\'')
 
-    def option3():
+    def search_handler():
         print('Handle option \'Option 3\'')
+        
+    def eddit_handler():
+        print('Handle option \'Option 3\'')
+        
+    def back_handler():
+        pass
+        
 
     if __name__=='__main__':
         while(True):
@@ -116,11 +128,11 @@ def main():
         
         
             if option == 1:
-                option1()
+                first_handler()
             elif option == 2:
-                option2()
+                first_handler()
             elif option == 3:
-                option3()
+                first_handler()
             elif option == 4:
                 print('Saliendo...\nSuerte')
                 exit()
