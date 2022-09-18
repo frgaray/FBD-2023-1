@@ -1,0 +1,64 @@
+Creo que queda más simple si no pensamos en los empleados
+como diferentes sino que les damos un atributo "tipo" que
+es el tipo de empleado que son.
+
+--El gran vivero--
+
+Vivero:
+nombre
+dirección
+teléfono
+Fecha de apertura
+(extras)
+
+Empleado:
+Nombre Completo
+Dirección
+correos (multi)
+teléfonos (multi)
+Fecha nacimiento
+Salario
+Rol: (solo uno de estos){Gerente, Cuidador, Ayudante/shower, Cajero}
+#NOTA: tiene un solo rol, trabaja en un solo vivero
+
+Planta:
+Precio
+Número por invernadero
+Nombre
+Género
+Cuidado
+Sustrato
+Tipo de asoleo: {Sol, Sombra, Resolana}
+Fecha de germinación
+Tipo de origen{Africana, cactus}
+#NOTA: no es claro si quieren que guardemos una entrada por cada planta
+o por cada tipo de planta, ahorita lo pusé como si cada planta
+fuera diferente pero también podriamos hacer una
+segunda entidad *plantaReal* que tuviera los datos
+de cada planta y que refiera a esta respecto a su tipo
+
+#Separamos la venta en si de las dos posibles categorías de venta (que heredan de venta)
+Venta:
+Nombre D Cliente
+Número de productos
+desglose (derivado de relación)
+precio desglose (derivado de la relación)
+total (derivado)
+Pago: efectivo,credito,debito# estamos asumiendo que no se combinan pagos, pero no es claro el texto
+
+Venta Física:
+Vivero
+Cobrador
+Ayudante
+
+Venta Electronica:
+Dirección envio
+Fecha pedido
+Num seguimiento
+
+Cliente:
+nombre completo
+dirección
+correos electronicos
+teléfonos
+fecha de nacimiento
