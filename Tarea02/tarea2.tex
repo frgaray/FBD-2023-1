@@ -1,0 +1,106 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[margin=0.5in, top=0.5in, bottom=0.5in]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage[shortlabels]{enumitem}
+\newcommand{\p}{\phantom{......}}
+
+\title{Bases de datos 2023-1\\
+Tarea 2: Modelo Entidad-Relación}
+\begin{document}
+\maketitle
+\begin{enumerate}
+
+	\item Conceptos del Modelo Entidad – Relación
+		\begin{enumerate}
+			\item ¿Qué es un tipo de relación? Explica las diferencias con respecto a una instancia de relación.\\
+
+				El tipo de relación describe como es la relación y que tipos de entidades participan,
+				mientras que la instancia es la asociación entre instancias de entidades particulares.\\
+
+			\item ¿Bajo qué condiciones se puede migrar un atributo de algún tipo de entidad que
+				participa en un tipo de relación binaria y convertirse en un atributo del tipo de
+				relación? ¿Cuál sería en el efecto?\\
+
+				Es necesario que el atributo describa algo que pertenga a todas las entidades
+				que la relación asocia. Cambiarlo fuerza algunas propiedades de la relación,
+				por ejemplo si es necesario que una entidad tenga acceso a este entonces
+				la relación debe tener participación total.\\
+
+			\item ¿Cuál es el significado de un tipo de relación recursiva?
+				Proporciona un par de ejemplos de este tipo de relación.\\
+
+				Una relación recursiva es una donde un tipo de entidad participa
+				más de una vez.Como ejemplo podemos considerar la entidad \texttt{Persona}
+				y la relación \texttt{Casar} ya que en ella participan dos entidades de
+				persona diferentes.Otro ejemplo es el de \texttt{Empresa} y \texttt{Contrata}
+				ya que una empresa puede contratar a otras empresas.\\
+
+			\item Responde a las siguientes cuestiones, deberás indicar si son posibles o no,
+				justificando tu respuesta. Cuando no sea posible deberás indicar alguna recomendación al respecto:
+				\begin{itemize}
+					\item ¿Un atributo compuesto puede ser llave?\\
+
+						Sí, la llave solo debe de identificar a la instancia de entidad,
+						a veces es necesario más de un valor para hacerlo (teléfono y código de área).
+
+					\item ¿Un atributo multivaluado puede ser llave?\\
+
+						Podría serlo si cada uno de sus valores fuera único respecto
+						al resto de entidades ya que conocer uno de los elementos
+						en el multivaluado nos dice de que entidad hablamos,
+						pero seguramente hay razones
+						de implementación para no permitir esto (índices).
+
+						Si necesitáramos hacerlo podríamos definir un valor ``principal''
+						que sea la llave y que el resto estén en su propio multivaluado.\\
+
+					\item ¿Un atributo derivado puede ser llave?\\
+
+						Sí, podemos imaginar que del resto de los atributos
+						de la entidad calculamos un valor que debe ser único
+						para esta. (Por ejemplo obtener una CURP de otros valores)\\
+
+					\item ¿Un atributo multivaluado puede ser compuesto?\\
+
+						Sí, cada valor del multivaluado se compone en sí
+						de otros valores. \\
+
+					\item ¿Un atributo multivaluado puede ser derivado?\\
+
+						Sí, si derivamos de un atributo multivaluado probablemente
+						vamos a tener varios valores y necesitaremos otro multivaluado
+						para representarlos.\\
+
+					\item ¿Qué implicaría la existencia de una entidad cuyos atributos sean todos derivados?\\
+
+						Si una entidad tuviera solo valores derivados, entonces solo puede depender
+						del estado del ``sistema'' para calcularlos, por lo que
+						la instancia de entidad que reside ahí tendría que ser única.\\
+				\end{itemize}
+
+			\item Explica el concepto de categorías (herencia múltiple) en el modelo E-R
+				y proporciona dos ejemplos de la vida real en donde se aplique este concepto.\\
+
+				Las categorías existen por que comúnmente se repiten atributos entre
+				entidades distintas, estas entidades son particularizaciones de una entidad
+				que solo tiene los atributos compartidos ``padre''.\\
+
+				Ejemplos:\\
+				Consideremos trenes y sus conductores, los trenes y los
+				conductores ambos tienen horarios de trabajo. Los conductores
+				al igual que los cocineros del vagón restaurante son empleados.
+				Entonces \texttt{Conductor} hereda de \texttt{Horario} y de \texttt{Empleado}.\\
+
+				Podríamos tener una base de datos de diferentes dispositivos electrónicos y eléctricos.
+				En ella podría haber una entidad \texttt{NetworkRouter} que sea una categoría
+				específica de \texttt{DispositivoElectrónico}, de \texttt{DispositivoTelecomunicación}
+				y de \texttt{DispositivoParaEstante}.\\
+
+		\end{enumerate}
+\end{enumerate}
+\end{document}
