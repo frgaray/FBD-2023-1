@@ -102,5 +102,37 @@ Tarea 2: Modelo Entidad-Relación}
 				y de \texttt{DispositivoParaEstante}.\\
 
 		\end{enumerate}
+
+	\item 2
+	\item 3
+	\item Modificar modelo Entidad/Relación de cadena de farmacias.\\
+		El diagrama del modelo modificado está en \texttt{Diagramas/Ejercicio4.png}.\\
+
+		Consideraciones:\\
+		\begin{enumerate}
+			\item Cada paciente debe tener un único médico de atención primaria. Cada médico tiene al menos un paciente
+				y queremos conocer la cédula, nombre y especialidad.\\
+
+				Dejamos a paciente como parcial en la relación considerando que
+				la base de datos tal vez ya tenía pacientes sin doctor que ahora
+				deben de poder estar en este nuevo modelo.\\
+
+			\item El diseño solo modela el hecho de que un paciente toma algunos medicamentos, queremos que ahora el modelo
+				permita que un paciente tome ciertos medicamentos recetados por un médico y la fecha de prescripción.\\
+
+				Habíamos considerado usar una relación ternaria pero preferimos evitarla.
+				Mejor decidimos añadir una nueva entidad receta que liga al doctor, al paciente y a los medicamentos recetados.\\
+
+				Además el atributo \texttt{Cantidad} que estaba en la relación \texttt{Tomar} ahora esta
+				en la relación \texttt{Prescribir} que liga \texttt{Receta} y \texttt{Medicina}.\\
+
+			\item Las compañías farmacéuticas tienen contratos a largo plazo con farmacias. Un compañía farmacéutica establecer
+				contratos con varias farmacias, y una farmacia puede contratar varias compañías farmacéuticas. Para cada
+				contrato, queremos almacenar la fecha de inicio y la fecha de finalización.\\
+
+				Estamos suponiendo que las farmacias necesitan tener contratos para tener productos para vender y
+				que las farmacéuticas los necesitan para poder comercializar sus medicinas.\\
+
+		\end{enumerate}
 \end{enumerate}
 \end{document}
