@@ -1,5 +1,4 @@
 Hola!
-
 1.Veo que utilizaron en varios de los atributos espacios, les recomiendo que quiten los espacios en los nombre por ejemplo en Vivero Nombre vivero y lo dejen como NombreVivero, esto es con el fin de que cuando pasemos a relacional se mantenga un mismo estilo tanto el ER y Relacional
 
 Vivero:
@@ -8,8 +7,6 @@ Vivero:
 Empleado:
 
 3. Misma situación con nombre completo, aqui ya depende de como lo quieran hacer, como atributo compuesto, o atributo normal, si es normal deben fijarse en como van a poblar su base de datos.
-
-4. Solo como recomendación esta bien que manejaran el rol del empleado como atributo, solo que deben fijarse cuando toque el poblado de la base de datos, que los que ayuden sean vendedores y los que cobren sean cajeros, pero funciona.
 
 VentaFisica
 
@@ -24,6 +21,7 @@ Planta:
 
 7. Misma situacion con Fecha de germinación.
 
+----------------------------------BARRA PROGRESO
 8. Numero por invernadero, es un atributo calculado ya que lo tomaremos en cuenta por el vivero, y hablando de esto lo unico que faltaria seria una relación entre vivero y planta, para que ustedes puedan calcular ese numero. Ya que por ningun lado nosotros sabremos si ese vivero tiene la planta pues que  desea comprar el cliente.
 
 
