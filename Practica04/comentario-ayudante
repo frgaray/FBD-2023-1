@@ -1,0 +1,33 @@
+Hola!
+
+1.Veo que utilizaron en varios de los atributos espacios, les recomiendo que quiten los espacios en los nombre por ejemplo en Vivero Nombre vivero y lo dejen como NombreVivero, esto es con el fin de que cuando pasemos a relacional se mantenga un mismo estilo tanto el ER y Relacional
+
+Vivero:
+2. Aunque se entiende te falta expresarlo de forma implicita, en vivero, la direccion es un atributo compuesto, al igual que fecha de apertura, o bueno depende, si lo quieren manejar como un atributo normal solo deben tener cuidado de como ingresaran esos datos al momento de poblar su base de datos. Pero yo les recomiendo que sean compuesto, ya que esto les falicitara mas adelante.
+
+Empleado:
+
+3. Misma situación con nombre completo, aqui ya depende de como lo quieran hacer, como atributo compuesto, o atributo normal, si es normal deben fijarse en como van a poblar su base de datos.
+
+4. Solo como recomendación esta bien que manejaran el rol del empleado como atributo, solo que deben fijarse cuando toque el poblado de la base de datos, que los que ayuden sean vendedores y los que cobren sean cajeros, pero funciona.
+
+VentaFisica
+
+5. Ustedes obtienen el nombre del vivero, empleado que cobro y el empleado que ayudo por sus relaciones, asi que no es necesario el atributo como tal del nombre vivero
+
+
+Cliente:
+
+6. Nombre, Dirección y fecha. Lo mismo que arriba si lo manejaran como atributo normal, deben checar al momento de hacer el poblamiento en su base de datos.
+
+Planta:
+
+7. Misma situacion con Fecha de germinación.
+
+8. Numero por invernadero, es un atributo calculado ya que lo tomaremos en cuenta por el vivero, y hablando de esto lo unico que faltaria seria una relación entre vivero y planta, para que ustedes puedan calcular ese numero. Ya que por ningun lado nosotros sabremos si ese vivero tiene la planta pues que  desea comprar el cliente.
+
+
+Con respecto al reporte:
+
+1.Lo unico que falto poner fue los identificadores, de cada entidad.
+Saludos
