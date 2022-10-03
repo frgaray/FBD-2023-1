@@ -1,0 +1,2 @@
+Se cambio el nombre del atributo "Numero"  por un nombre mas especifico	para mejorar la lectura en el modelo relacional, por ejemplo para la Vivienda se eligio "NumeroVivienda", esto con cada tabla que tuviera como PK "Numero".
+En el caso de la tabla Celda, dado que ya teniamos el nombre NumeroNivel como su PK (pues Celda es una entidad debil con respecto a Nivel), al Nivel mandarle como FK su PK (dado que *Tener* es una relacion debil con atributos, esta deber ser manejada como el caso de una relacion 1:M) decidimos cambiar el nombre por solamente Numero.
