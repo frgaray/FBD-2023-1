@@ -16,4 +16,226 @@
 Tarea 3: Modelo Relacional}
 \begin{document}
 \maketitle
+
+\begin{enumerate}
+	\item Preguntas de repaso.
+		\begin{enumerate}
+			\item[\textbf{i.}] ¿Qué es una relación y qué características tiene?\\
+
+				Es un subconjunto del producto cartesiano de otros conjuntos (dominios).
+				Cada elemento del subconjunto representa una entidad y cada entrada de los
+				elementos es una pieza de información de la entidad.
+
+				Las relaciones tienen:
+
+				\textbf{Nombre}: Las identifica de otras relaciones.\\
+				\textbf{tuplas}: Elementos de la relación, cada una representa una entidad.\\
+				\textbf{atributos}: Elementos de las tuplas que describen propiedades de sus entidades.\\
+				\textbf{Dominios}: Los conjuntos a los que pertenecen los atributos, en la entrada $x$
+				de una tupla siempre hay elementos del mismo dominio.\\
+				\textbf{Cardinalidad}: La cantidad de tuplas en una relación.\\
+				\textbf{Grado}: La cantidad de entradas en la tupla (cantidad de atributos).\\
+				\textbf{Restricciones}: Estructuras que no se permiten en una relación.\\	
+
+
+			\item[\textbf{ii.}] ¿Qué restricciones impone una llave primaria y
+				una llave foránea al modelo de datos relacional?\\
+
+				\textbf{Primaria}: Unicidad. No pueden existir dos tuplas con los mismo valores
+				en los atributos que componen sus llaves primarias.\\
+
+				\textbf{Foránea}: Identificación y existencia. Debe de existir una entidad
+				en otra relación que tenga como llave primaria esta llave foránea.\\
+
+
+			\item[\textbf{iii.}] Investiga que cuáles son las Reglas de Codd y explica con tus propias palabras
+				cada una de ellas. Indica por qué consideras que son importantes.\\
+
+				\begin{enumerate}
+					\item[0.] Todo sistema de manejo de bases de datos relacionales,
+						debe manejar sus bases de datos usando solo relaciones.\\
+
+						Toda la información de las bases de datos está en tablas.\\
+
+					\item[1.] Toda la información de una base de datos relacional se
+						representa como valores en tablas.\\
+
+						La información de la base de datos se accesa con tablas.\\
+
+					\item[2.] Todos los datos en una base de datos relacional se deben
+						de poder acceder usando solo el nombre de la tabla, una llave primaria
+						y el nombre de una columna.\\
+
+						Para extraer un dato único de una base de datos solo se necesita saber
+						en que tabla está, a que entidad pertenece y de que columna es.
+						Esta regla también impide los valores multivaluados.\\
+
+					\item[3.] Los valores nulos deben ser soportados y representan información
+						faltante o inexistente independientemente de un tipo de dato.\\
+
+						Todos los lugares donde puede haber datos también pueden tener null,
+						para representar que no hay o no puede haber un dato para esa entrada
+						de la tabla.\\
+
+					\item[4.] La descripción de la base de datos se representa en el nivel
+						lógico de la misma forma que datos normales para que pueda ser
+						manipulada con el mismo lenguaje relacional que ocupan los datos normales.\\
+
+						Debe de haber un catálogo y este debe de poderse modificar con
+						el mismo lenguaje que el resto de la base. Esto hace cómodo
+						manipular muchas bases de datos al mismo tiempo (entre otras cosas).\\
+
+					\item[5.] Un sistema relacional puede soportar más lenguajes e interfaces, pero
+						debe haber almenos uno con expresiones bien definidas en texto y que pueda:
+						\{definir datos, ver definiciones, manipular datos, restringir integridad,
+						controlar autorización, definir transacciones\}.\\
+
+						Básicamente dice que además de todos los extras que tenga un sistema
+						manejador relacional, este debe de poder aceptar ``comandos''
+						para todas sus operaciones.\\
+
+					\item[6.] Todas las vistas que se pueden actualizar en teoría pueden
+						ser actualizadas por el sistema.\\
+
+						El sistema puede actualizar las tablas de las que dependen
+						las vistas si estas en el modelo lógico se pueden actualizar
+						sin problemas.\\
+
+					\item[7.] La capacidad de manejar una relación como operando aplica para
+						la inserción, actualización y eliminación de los datos.\\
+
+						Insertar, actualizar y eliminar datos de la base se debe poder
+						hacer para colecciones de entidades de una relación al mismo tiempo.\\
+
+					\item[8.] Aplicaciones y servicios no son afectados lógicamente cuando
+						se cambia el almacenamiento o la forma de acceder a este.\\
+
+						La base de datos no debe ser afectada cuando se mueven los datos,
+						se cambia su mecanismo de almacenamiento o se distribuyen.\\
+
+					\item[9.] Aplicaciones y servicios no son afectadas cuando cambios
+						que no alteran la información se hacen en las tablas.\\
+
+						La interfase entre las aplicaciones y el sistema manejador
+						debe de ser independiente de la estructura de las tablas.\\
+
+					\item[10.] Las restricciones de integridad se deben de poder definir en
+						el lenguaje de la base de datos y almacenar en el catálogo, no
+						en las aplicaciones o servicios que usen la base.\\
+
+						Las restricciones son resguardadas por el sistema de base de datos,
+						por ejemplo, la unicidad de las llaves primarias nos la debe
+						de asegurar el sistema, no las aplicaciones que hagan interfaces
+						con él.\\
+
+					\item[11.] Un sistema manejador de bases de datos relacionales, tiene
+						independencia a la distribución.\\
+
+						Estos sistemas deben de comportarse de la misma manera si importar
+						como esta distribuida su información en una red (una sola instancia, muchas).\\
+
+					\item[12.] Si un sistema manejador tiene un lenguaje de bajo nivel,
+						este no debe de poder ignorar las restricciones impuestas en
+						otro lenguaje de alto nivel.\\
+
+						La intención es que las restricciones puedan ser aseguradas
+						en el sistema, que de verdad sean invariantes sin importar
+						como se accesa el sistema.\\
+				\end{enumerate}
+
+				Son importantes por que limitan lo que puede ser considerado como base de datos relacional.
+				Homogenizan los SMDBR para simplificar como son usados por los programas o usuarios.
+				También aseguran las necesidades básicas de estos sistemas, lo que es necesario
+				para poder utilizarlos eficazmente.\\
+
+				(fuente: \url{https://reldb.org/c/index.php/twelve-rules/} recuperado en 2022-10-03).\\
+		\end{enumerate}
+
+	\item Modelo Relacional.
+		\begin{enumerate}
+			\item[a.] Traduce el siguiente modelo Entidad – Relación a su correspondiente Modelo Relacional.
+		\end{enumerate}
+
+	\item Modelo Relacional e inserción de tuplas.
+
+		Considera el siguiente Modelo E/R:
+
+		\begin{enumerate}
+			\item[a.] Completa la tabla que se presenta a continuación, convirtiendo el Modelo E-R
+				en un Modelo Relacional, para todas las opciones de cardinalidad
+				(considera en todos los casos, participación parcial).
+				Indica las relaciones resultantes, su llave primaria y la integridad referencial.
+
+				\begin{tabular}{|l|l|}
+					\hline
+					Modelo E-R	&	Modelo Relacional\\
+					\hline
+					M:N			&	llenar\\
+					\hline
+					1:N			&	llenar\\
+					\hline
+					N:1			&	llenar\\
+					\hline
+					1:1			&	llenar\\
+					\hline
+				\end{tabular}
+
+			\item[b.] Del inciso a) toma el MR que obtuviste para la cardinalidad M : N.
+				Asume que los atributos a1, b y ab1 son de tipo entero, mientras que a2, a3 y b1 son de tipo cadena.
+				Supón que la relación A tiene 4 tuplas con los siguientes valores
+				(2,’ww’,’a’), (4,’xx’,’b’), (6,’yy’,’c’), (8,’zz’,’d’) y la relación B tiene 5
+				tuplas identificadaspor los valores 17, 27, 37, 47, 57.
+				Los incisos que se presentan a continuación, representan un conjunto de tuplas a
+				insertar (en ese orden) en la relación AB, indica cuál conjunto se puede insertar
+				completamente en dicha relación. Justifica tu respuesta en cada caso.
+
+				\begin{enumerate}
+					\item[i.] (8,’zz’,17,5); (6,’yy’,57,10); (4,’xx’,27,15); (2,’ww’,37,20); (4,’xx’,27,15)\\
+					\item[ii.] (17,’zz’,2,’m’); (27,’yy’,4,’n’); (37,’xx’,6,’o’); (47,’ww’,8,’p’); (57,’zz’,4,’q’)\\
+					\item[iii.] (2,’a’,17,23); (4,’b’,27,24); (6,’c’,37,25); (8,’d’,47,26); (2,’a’,57,27)\\
+					\item[iv.] (2,’ww’,57,’a’); (4,’xx’,37,’a’); (6,’yy’,17,’a’); (8,’zz’,17,’a’); (10,’xx’,27,’a’)\\
+				\end{enumerate}
+
+			\item[c.] Del inciso a) toma como base el MR que obtuviste para la cardinalidad 1 : N.
+				Los incisos que se presentan a continuación representan un conjunto de tuplas a insertar
+				(en ese orden) en la relación B, indica cuál conjunto se puede insertar completamente
+				en dicha relación. Justifica tu respuesta en cada caso.
+
+				\begin{enumerate}
+					\item[i.] (2,’f’,57,’zz’); (4,’g’,47,’yy’); (6,’h’,37,’xx’); (8,’i’,27,’ww’); (2,’j’,17,’yy’)\\
+					\item[ii.] (17,’ww’); (27,’xx’); (37,’yy’); (47,’zz’); (57,’zz’); (17,’xx’); (27,’yy’)\\
+					\item[iii.] (57,’f’,8,’zz’); (47,’g’,6,’yy’); (37,’h’,4,’xx’); (27,’i’,2,’ww’); (17,’j’,6,’yy’)\\
+					\item[iv.] (57,’f’,8,’a’); (47,’g’,6,’b’); (37,’h’,4,’c’); (27,’i’,2,’d’); (17,’j’,6,’c’)\\
+				\end{enumerate}
+
+			\item[d.] Considera el mismo escenario del inciso b para las relaciones A y B.
+				Toma como base el Modelo Relacional que obtuviste para la cardinalidad 1:1.
+				Supón que tu modelo tiene participación total del lado de la relación A.
+				Propón un conjunto de 4 tuplas que se pueda insertar en A y un conjunto que no se pueda insertar
+				(también de 4 tuplas). Justifica tu respuesta en cada caso.
+		\end{enumerate}
+
+	\item Modelo Relacional y restricciones de integridad.\\
+
+		A continuación, se encuentra el Modelo Relacional de un departamento de recursos humanos de alguna empresa.
+		En este esquema, supón que desde es inclusivo, mientras que hasta es exclusivo,
+		definiendo el período [desde,hasta).
+		Indica cuáles de las siguientes afirmaciones se cumplen y por qué razón
+		(sin considerar restricciones adicionales):
+
+		\begin{enumerate}
+			\item[a.] Dos departamentos con el nombre ‘Sistemas’ podrían existir al mismo tiempo.\\
+			\item[b.] Dos o más empleados pueden administrar el mismo Departamento al mismo tiempo.\\
+			\item[c.] Un empleado puede trabajar en un Departamento y administrar otro al mismo tiempo.\\
+			\item[d.] Para administrar un Departamento un empleado debe trabajar en dicho departamento.\\
+			\item[e.] Un empleado podría trabajar en dos Departamentos a partir de la misma fecha.\\
+			\item[f.] Para las tuplas de la relación Administrar, hasta no puede ser anterior a desde.\\
+			\item[g.] Dado un empleado, podemos identificar exactamente el Departamento donde trabaja.\\
+			\item[h.] Ningún empleado puede cobrar más de un Salario al mismo tiempo.\\
+			\item[i.] Algunas tuplas en Salario podrían no tener valor para el atributo desde
+				y ningún empleado asociado a ellas.\\
+			\item[j.] Un Departamento siempre tiene algún empleado que lo administre\\
+		\end{enumerate}
+
+\end{enumerate}
 \end{document}
