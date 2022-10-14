@@ -260,18 +260,49 @@ Tarea 3: Modelo Relacional}
 		(sin considerar restricciones adicionales):
 
 		\begin{enumerate}
-			\item[a.] Dos departamentos con el nombre ‘Sistemas’ podrían existir al mismo tiempo.\\
-			\item[b.] Dos o más empleados pueden administrar el mismo Departamento al mismo tiempo.\\
-			\item[c.] Un empleado puede trabajar en un Departamento y administrar otro al mismo tiempo.\\
-			\item[d.] Para administrar un Departamento un empleado debe trabajar en dicho departamento.\\
-			\item[e.] Un empleado podría trabajar en dos Departamentos a partir de la misma fecha.\\
-			\item[f.] Para las tuplas de la relación Administrar, hasta no puede ser anterior a desde.\\
-			\item[g.] Dado un empleado, podemos identificar exactamente el Departamento donde trabaja.\\
-			\item[h.] Ningún empleado puede cobrar más de un Salario al mismo tiempo.\\
-			\item[i.] Algunas tuplas en Salario podrían no tener valor para el atributo desde
-				y ningún empleado asociado a ellas.\\
-			\item[j.] Un Departamento siempre tiene algún empleado que lo administre\\
-		\end{enumerate}
+            \item[a.] Dos departamentos con el nombre ‘Sistemas’ podrían existir al mismo tiempo.\\
+            
+            Si, pues el nombre del departamento no actúa como Primary Key, así que se puede repetir.\\
+            
+            \item[b.] Dos o más empleados pueden administrar el mismo Departamento al mismo tiempo.\\
+            
+            Si, pues la cardinalidad entre Empleado y Administrar es uno opcional a muchos obligatorios y la cardinalidad entre Empleado y Departamento es muchos obligatorio a uno opcional, por lo que tenemos que varios empleados pueden administrar varios departamentos. \\
+            
+            \item[c.] Un empleado puede trabajar en un Departamento y administrar otro al mismo tiempo.\\
+            
+            Si. Las cardinalidades de Trabajar son iguales a las de Administrar. Por lo tanto tenemos que varios empleados pueden trabajar en varios departamentos, y varios empleados pueden administrar varios departamentos. \\
+            
+            \item[d.] Para administrar un Departamento un empleado debe trabajar en dicho departamento.\\
+            
+            No, las relaciones de Trabajar y Administrar son separadas, y nada impide que una persona administre un Departamento sin trabajar en él. \\
+            
+            \item[e.] Un empleado podría trabajar en dos Departamentos a partir de la misma fecha.\\
+            
+            Si, pues aunque Desde es Primary Key, también NúmDepto y NúmEmpleado Primary Key, por lo que no es necesario que Desde sea individualmente única, solo se requiere que las 3 en conjunto sean únicas.\\
+            
+            \item[f.] Para las tuplas de la relación Administrar, hasta no puede ser anterior a desde.\\
+            
+            No. Aunque es evidente que esto no se debería permitir, el esquema por sí solo no impone esta restricción.\\
+            
+            \item[g.] Dado un empleado, podemos identificar exactamente el Departamento donde trabaja.\\
+            
+            Si*, basta ver en Trabajar todas las tuplas que tengan en NúmEmpleado el mismo valor que el NúmEmpleado de nuestro Empleado y los departamentos que compartan NúmDepto con el NúmDepto de dichas tuplas, y así podemos identificar los departamentos en los que trabaja dicho Empleado. \\
+            *Si se pueden identificar los departamentos en los que trabaja, pero no podemos asegurar que es un solo departamento.\\
+            
+            \item[h.] Ningún empleado puede cobrar más de un Salario al mismo tiempo.\\
+        
+            No, la cardinalidad entre Empleado y Salario es 1 opcional a muchos obligatoria, y aunque la fecha de inicio tiene que ser única para cada NúmEmpleado, nada impide que se inicie otro salario antes de que termine el anterior. \\
+            
+            \item[i.] Algunas tuplas en Salario podrían no tener valor para el atributo desde
+                y ningún empleado asociado a ellas.\\
+            
+            No. Por un lado, la cardinalidad entre Empleado y Salario es 1 opcional a muchos obligatoria, por lo que todas las tuplas en Salario deben obligatoriamente tener un empleado. Por otro lado, ya que Desde es Primary Key, no puede haber tuplas que no contengan este valor.\\
+                
+            \item[j.] Un Departamento siempre tiene algún empleado que lo administre\\
+            
+            No, pues la cardinalidad entre Departamento y Administrar es 1 opcional a muchos obligatorio, por lo tanto puede haber Departamentos que no son administrados por ningún Empleado.\\
+        
+        \end{enumerate}
 
 \end{enumerate}
 \end{document}
