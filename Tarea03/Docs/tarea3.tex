@@ -49,6 +49,7 @@ Tarea 3: Modelo Relacional}
 				en otra relación que tenga como llave primaria esta llave foránea.\\
 
 
+				\pagebreak
 			\item[\textbf{iii.}] Investiga que cuáles son las Reglas de Codd y explica con tus propias palabras
 				cada una de ellas. Indica por qué consideras que son importantes.\\
 
@@ -95,6 +96,7 @@ Tarea 3: Modelo Relacional}
 						manejador relacional, este debe de poder aceptar ``comandos''
 						para todas sus operaciones.\\
 
+						\pagebreak
 					\item[6.] Todas las vistas que se pueden actualizar en teoría pueden
 						ser actualizadas por el sistema.\\
 
@@ -157,8 +159,12 @@ Tarea 3: Modelo Relacional}
 			\item[a.] Traduce el siguiente modelo Entidad – Relación a su correspondiente Modelo Relacional.
 
 				\includegraphics[scale=0.1]{../Diagramas/Ejercicio2a.jpg}
+
+Se cambio el nombre del atributo ``Numero''  por un nombre mas especifico para mejorar la lectura en el modelo relacional, por ejemplo para la Vivienda se eligió ``NumeroVivienda'', esto con cada tabla que tuviera como PK ``Numero''.
+En el caso de la tabla Celda, dado que ya teníamos el nombre NumeroNivel como su PK (pues Celda es una entidad débil con respecto a Nivel), al Nivel mandarle como FK su PK (dado que Tener es una relacion débil con atributos, esta deber ser manejada como el caso de una relacion 1:M) decidimos cambiar el nombre por solamente Numero.
 		\end{enumerate}
 
+		\pagebreak
 	\item Modelo Relacional e inserción de tuplas.
 
 		Considera el siguiente Modelo E/R:
@@ -189,11 +195,12 @@ Tarea 3: Modelo Relacional}
 					\hline
 				\end{tabular}
 
+				\pagebreak
 			\item[b.] Del inciso a) toma el MR que obtuviste para la cardinalidad M : N.
 				Asume que los atributos a1, b y ab1 son de tipo entero, mientras que a2, a3 y b1 son de tipo cadena.
 				Supón que la relación A tiene 4 tuplas con los siguientes valores
 				(2,’ww’,’a’), (4,’xx’,’b’), (6,’yy’,’c’), (8,’zz’,’d’) y la relación B tiene 5
-				tuplas identificadaspor los valores 17, 27, 37, 47, 57.
+				tuplas identificadas por los valores 17, 27, 37, 47, 57.
 				Los incisos que se presentan a continuación, representan un conjunto de tuplas a
 				insertar (en ese orden) en la relación AB, indica cuál conjunto se puede insertar
 				completamente en dicha relación. Justifica tu respuesta en cada caso.
@@ -207,10 +214,14 @@ Tarea 3: Modelo Relacional}
 				
 				\textbf{Respuesta}\\
 				Los conjuntos ii. y iv. quedan descartados ya que los atributos de ab son a1, a2, b, y ab1 (entero, cadena, entero y entero respectivamente). Es decir, tenemos tres atributos de tipo entero y uno de tipo cadena, y las tuplas indicadas en estos incisos no cumplen con estas características de tener 3 entradas enteras y una de cadena.\\
+
 				Respecto a los otros dos conjuntos, podríamos descartar alguno si suponemos cuál es el atributo que corresponde exactamente a a2.
 				Es decir, tomando como ejemplo a la tupla de A, (2,'ww','a'), si suponemos que 'ww' corresponde al atributo a2 (es decir que 'ww' funciona como llave de la tupla), entonces podríamos estar tentados a decir que la respuesta sería el inciso i. Sin embargo observemos que hay una tupla repetida, (4,'xx',27,25), por lo que este inciso no es un conjunto y a nosotros se nos pide seleccionar algún conjunto de i. ii. iii. y iv., por lo que descartaremos este inciso (además de que se nos pide \textbf{insertar} completamente el conjunto, que si lo viéramos como conjunto tendríamos que decir que son cuatro tuplas en total, y en este caso sí lo podríamos insertar totalmente, pero si lo que queremos es insertar dos tuplas iguales, esto no se permitiría porque serían datos redundantes).\\
-				Por lo que tendremos que suponer que, dentro del mismo ejemplo con la tupla de A, 'a' es el valor que corresponde al atributo a2 de la tupla. Entonces la respuesta sería el inciso iii. ya que para insertar tuplas en la relación ab necesitamos la llave primaria de la tupla de A y de la tupla de B, la de B la tenemos en la tercera entrada de las tuplas (es decir, 17, 27, 37, 47, 57) y las llaves de A también (2 y 'a', 4 y 'b', 6 y 'c', 8 y 'd').
 
+				Por lo que tendremos que suponer que, dentro del mismo ejemplo con la tupla de A, 'a' es el valor que corresponde al atributo a2 de la tupla. Entonces la respuesta sería el inciso iii. ya que para insertar tuplas en la relación ab necesitamos la llave primaria de la tupla de A y de la tupla de B, la de B la tenemos en la tercera entrada de las tuplas (es decir, 17, 27, 37, 47, 57) y las llaves de A también (2 y 'a', 4 y 'b', 6 y 'c', 8 y 'd').\\
+
+
+				\pagebreak
 			\item[c.] Del inciso a) toma como base el MR que obtuviste para la cardinalidad 1 : N.
 				Los incisos que se presentan a continuación representan un conjunto de tuplas a insertar
 				(en ese orden) en la relación B, indica cuál conjunto se puede insertar completamente
@@ -226,12 +237,17 @@ Tarea 3: Modelo Relacional}
 				\textbf{Respuesta}\\
 				Analizaremos uno a uno los incisos, y tendremos en cuenta 3 cosas en todos. La primera es que para insertar una tupla en la tabla de B el único atributo necesario en todas las tuplas es b, su llave primaria de dominio entero. \\
 				En segundo lugar, que para insertar una tupla en B que no esté relacionada con alguna tupla de A (o sea que tenga valor nulo en las llaves foráneas a1 y a2), el máximo número de atributos es dos. Es decir, una tupla no relacionada con otra de A se tendría que ver como (b, b1) como máximo, mientras que para insertar una tupla que \textbf{sí} esté relacionada con otra de A (o sea, que tenga valores no nulos en las llaves foráneas a1 y a2), el mínimo y máximo número de atributos que puede tener dicha tupla de B son 3 y 5 respectivamente, es decir que algunas tuplas de B se pueden ver como (b, a1, a2), también como (b, a1, a2, ab1), como (b, a1, a2, b1) y como (b, a1, a2, ab1, b1). Una consecuencia de esto es que una tupla de B de tres o más atributos necesariamente debe estar relacionada con alguna de A.\\
+
 				Y en tercer lugar que supondremos que la tabla de B está vacía y que la tabla de A contiene únicamente las tuplas que se especificaron en el inciso b).\\
+
 				\textbf{i.} No se pueden insertar estas tuplas porque tienen más de tres atributos, lo que significa que al menos los valores de los atributos a1 y a2 son no nulos, entonces estos atributos en conjunto deben representar una llave primaria en la tabla de A. Tomando como ejemplo la primera tupla, (2, 'f', 57, 'zz'), ninguna combinación de entero-cadena representa una llave primaria en la tabla de A. Por ejemplo ni (2, 'f') ni (2, 'zz') son llaves primarias en la tabla de A.\\
+
 				\textbf{ii.} No se puede insertar este conjunto en su totalidad. Una de las razones es porque, como intentamos intentar las tuplas en el orden presentado, podremos insertar la tupla (17, 'ww') ya que está en la forma de los dominios de (b, b1), sin embargo cuando lleguemos a la tupla (17, 'xx') no podremos insertar ambas tuplas al mismo tiempo porque no podemos tener llaves primarias repetidas.\\
-				\textbf{iii.} Estas tuplas sí podemos insertarlas bajo una suposición extra. Como estamos suponiendo que la tabla de A está llena como nos indica el inciso b) y en este no se especifica si los valores 'ww', ... , 'zz' corresponden al atributo a2 o al atributo a3, si suponemos que corresponden a a2, entonces sí podemos insertar las tuplas porque todas cumplen estar en el formato\\
-				(b, b1, a1, a2) $\sim$ (entero, cadena, entero, cadena) \\
-				\textbf{iv.} Este conjunto no se puede insertar, ya que aunque como en el conjunto anterior, las tuplas están en un formato válido para la inserción en B respecto a los dominios ((entero, cadena, entero, cadena)), como hay más de 3 atributos, necesariamente debe haber llaves para una tupla de A, y en ninguna tupla de este conjunto las hay (aún si supusiéramos que las llaves de A correspondientes a a2 son 'a', 'b', 'c'. 'd'), en particular en la primera tupla no hay ninguna combinación entero-cadena que cumpla ser llave de una tupla válida de A. Por ejemplo (8, 'a'), (8, 'f') no es llave de ninguna tupla de A.
+
+				\textbf{iii.} Estas tuplas sí podemos insertarlas bajo una suposición extra. Como estamos suponiendo que la tabla de A está llena como nos indica el inciso b) y en este no se especifica si los valores 'ww', ... , 'zz' corresponden al atributo a2 o al atributo a3, si suponemos que corresponden a a2, entonces sí podemos insertar las tuplas porque todas cumplen estar en el formato (b, b1, a1, a2) $\sim$ (entero, cadena, entero, cadena) \\
+
+				\textbf{iv.} Este conjunto no se puede insertar, ya que aunque como en el conjunto anterior, las tuplas están en un formato válido para la inserción en B respecto a los dominios ((entero, cadena, entero, cadena)), como hay más de 3 atributos, necesariamente debe haber llaves para una tupla de A, y en ninguna tupla de este conjunto las hay (aún si supusiéramos que las llaves de A correspondientes a a2 son 'a', 'b', 'c'. 'd'), en particular en la primera tupla no hay ninguna combinación entero-cadena que cumpla ser llave de una tupla válida de A. Por ejemplo (8, 'a'), (8, 'f') no es llave de ninguna tupla de A.\\
+
 
 			\item[d.] Considera el mismo escenario del inciso b para las relaciones A y B.
 				Toma como base el Modelo Relacional que obtuviste para la cardinalidad 1:1.
@@ -246,11 +262,14 @@ Tarea 3: Modelo Relacional}
 				Entonces el conjunto de 4 tuplas que sí se puede insertar en A que proponemos es:\\
 				(1, 'e', 17); (3, 'f', 27); (5, 'g', 37); (7, 'h', 47)\\
 				todas en formato (a1, a2, b) y con los atributos correspondientes a a3 y ab1 con valor nulo. Estas se pueden insertar ya que tienen llave primaria de una tupla que no existe en A, además de que como A está obligada a relacionarse con B por la participación total, todas tienen asignada una llave de alguna tupla de B, y como todas estas llaves de B son diferentes para cada tupla también cumplen con la cardinalidad 1:1.\\
+
 				Mientras que el conjunto de 4 tuplas que no se puede insertar que proponemos es:\\
 				(1); (2); (3); (4)\\
+
 				No se pueden insertar porque en particular la primera tupla de estas no se puede insertar ya que ni siquiera cuenta con llave primaria, porque la llave primaria de todas las tuplas de A deben constar de un entero y una cadena y en este caso sólo tenemos un entero.
 		\end{enumerate}
 
+		\pagebreak
 	\item Modelo Relacional y restricciones de integridad.\\
 
 		A continuación, se encuentra el Modelo Relacional de un departamento de recursos humanos de alguna empresa.
@@ -284,6 +303,7 @@ Tarea 3: Modelo Relacional}
             
             No. Aunque es evidente que esto no se debería permitir, el esquema por sí solo no impone esta restricción.\\
             
+			\pagebreak
             \item[g.] Dado un empleado, podemos identificar exactamente el Departamento donde trabaja.\\
             
             Si*, basta ver en Trabajar todas las tuplas que tengan en NúmEmpleado el mismo valor que el NúmEmpleado de nuestro Empleado y los departamentos que compartan NúmDepto con el NúmDepto de dichas tuplas, y así podemos identificar los departamentos en los que trabaja dicho Empleado. \\
