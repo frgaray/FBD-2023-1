@@ -1,0 +1,5 @@
+\list <- list databases
+\c <- connect to a database
+\dt <- list tables
+\d <- describe a table
+\i <- execute file
