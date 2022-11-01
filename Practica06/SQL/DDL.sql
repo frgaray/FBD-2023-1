@@ -203,5 +203,3 @@ ALTER TABLE EntregarVentaElectronica ALTER COLUMN NombrePlanta SET NOT NULL;
 ALTER TABLE EstarEn ALTER COLUMN NombreVivero SET NOT NULL;
 ALTER TABLE EstarEn ALTER COLUMN NombrePlanta SET NOT NULL;
 ALTER TABLE EstarEn ALTER COLUMN NumeroDePlantasVivero SET NOT NULL;
-
---faltan restricciones para:
