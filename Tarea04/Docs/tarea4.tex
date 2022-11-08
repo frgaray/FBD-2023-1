@@ -52,7 +52,7 @@ Tarea 4: Álgebra Relacional}
 		\end{minipage}
 
 		Para las siguientes expresiones de álgebra relacional completa la tabla con el número de tuplas.
-		Deberas indicar las tablas resultantes en cada caso.\\
+		Deberás indicar las tablas resultantes en cada caso.\\
 		\begin{tabular}{|l|l|}
 			\hline
 			Expresión		& Cardinalidad del resultado\\
@@ -252,7 +252,84 @@ Tarea 4: Álgebra Relacional}
 
 		\end{itemize}
 
+
 	\pagebreak
 	\item[2.] Tienda de productos en línea.
+		%\textbf{Consultas}\\
+		%\begin{enumerate}
+		%	\item [a.]
+		%	\item [b.]
+		%	\item [c.]
+		%	\item [d.]
+		%	\item [e.]
+		%	\item [f.]
+		%	\item [g.]
+		%	\item [h.]
+		%	\item [i.]
+		%	\item [j.]
+		%\end{enumerate}
+
+		\textbf{Operaciones de mantenimiento de datos}\\
+		\begin{enumerate}
+			\item [a.] Borrar toda la información del cliente \texttt{Paul Stevenson}\\
+				Consulta: $Customer1 = Customer - \sigma_{CustomerName='Paul Stevenson'}(Customer)$\\
+
+				\includegraphics[scale=0.4]{assets/mantenimiento_datos-a.png}
+
+			\item [b.] Borrar todas las ordenes de la ciudad de \texttt{Utah} que tengan artículos
+				de la subcategoría \texttt{Tables}.\\
+				Consulta:\\
+				$A = \pi_{CustomerID} (\sigma_{State = 'Utah'} Customer)$\\
+				$B = \pi_{ProductID} (\sigma_{Subcategory = 'Tables'} Products)$\\
+				$Orders1 = Orders - (Orders \bowtie A \bowtie B)$\\
+
+				\includegraphics[scale=0.4]{assets/mantenimiento_datos-b.png}
+
+			\item [c.] La clienta \texttt{Lena Cacioppo} compró un producto de cada subcategoría de \texttt{Furniture}.
+				Deberás elegir los productos que desees e indicar como parte de esta consulta,
+				la información que se agregará en cada caso.\\
+
+				Elegimos un producto de cada categoría al azar y obtuvimos su id. Luego construimos una
+				relación en línea (juntándola con la id de la clienta) y la unimos a Orders.\\
+
+				\pagebreak
+				Información agregada: (Orders)\\
+
+				\begin{table}[h!]
+				\begin{tabular}{|l|l|l|l|l|l|l|}
+					\hline
+					OrderID				&OrderDate	&ShipDate	&ShipMode		&CustomerID	&ProductID			&Quantity\\
+					\hline
+					'US-2022-000001'	&2022-11-06	&2022-11-08	&First Class	&LC-16870	&FUR-BO-10001798	&3\\
+					'US-2022-000002'	&2022-11-06	&2022-11-08	&First Class	&LC-16870	&OFF-LA-10000240	&3\\
+					'US-2022-000003'	&2022-11-06	&2022-11-08	&First Class	&LC-16870	&TEC-PH-10001949	&3\\
+					\hline
+				\end{tabular}
+				\end{table}
+
+				La consulta quedo:\\
+				\includegraphics[scale=0.4]{assets/mantenimiento_datos-c1.png}
+
+				\includegraphics[scale=0.4]{assets/mantenimiento_datos-c2.png}
+
+			\item [d.] Aumentar los precios de productos de la subcategoría \texttt{Phones} en un \texttt{8\%}.\\
+				Consulta:\\
+				$A = \sigma_{Subcategory = 'Phones'} (Products)$\\
+				$U = \pi_{ProductID, Category, Subcategory, price\leftarrow price * 1.08} A$\\
+				$Products = (Products - A) \cup U$\\
+
+				\includegraphics[scale=0.4]{assets/mantenimiento_datos-d.png}
+
+				\pagebreak
+			\item [e.] Disminuir \texttt{8\%} los precios de los productos de la categoría \texttt{Furniture}
+				cuyo precio sea de \texttt{\$600} a \texttt{\$900}.
+				Aumentar en un \texttt{5\%} los precios de los productos de
+				la categoría Technology y subcategoría Machines.\\
+
+				\includegraphics[scale=0.4]{assets/mantenimiento_datos-e1.png}
+
+				\includegraphics[scale=0.4]{assets/mantenimiento_datos-e2.png}
+		\end{enumerate}
 \end{enumerate}
 \end{document}
+
