@@ -242,17 +242,17 @@ COMMENT ON COLUMN ViveroTelefono.NombreVivero IS 'Nombre del vivero';
 COMMENT ON COLUMN ViveroTelefono.Telefono IS 'Numero telefonico';
 COMMENT ON CONSTRAINT ViveroTelefono_pkey ON ViveroTelefono IS 'Llave primaria de la tabla ViveroTelefono';
 
-COMMENT ON TABLE Cliente IS '';
-COMMENT ON COLUMN Cliente.IdCliente IS '';
-COMMENT ON COLUMN Cliente.FechaNacimiento IS '';
-COMMENT ON COLUMN Cliente.Nombre IS '';
-COMMENT ON COLUMN Cliente.ApellidoP IS '';
-COMMENT ON COLUMN Cliente.ApellidoM IS '';
-COMMENT ON COLUMN Cliente.Estado IS '';
-COMMENT ON COLUMN Cliente.CP IS '';
-COMMENT ON COLUMN Cliente.Calle IS '';
-COMMENT ON COLUMN Cliente.NumeroExterior IS '';
-COMMENT ON CONSTRAINT Cliente_pkey ON Cliente IS '';
+COMMENT ON TABLE Cliente IS 'Tabla que contiene la informacion de los clientes';
+COMMENT ON COLUMN Cliente.IdCliente IS 'Identificador del cliente';
+COMMENT ON COLUMN Cliente.FechaNacimiento IS 'Fecha de nacimiento del cliente';
+COMMENT ON COLUMN Cliente.Nombre IS 'Nombre(s) del cliente';
+COMMENT ON COLUMN Cliente.ApellidoP IS 'Apellido paterno del cliente';
+COMMENT ON COLUMN Cliente.ApellidoM IS 'Apellido materno del cliente';
+COMMENT ON COLUMN Cliente.Estado IS 'Estado en el que vive el cliente';
+COMMENT ON COLUMN Cliente.CP IS 'Codigo postal de la direccion del cliente';
+COMMENT ON COLUMN Cliente.Calle IS 'Calle en la que vive el cliente';
+COMMENT ON COLUMN Cliente.NumeroExterior IS 'Numero exterior de la direccion del cliente';
+COMMENT ON CONSTRAINT Cliente_pkey ON Cliente IS 'Llave primaria de la tabla Cliente';
 
 COMMENT ON TABLE ClienteTelefono IS '';
 COMMENT ON COLUMN ClienteTelefono.IdCliente IS '';
