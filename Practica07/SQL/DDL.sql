@@ -233,3 +233,7 @@ COMMENT ON COLUMN Vivero.Estado IS '';
 COMMENT ON COLUMN Vivero.CP IS '';
 COMMENT ON COLUMN Vivero.Calle IS '';
 COMMENT ON COLUMN Vivero.NumeroExterior IS '';
+
+COMMENT ON TABLE ViveroTelefono IS '';
+COMMENT ON COLUMN ViveroTelefono.NombreVivero IS '';
+COMMENT ON COLUMN ViveroTelefono.Telefono IS '';
