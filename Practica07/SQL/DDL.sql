@@ -237,10 +237,10 @@ COMMENT ON COLUMN Vivero.Calle IS 'Calle en la que se encuentra el vivero';
 COMMENT ON COLUMN Vivero.NumeroExterior IS 'Numero exterior de la direccion del vivero';
 COMMENT ON CONSTRAINT Vivero_pkey ON Vivero Is 'Llave primaria de la tabla Vivero';
 
-COMMENT ON TABLE ViveroTelefono IS '';
-COMMENT ON COLUMN ViveroTelefono.NombreVivero IS '';
-COMMENT ON COLUMN ViveroTelefono.Telefono IS '';
-COMMENT ON CONSTRAINT ViveroTelefono_pkey ON ViveroTelefono IS '';
+COMMENT ON TABLE ViveroTelefono IS 'Tabla que contiene los telefonos correspondientes a los viveros';
+COMMENT ON COLUMN ViveroTelefono.NombreVivero IS 'Nombre del vivero';
+COMMENT ON COLUMN ViveroTelefono.Telefono IS 'Numero telefonico';
+COMMENT ON CONSTRAINT ViveroTelefono_pkey ON ViveroTelefono IS 'Llave primaria de la tabla ViveroTelefono';
 
 COMMENT ON TABLE Cliente IS '';
 COMMENT ON COLUMN Cliente.IdCliente IS '';
