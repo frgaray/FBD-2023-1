@@ -252,3 +252,15 @@ COMMENT ON COLUMN Cliente.NumeroExterior IS ''
 COMMENT ON TABLE ClienteTelefono IS '';
 COMMENT ON COLUMN ClienteTelefono.IdCliente IS '';
 COMMENT ON COLUMN ClienteTelefono.Telefono IS '';
+
+COMMENT ON TABLE VentaElectronica IS '';
+COMMENT ON COLUMN VentaElectronica.IdVentaElectronica IS '';
+COMMENT ON COLUMN VentaElectronica.IdCliente IS '';
+COMMENT ON COLUMN VentaElectronica.NumeroProductos IS '';
+COMMENT ON COLUMN VentaElectronica.MetodoPago IS '';
+COMMENT ON COLUMN VentaElectronica.NumeroSeguimiento IS '';
+COMMENT ON COLUMN VentaElectronica.FechaPedido IS '';
+COMMENT ON COLUMN VentaElectronica.Estado IS '';
+COMMENT ON COLUMN VentaElectronica.CP IS '';
+COMMENT ON COLUMN VentaElectronica.Calle IS '';
+COMMENT ON COLUMN VentaElectronica.NumeroExterior IS '';
