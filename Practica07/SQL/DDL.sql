@@ -221,11 +221,11 @@ COMMENT ON COLUMN Planta.Cuidado IS 'Cuidados especiales que requiere cada plant
 COMMENT ON COLUMN Planta.Genero IS 'Genero de la planta (Genero de orden cientifico)';
 COMMENT ON COLUMN Planta.Precio IS 'Costo de la planta';
 COMMENT ON COLUMN Planta.TipoAsoleo IS 'Asoleo que requiere recibir la planta';
-COMMENT ON COLUMN Planta.TipoOrigen IS '';
-COMMENT ON COLUMN Planta.FechaGerminacion IS '';
-COMMENT ON COLUMN Planta.IdVentaFisica IS '';
-COMMENT ON COLUMN Planta.IdVentaElectronica IS '';
-COMMENT ON CONSTRAINT Planta_pkey ON Planta IS '';
+COMMENT ON COLUMN Planta.TipoOrigen IS 'Sustrato que requiere la planta';
+COMMENT ON COLUMN Planta.FechaGerminacion IS 'Fecha en la que la planta germina';
+COMMENT ON COLUMN Planta.IdVentaFisica IS '';--A decir verdad no tengo idea de que onda con esto
+COMMENT ON COLUMN Planta.IdVentaElectronica IS '';--Lo mismo aqui
+COMMENT ON CONSTRAINT Planta_pkey ON Planta IS 'Llave primaria de la tabla Planta';
 COMMENT ON CONSTRAINT dinero ON Planta IS 'Nos aseguramos que el valor de la columna Precio no sea negativo';
 
 COMMENT ON TABLE Vivero IS '';
