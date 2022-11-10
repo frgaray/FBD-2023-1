@@ -259,18 +259,18 @@ COMMENT ON COLUMN ClienteTelefono.IdCliente IS 'Identificador del cliente al que
 COMMENT ON COLUMN ClienteTelefono.Telefono IS 'Numero telefonico';
 COMMENT ON CONSTRAINT ClienteTelefono_pkey IS 'Llave primaria de la tabla ClienteTelefono';
 
-COMMENT ON TABLE VentaElectronica IS '';
-COMMENT ON COLUMN VentaElectronica.IdVentaElectronica IS '';
-COMMENT ON COLUMN VentaElectronica.IdCliente IS '';
-COMMENT ON COLUMN VentaElectronica.NumeroProductos IS '';
-COMMENT ON COLUMN VentaElectronica.MetodoPago IS '';
-COMMENT ON COLUMN VentaElectronica.NumeroSeguimiento IS '';
-COMMENT ON COLUMN VentaElectronica.FechaPedido IS '';
-COMMENT ON COLUMN VentaElectronica.Estado IS '';
-COMMENT ON COLUMN VentaElectronica.CP IS '';
-COMMENT ON COLUMN VentaElectronica.Calle IS '';
-COMMENT ON COLUMN VentaElectronica.NumeroExterior IS '';
-COMMENT ON CONSTRAINT VentaElectronica_pkey IS '';
+COMMENT ON TABLE VentaElectronica IS 'Tabla contiene la informacion de las ventas electronicas';
+COMMENT ON COLUMN VentaElectronica.IdVentaElectronica IS 'Identificador de la venta';
+COMMENT ON COLUMN VentaElectronica.IdCliente IS 'Identificador del cliente que efectua la venta';
+COMMENT ON COLUMN VentaElectronica.NumeroProductos IS 'Numero de productos en la venta';
+COMMENT ON COLUMN VentaElectronica.MetodoPago IS 'Metodo de pago de la venta';
+COMMENT ON COLUMN VentaElectronica.NumeroSeguimiento IS 'Numero de seguimiento del envio de la venta';
+COMMENT ON COLUMN VentaElectronica.FechaPedido IS 'Fecha en la que se efectuo la venta';
+COMMENT ON COLUMN VentaElectronica.Estado IS 'Estado al que se envia la venta';
+COMMENT ON COLUMN VentaElectronica.CP IS 'Codigo postal al que se envia la venta';
+COMMENT ON COLUMN VentaElectronica.Calle IS 'Calle de la direccion del envio';
+COMMENT ON COLUMN VentaElectronica.NumeroExterior IS 'Numero exterior de la direccion del envio';
+COMMENT ON CONSTRAINT VentaElectronica_pkey IS 'Llave primaria de la tabla VentaElectronica';
 
 COMMENT ON TABLE Empleado IS '';
 COMMENT ON COLUMN Empleado.IdEmpleado IS '';
