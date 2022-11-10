@@ -248,3 +248,7 @@ COMMENT ON COLUMN Cliente.Estado IS '';
 COMMENT ON COLUMN Cliente.CP IS '';
 COMMENT ON COLUMN Cliente.Calle IS '';
 COMMENT ON COLUMN Cliente.NumeroExterior IS ''
+
+COMMENT ON TABLE ClienteTelefono IS '';
+COMMENT ON COLUMN ClienteTelefono.IdCliente IS '';
+COMMENT ON COLUMN ClienteTelefono.Telefono IS '';
