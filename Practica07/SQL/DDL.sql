@@ -247,7 +247,7 @@ COMMENT ON COLUMN Cliente.ApellidoM IS '';
 COMMENT ON COLUMN Cliente.Estado IS '';
 COMMENT ON COLUMN Cliente.CP IS '';
 COMMENT ON COLUMN Cliente.Calle IS '';
-COMMENT ON COLUMN Cliente.NumeroExterior IS ''
+COMMENT ON COLUMN Cliente.NumeroExterior IS '';
 
 COMMENT ON TABLE ClienteTelefono IS '';
 COMMENT ON COLUMN ClienteTelefono.IdCliente IS '';
@@ -281,7 +281,7 @@ COMMENT ON COLUMN Empleado.Salario IS '';
 
 COMMENT ON TABLE EmpleadoTelefono IS '';
 COMMENT ON COLUMN EmpleadoTelefono.IdEmpleado IS '';
-COMMENT ON COLUMN EmpleadoTelefono.CorreoElectronico IS '';
+COMMENT ON COLUMN EmpleadoTelefono.TELEFONO IS '';
 
 COMMENT ON TABLE EmpleadoCorreoElectronico IS '';
 COMMENT ON COLUMN EmpleadoCorreoElectronico.IdEmpleado IS '';
