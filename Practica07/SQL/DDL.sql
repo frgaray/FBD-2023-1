@@ -226,6 +226,7 @@ COMMENT ON COLUMN Planta.FechaGerminacion IS '';
 COMMENT ON COLUMN Planta.IdVentaFisica IS '';
 COMMENT ON COLUMN Planta.IdVentaElectronica IS '';
 COMMENT ON CONSTRAINT Planta_pkey ON Planta IS '';
+COMMENT ON CONSTRAINT dinero ON Planta IS 'Nos aseguramos que el valor de la columna Precio no sea negativo';
 
 COMMENT ON TABLE Vivero IS '';
 COMMENT ON COLUMN Vivero.NombreVivero IS '';
@@ -285,6 +286,7 @@ COMMENT ON COLUMN Empleado.NumeroExterior IS '';
 COMMENT ON COLUMN Empleado.Rol IS '';
 COMMENT ON COLUMN Empleado.Salario IS '';
 COMMENT ON CONSTRAINT Empleado_pkey ON Empleado IS '';
+COMMENT ON CONSTRAINT dinero ON Empleado IS 'Nos aseguramos que el valor de la columna Precio no sea negativo';
 
 COMMENT ON TABLE EmpleadoTelefono IS '';
 COMMENT ON COLUMN EmpleadoTelefono.IdEmpleado IS '';
