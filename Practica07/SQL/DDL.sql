@@ -264,3 +264,17 @@ COMMENT ON COLUMN VentaElectronica.Estado IS '';
 COMMENT ON COLUMN VentaElectronica.CP IS '';
 COMMENT ON COLUMN VentaElectronica.Calle IS '';
 COMMENT ON COLUMN VentaElectronica.NumeroExterior IS '';
+
+COMMENT ON TABLE Empleado IS '';
+COMMENT ON COLUMN Empleado.IdEmpleado IS '';
+COMMENT ON COLUMN Empleado.NombreVivero IS '';
+COMMENT ON COLUMN Empleado.FechaNacimiento IS '';
+COMMENT ON COLUMN Empleado.Nombre IS '';
+COMMENT ON COLUMN Empleado.ApellidoP IS '';
+COMMENT ON COLUMN Empleado.ApellidoM IS '';
+COMMENT ON COLUMN Empleado.Estado IS '';
+COMMENT ON COLUMN Empleado.CP IS '';
+COMMENT ON COLUMN Empleado.Calle IS '';
+COMMENT ON COLUMN Empleado.NumeroExterior IS '';
+COMMENT ON COLUMN Empleado.Rol IS '';
+COMMENT ON COLUMN Empleado.Salario IS '';
