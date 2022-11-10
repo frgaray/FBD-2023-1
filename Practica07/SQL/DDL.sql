@@ -271,6 +271,7 @@ COMMENT ON COLUMN VentaElectronica.Calle IS '';
 COMMENT ON COLUMN VentaElectronica.NumeroExterior IS '';
 COMMENT ON CONSTRAINT VentaElectronica_pkey IS '';
 
+COMMENT ON TABLE Empleado IS '';
 COMMENT ON COLUMN Empleado.IdEmpleado IS '';
 COMMENT ON COLUMN Empleado.NombreVivero IS '';
 COMMENT ON COLUMN Empleado.FechaNacimiento IS '';
