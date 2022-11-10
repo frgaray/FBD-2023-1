@@ -302,3 +302,8 @@ COMMENT ON COLUMN EntregarVentaFisica.NombrePlanta IS '';
 COMMENT ON TABLE EntregarVentaElectronica IS '';
 COMMENT ON COLUMN EntregarVentaElectronica.IdVentaElectronica IS '';
 COMMENT ON COLUMN EntregarVentaElectronica.NombrePlanta IS '';
+
+COMMENT ON TABLE EstarEn IS '';
+COMMENT ON COLUMN EstarEn.NombreVivero IS '';
+COMMENT ON COLUMN EstarEn.NombrePlanta IS '';
+COMMENT ON COLUMN EstarEn.NumeroDePlantasVivero IS '';
