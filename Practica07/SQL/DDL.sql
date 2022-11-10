@@ -298,24 +298,24 @@ COMMENT ON COLUMN EmpleadoCorreoElectronico.IdEmpleado IS 'Identificador del emp
 COMMENT ON COLUMN EmpleadoCorreoElectronico.CorreoElectronico IS 'Direccion de correo electronico';
 COMMENT ON CONSTRAINT EmpleadoCorreoElectronico_pkey ON EmpleadoCorreoElectronico IS 'Llave primaria de la tabla EmpleadoCorreoElectronico';
 
-COMMENT ON TABLE VentaFisica IS '';
-COMMENT ON COLUMN VentaFisica.IdVentaFisica IS '';
-COMMENT ON COLUMN VentaFisica.IdCliente IS '';
-COMMENT ON COLUMN VentaFisica.AyudarIdEmpleado IS '';
-COMMENT ON COLUMN VentaFisica.CobrarIdEmpleado IS '';
-COMMENT ON COLUMN VentaFisica.NumeroProductos IS '';
-COMMENT ON COLUMN VentaFisica.MetodoPago IS '';
-COMMENT ON CONSTRAINT VentaFisica_pkey ON VentaFisica IS '';
+COMMENT ON TABLE VentaFisica IS 'Tabla que contiene la informacion de las ventas fisicas';
+COMMENT ON COLUMN VentaFisica.IdVentaFisica IS 'Identificador de la venta fisica';
+COMMENT ON COLUMN VentaFisica.IdCliente IS 'Identificador del cliente que realiza la venta';
+COMMENT ON COLUMN VentaFisica.AyudarIdEmpleado IS 'Identificador del empleado que ayuda con la venta';
+COMMENT ON COLUMN VentaFisica.CobrarIdEmpleado IS 'Identificador del empleado que cobra la venta';
+COMMENT ON COLUMN VentaFisica.NumeroProductos IS 'Numero de productos de la venta';
+COMMENT ON COLUMN VentaFisica.MetodoPago IS 'Metodo de pago con el que se realizo la venta';
+COMMENT ON CONSTRAINT VentaFisica_pkey ON VentaFisica IS 'Llave primaria de la tabla VentaFisica';
 
-COMMENT ON TABLE EntregarVentaFisica IS '';
-COMMENT ON COLUMN EntregarVentaFisica.IdVentaFisica IS '';
-COMMENT ON COLUMN EntregarVentaFisica.NombrePlanta IS '';
+COMMENT ON TABLE EntregarVentaFisica IS 'Tabla que contiene la informacion de las entregas de plantas para las ventas fisicas';
+COMMENT ON COLUMN EntregarVentaFisica.IdVentaFisica IS 'Identificador de la venta fisica';
+COMMENT ON COLUMN EntregarVentaFisica.NombrePlanta IS 'Nombre de la planta';
 
-COMMENT ON TABLE EntregarVentaElectronica IS '';
-COMMENT ON COLUMN EntregarVentaElectronica.IdVentaElectronica IS '';
-COMMENT ON COLUMN EntregarVentaElectronica.NombrePlanta IS '';
+COMMENT ON TABLE EntregarVentaElectronica IS 'Tabla que contiene la informacion de las entregas de plantas para las ventas electronicas';
+COMMENT ON COLUMN EntregarVentaElectronica.IdVentaElectronica IS 'Identificador de la venta electronica';
+COMMENT ON COLUMN EntregarVentaElectronica.NombrePlanta IS 'Nombre de la planta';
 
-COMMENT ON TABLE EstarEn IS '';
-COMMENT ON COLUMN EstarEn.NombreVivero IS '';
-COMMENT ON COLUMN EstarEn.NombrePlanta IS '';
-COMMENT ON COLUMN EstarEn.NumeroDePlantasVivero IS '';
+COMMENT ON TABLE EstarEn IS 'Tabla que contiene las existencias de plantas en cada vivero';
+COMMENT ON COLUMN EstarEn.NombreVivero IS 'Nombre del vivero';
+COMMENT ON COLUMN EstarEn.NombrePlanta IS 'Nombre de la planta';
+COMMENT ON COLUMN EstarEn.NumeroDePlantasVivero IS 'Cantidad de plantas en vivero';
