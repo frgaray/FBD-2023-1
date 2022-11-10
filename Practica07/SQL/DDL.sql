@@ -238,7 +238,7 @@ COMMENT ON COLUMN Vivero.NumeroExterior IS 'Numero exterior de la direccion del 
 COMMENT ON CONSTRAINT Vivero_pkey ON Vivero Is 'Llave primaria de la tabla Vivero';
 
 COMMENT ON TABLE ViveroTelefono IS 'Tabla que contiene los telefonos correspondientes a los viveros';
-COMMENT ON COLUMN ViveroTelefono.NombreVivero IS 'Nombre del vivero';
+COMMENT ON COLUMN ViveroTelefono.NombreVivero IS 'Nombre del vivero al que pertenece el telefono';
 COMMENT ON COLUMN ViveroTelefono.Telefono IS 'Numero telefonico';
 COMMENT ON CONSTRAINT ViveroTelefono_pkey ON ViveroTelefono IS 'Llave primaria de la tabla ViveroTelefono';
 
@@ -254,10 +254,10 @@ COMMENT ON COLUMN Cliente.Calle IS 'Calle en la que vive el cliente';
 COMMENT ON COLUMN Cliente.NumeroExterior IS 'Numero exterior de la direccion del cliente';
 COMMENT ON CONSTRAINT Cliente_pkey ON Cliente IS 'Llave primaria de la tabla Cliente';
 
-COMMENT ON TABLE ClienteTelefono IS '';
-COMMENT ON COLUMN ClienteTelefono.IdCliente IS '';
-COMMENT ON COLUMN ClienteTelefono.Telefono IS '';
-COMMENT ON CONSTRAINT ClienteTelefono_pkey IS '';
+COMMENT ON TABLE ClienteTelefono IS 'Tabla que contiene los telefonos de los clientes';
+COMMENT ON COLUMN ClienteTelefono.IdCliente IS 'Identificador del cliente al que pertenece el telefono';
+COMMENT ON COLUMN ClienteTelefono.Telefono IS 'Numero telefonico';
+COMMENT ON CONSTRAINT ClienteTelefono_pkey IS 'Llave primaria de la tabla ClienteTelefono';
 
 COMMENT ON TABLE VentaElectronica IS '';
 COMMENT ON COLUMN VentaElectronica.IdVentaElectronica IS '';
