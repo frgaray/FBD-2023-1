@@ -212,3 +212,14 @@ ALTER TABLE EntregarVentaElectronica ALTER COLUMN NombrePlanta SET NOT NULL;
 ALTER TABLE EstarEn ALTER COLUMN NombreVivero SET NOT NULL;
 ALTER TABLE EstarEn ALTER COLUMN NombrePlanta SET NOT NULL;
 ALTER TABLE EstarEn ALTER COLUMN NumeroDePlantasVivero SET NOT NULL;
+
+COMMENT ON TABLE Planta IS 'Tabla que contiene la informacion de las Plantas';
+COMMENT ON COLUMN Planta.NombrePlanta IS 'Nombre de la planta ';
+COMMENT ON COLUMN Planta.Cuidado IS 'Cuidados especiales que requiere cada planta';
+COMMENT ON COLUMN Planta.Genero IS 'Genero de la planta (Genero de orden cientifico)';
+COMMENT ON COLUMN Planta.Precio IS 'Costo de la planta';
+COMMENT ON COLUMN Planta.TipoAsoleo IS 'Asoleo que requiere recibir la planta';
+COMMENT ON COLUMN Planta.TipoOrigen IS '';
+COMMENT ON COLUMN Planta.FechaGerminacion IS '';
+COMMENT ON COLUMN Planta.IdVentaFisica IS '';
+COMMENT ON COLUMN Planta.IdVentaElectronica IS '';
