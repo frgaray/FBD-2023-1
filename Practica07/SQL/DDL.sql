@@ -213,6 +213,8 @@ ALTER TABLE EstarEn ALTER COLUMN NombreVivero SET NOT NULL;
 ALTER TABLE EstarEn ALTER COLUMN NombrePlanta SET NOT NULL;
 ALTER TABLE EstarEn ALTER COLUMN NumeroDePlantasVivero SET NOT NULL;
 
+--Comments
+
 COMMENT ON TABLE Planta IS 'Tabla que contiene la informacion de las Plantas';
 COMMENT ON COLUMN Planta.NombrePlanta IS 'Nombre de la planta ';
 COMMENT ON COLUMN Planta.Cuidado IS 'Cuidados especiales que requiere cada planta';
@@ -223,3 +225,11 @@ COMMENT ON COLUMN Planta.TipoOrigen IS '';
 COMMENT ON COLUMN Planta.FechaGerminacion IS '';
 COMMENT ON COLUMN Planta.IdVentaFisica IS '';
 COMMENT ON COLUMN Planta.IdVentaElectronica IS '';
+
+COMMENT ON TABLE Vivero IS '';
+COMMENT ON COLUMN Vivero.NombreVivero IS '';
+COMMENT ON COLUMN Vivero.FechaApertura IS '';
+COMMENT ON COLUMN Vivero.Estado IS '';
+COMMENT ON COLUMN Vivero.CP IS '';
+COMMENT ON COLUMN Vivero.Calle IS '';
+COMMENT ON COLUMN Vivero.NumeroExterior IS '';
