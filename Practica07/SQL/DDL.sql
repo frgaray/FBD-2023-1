@@ -121,17 +121,17 @@ CREATE TABLE EstarEn (
 
 --- Restricciones:
 --PK
-ALTER TABLE Planta ADD PRIMARY KEY (NombrePlanta);
-ALTER TABLE Vivero ADD PRIMARY KEY (NombreVivero);
-ALTER TABLE ViveroTelefono ADD PRIMARY KEY (NombreVivero, Telefono);
-ALTER TABLE Cliente ADD PRIMARY KEY (IdCliente);
-ALTER TABLE ClienteTelefono ADD PRIMARY KEY (IdCliente, Telefono);
-ALTER TABLE ClienteCorreoElectronico ADD PRIMARY KEY (IdCliente, CorreoElectronico);
-ALTER TABLE VentaElectronica ADD PRIMARY KEY (IdVentaElectronica);
-ALTER TABLE Empleado ADD PRIMARY KEY (IdEmpleado);
-ALTER TABLE EmpleadoTelefono ADD PRIMARY KEY (IdEmpleado, Telefono);
-ALTER TABLE EmpleadoCorreoElectronico ADD PRIMARY KEY (IdEmpleado, CorreoElectronico);
-ALTER TABLE VentaFisica ADD PRIMARY KEY (IdVentaFisica);
+ALTER TABLE Planta ADD CONSTRAINT planta_pkey PRIMARY KEY (NombrePlanta);
+ALTER TABLE Vivero ADD CONSTRAINT NombreVivero_pkey PRIMARY KEY (NombreVivero);
+ALTER TABLE ViveroTelefono ADD CONSTRAINT ViveroTelefono_pkey PRIMARY KEY (NombreVivero, Telefono);
+ALTER TABLE Cliente ADD CONSTRAINT Cliente_pkey PRIMARY KEY (IdCliente);
+ALTER TABLE ClienteTelefono ADD CONSTRAINT ClienteTelefono_pkey PRIMARY KEY (IdCliente, Telefono);
+ALTER TABLE ClienteCorreoElectronico ADD CONSTRAINT ClienteCorreoElectronico_pkey PRIMARY KEY (IdCliente, CorreoElectronico);
+ALTER TABLE VentaElectronica ADD CONSTRAINT VentaElectronica_pkey PRIMARY KEY (IdVentaElectronica);
+ALTER TABLE Empleado ADD CONSTRAINT Empleado_pkey PRIMARY KEY (IdEmpleado);
+ALTER TABLE EmpleadoTelefono ADD CONSTRAINT EmpleadoTelefono_pkey PRIMARY KEY (IdEmpleado, Telefono);
+ALTER TABLE EmpleadoCorreoElectronico ADD CONSTRAINT EmpleadoCorreoElectronico_pkey PRIMARY KEY (IdEmpleado, CorreoElectronico);
+ALTER TABLE VentaFisica ADD CONSTRAINT VentaFisica_pkey PRIMARY KEY (IdVentaFisica);
 
 --FK
 ALTER TABLE Planta ADD FOREIGN KEY (IdVentaFisica) REFERENCES VentaFisica(IdVentaFisica);
@@ -161,7 +161,7 @@ ALTER TABLE Planta ALTER COLUMN Precio SET NOT NULL;
 ALTER TABLE Planta ALTER COLUMN TipoAsoleo SET NOT NULL;
 ALTER TABLE Planta ALTER COLUMN TipoOrigen SET NOT NULL;
 ALTER TABLE Planta ALTER COLUMN FechaGerminacion SET NOT NULL;
-ALTER TABLE Planta ADD Constraint dinero CHECK (Precio >= 0);
+ALTER TABLE Planta ADD CONSTRAINT dinero CHECK (Precio >= 0);
 
 ALTER TABLE Vivero ALTER COLUMN FechaApertura SET NOT NULL;
 ALTER TABLE Vivero ALTER COLUMN Estado SET NOT NULL;
@@ -197,7 +197,7 @@ ALTER TABLE Empleado ALTER COLUMN Calle SET NOT NULL;
 ALTER TABLE Empleado ALTER COLUMN NumeroExterior SET NOT NULL;
 ALTER TABLE Empleado ALTER COLUMN Rol SET NOT NULL;
 ALTER TABLE Empleado ALTER COLUMN Salario SET NOT NULL;
-ALTER TABLE Empleado ADD Constraint dinero CHECK (Salario >= 0);
+ALTER TABLE Empleado ADD CONSTRAINT dinero CHECK (Salario >= 0);
 
 ALTER TABLE VentaFisica ALTER COLUMN CobrarIdEmpleado SET NOT NULL;
 ALTER TABLE VentaFisica ALTER COLUMN NumeroProductos SET NOT NULL;
