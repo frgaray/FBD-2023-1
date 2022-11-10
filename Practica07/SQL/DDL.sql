@@ -228,14 +228,14 @@ COMMENT ON COLUMN Planta.IdVentaElectronica IS '';--Lo mismo aqui
 COMMENT ON CONSTRAINT Planta_pkey ON Planta IS 'Llave primaria de la tabla Planta';
 COMMENT ON CONSTRAINT dinero ON Planta IS 'Nos aseguramos que el valor de la columna Precio no sea negativo';
 
-COMMENT ON TABLE Vivero IS '';
-COMMENT ON COLUMN Vivero.NombreVivero IS '';
-COMMENT ON COLUMN Vivero.FechaApertura IS '';
-COMMENT ON COLUMN Vivero.Estado IS '';
-COMMENT ON COLUMN Vivero.CP IS '';
-COMMENT ON COLUMN Vivero.Calle IS '';
-COMMENT ON COLUMN Vivero.NumeroExterior IS '';
-COMMENT ON CONSTRAINT Vivero_pkey ON Vivero Is '';
+COMMENT ON TABLE Vivero IS 'Tabla que contiene la informacion de los viveros';
+COMMENT ON COLUMN Vivero.NombreVivero IS 'Nombre del vivero';
+COMMENT ON COLUMN Vivero.FechaApertura IS 'Fecha de apertura del vivero';
+COMMENT ON COLUMN Vivero.Estado IS 'Estado en el que se encuentra el vivero';
+COMMENT ON COLUMN Vivero.CP IS 'Codigo postal correspondiente al vivero';
+COMMENT ON COLUMN Vivero.Calle IS 'Calle en la que se encuentra el vivero';
+COMMENT ON COLUMN Vivero.NumeroExterior IS 'Numero exterior de la direccion del vivero';
+COMMENT ON CONSTRAINT Vivero_pkey ON Vivero Is 'Llave primaria de la tabla Vivero';
 
 COMMENT ON TABLE ViveroTelefono IS '';
 COMMENT ON COLUMN ViveroTelefono.NombreVivero IS '';
