@@ -298,3 +298,7 @@ COMMENT ON COLUMN VentaFisica.MetodoPago IS '';
 COMMENT ON TABLE EntregarVentaFisica IS '';
 COMMENT ON COLUMN EntregarVentaFisica.IdVentaFisica IS '';
 COMMENT ON COLUMN EntregarVentaFisica.NombrePlanta IS '';
+
+COMMENT ON TABLE EntregarVentaElectronica IS '';
+COMMENT ON COLUMN EntregarVentaElectronica.IdVentaElectronica IS '';
+COMMENT ON COLUMN EntregarVentaElectronica.NombrePlanta IS '';
