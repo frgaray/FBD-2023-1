@@ -278,3 +278,7 @@ COMMENT ON COLUMN Empleado.Calle IS '';
 COMMENT ON COLUMN Empleado.NumeroExterior IS '';
 COMMENT ON COLUMN Empleado.Rol IS '';
 COMMENT ON COLUMN Empleado.Salario IS '';
+
+COMMENT ON TABLE EmpleadoTelefono IS '';
+COMMENT ON COLUMN EmpleadoTelefono.IdEmpleado IS '';
+COMMENT ON COLUMN EmpleadoTelefono.CorreoElectronico IS '';
