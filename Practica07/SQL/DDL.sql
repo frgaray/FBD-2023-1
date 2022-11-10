@@ -293,10 +293,10 @@ COMMENT ON COLUMN EmpleadoTelefono.IdEmpleado IS 'Identificador del empleado al 
 COMMENT ON COLUMN EmpleadoTelefono.TELEFONO IS 'Numero telefonico';
 COMMENT ON CONSTRAINT EmpleadoTelefono_pkey ON EmpleadoTelefono IS 'Llave primaria de la tabla EmpleadoTelefono';
 
-COMMENT ON TABLE EmpleadoCorreoElectronico IS '';
-COMMENT ON COLUMN EmpleadoCorreoElectronico.IdEmpleado IS '';
-COMMENT ON COLUMN EmpleadoCorreoElectronico.CorreoElectronico IS '';
-COMMENT ON CONSTRAINT EmpleadoCorreoElectronico_pkey ON EmpleadoCorreoElectronico IS '';
+COMMENT ON TABLE EmpleadoCorreoElectronico IS 'Tabla que contiene los correos electronicos de los empleados';
+COMMENT ON COLUMN EmpleadoCorreoElectronico.IdEmpleado IS 'Identificador del empleado al que pertenece el correo electronico';
+COMMENT ON COLUMN EmpleadoCorreoElectronico.CorreoElectronico IS 'Direccion de correo electronico';
+COMMENT ON CONSTRAINT EmpleadoCorreoElectronico_pkey ON EmpleadoCorreoElectronico IS 'Llave primaria de la tabla EmpleadoCorreoElectronico';
 
 COMMENT ON TABLE VentaFisica IS '';
 COMMENT ON COLUMN VentaFisica.IdVentaFisica IS '';
