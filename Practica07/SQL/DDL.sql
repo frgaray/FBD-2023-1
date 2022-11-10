@@ -46,7 +46,7 @@ CREATE TABLE Cliente (
 );
 
 CREATE TABLE ClienteTelefono (
-text	IdCliente INTEGER,
+	IdCliente INTEGER,
 	Telefono CHAR(10)
 );
 
@@ -134,8 +134,8 @@ ALTER TABLE EmpleadoCorreoElectronico ADD PRIMARY KEY (IdEmpleado, CorreoElectro
 ALTER TABLE VentaFisica ADD PRIMARY KEY (IdVentaFisica);
 
 --FK
-ALTER TABLE Planta ADD FOREIGN KEY (IdVentaFisica) REFERENCES VentaFisica(IdVentaFisica)
-ALTER TABLE Planta ADD FOREIGN KEY (IdVentaElectronica) REFERENCES VentaElectronica(IdVentaElectronica)
+ALTER TABLE Planta ADD FOREIGN KEY (IdVentaFisica) REFERENCES VentaFisica(IdVentaFisica);
+ALTER TABLE Planta ADD FOREIGN KEY (IdVentaElectronica) REFERENCES VentaElectronica(IdVentaElectronica);
 
 ALTER TABLE Empleado ADD FOREIGN KEY (NombreVivero) REFERENCES Vivero(NombreVivero);
 
@@ -206,7 +206,7 @@ ALTER TABLE VentaFisica ALTER COLUMN MetodoPago SET NOT NULL;
 ALTER TABLE EntregarVentaFisica ALTER COLUMN IdVentaFisica SET NOT NULL;
 ALTER TABLE EntregarVentaFisica ALTER COLUMN NombrePlanta SET NOT NULL;
 
-ALTER TABLE EntregarVentaElectronica ALTER COLUMN IdVentaFisica SET NOT NULL;
+ALTER TABLE EntregarVentaElectronica ALTER COLUMN IdVentaElectronica SET NOT NULL;
 ALTER TABLE EntregarVentaElectronica ALTER COLUMN NombrePlanta SET NOT NULL;
 
 ALTER TABLE EstarEn ALTER COLUMN NombreVivero SET NOT NULL;
