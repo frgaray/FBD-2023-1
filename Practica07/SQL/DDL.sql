@@ -294,3 +294,7 @@ COMMENT ON COLUMN VentaFisica.AyudarIdEmpleado IS '';
 COMMENT ON COLUMN VentaFisica.CobrarIdEmpleado IS '';
 COMMENT ON COLUMN VentaFisica.NumeroProductos IS '';
 COMMENT ON COLUMN VentaFisica.MetodoPago IS '';
+
+COMMENT ON TABLE EntregarVentaFisica IS '';
+COMMENT ON COLUMN EntregarVentaFisica.IdVentaFisica IS '';
+COMMENT ON COLUMN EntregarVentaFisica.NombrePlanta IS '';
