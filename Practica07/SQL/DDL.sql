@@ -288,10 +288,10 @@ COMMENT ON COLUMN Empleado.Salario IS 'Salario del empleado';
 COMMENT ON CONSTRAINT Empleado_pkey ON Empleado IS 'Llave primaria de la tabla Empleado';
 COMMENT ON CONSTRAINT dinero ON Empleado IS 'Nos aseguramos que el valor de la columna Precio no sea negativo';
 
-COMMENT ON TABLE EmpleadoTelefono IS '';
-COMMENT ON COLUMN EmpleadoTelefono.IdEmpleado IS '';
-COMMENT ON COLUMN EmpleadoTelefono.TELEFONO IS '';
-COMMENT ON CONSTRAINT EmpleadoTelefono_pkey ON EmpleadoTelefono IS '';
+COMMENT ON TABLE EmpleadoTelefono IS 'Tabla que contiene los telefonos de los empleados';
+COMMENT ON COLUMN EmpleadoTelefono.IdEmpleado IS 'Identificador del empleado al que pertenece el telefono';
+COMMENT ON COLUMN EmpleadoTelefono.TELEFONO IS 'Numero telefonico';
+COMMENT ON CONSTRAINT EmpleadoTelefono_pkey ON EmpleadoTelefono IS 'Llave primaria de la tabla EmpleadoTelefono';
 
 COMMENT ON TABLE EmpleadoCorreoElectronico IS '';
 COMMENT ON COLUMN EmpleadoCorreoElectronico.IdEmpleado IS '';
