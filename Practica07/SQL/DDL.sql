@@ -286,3 +286,11 @@ COMMENT ON COLUMN EmpleadoTelefono.CorreoElectronico IS '';
 COMMENT ON TABLE EmpleadoCorreoElectronico IS '';
 COMMENT ON COLUMN EmpleadoCorreoElectronico.IdEmpleado IS '';
 COMMENT ON COLUMN EmpleadoCorreoElectronico.CorreoElectronico IS '';
+
+COMMENT ON TABLE VentaFisica IS '';
+COMMENT ON COLUMN VentaFisica.IdVentaFisica IS '';
+COMMENT ON COLUMN VentaFisica.IdCliente IS '';
+COMMENT ON COLUMN VentaFisica.AyudarIdEmpleado IS '';
+COMMENT ON COLUMN VentaFisica.CobrarIdEmpleado IS '';
+COMMENT ON COLUMN VentaFisica.NumeroProductos IS '';
+COMMENT ON COLUMN VentaFisica.MetodoPago IS '';
