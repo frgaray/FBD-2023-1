@@ -257,7 +257,7 @@ COMMENT ON CONSTRAINT Cliente_pkey ON Cliente IS 'Llave primaria de la tabla Cli
 COMMENT ON TABLE ClienteTelefono IS 'Tabla que contiene los telefonos de los clientes';
 COMMENT ON COLUMN ClienteTelefono.IdCliente IS 'Identificador del cliente al que pertenece el telefono';
 COMMENT ON COLUMN ClienteTelefono.Telefono IS 'Numero telefonico';
-COMMENT ON CONSTRAINT ClienteTelefono_pkey IS 'Llave primaria de la tabla ClienteTelefono';
+COMMENT ON CONSTRAINT ClienteTelefono_pkey ON ClienteTelefono IS 'Llave primaria de la tabla ClienteTelefono';
 
 COMMENT ON TABLE VentaElectronica IS 'Tabla contiene la informacion de las ventas electronicas';
 COMMENT ON COLUMN VentaElectronica.IdVentaElectronica IS 'Identificador de la venta';
@@ -270,7 +270,7 @@ COMMENT ON COLUMN VentaElectronica.Estado IS 'Estado al que se envia la venta';
 COMMENT ON COLUMN VentaElectronica.CP IS 'Codigo postal al que se envia la venta';
 COMMENT ON COLUMN VentaElectronica.Calle IS 'Calle de la direccion del envio';
 COMMENT ON COLUMN VentaElectronica.NumeroExterior IS 'Numero exterior de la direccion del envio';
-COMMENT ON CONSTRAINT VentaElectronica_pkey IS 'Llave primaria de la tabla VentaElectronica';
+COMMENT ON CONSTRAINT VentaElectronica_pkey ON VentaElectronica IS 'Llave primaria de la tabla VentaElectronica';
 
 COMMENT ON TABLE Empleado IS 'Tabla que contiene la informacion de los empleados ';
 COMMENT ON COLUMN Empleado.IdEmpleado IS 'Identificador del empleado';
