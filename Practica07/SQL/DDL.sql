@@ -121,8 +121,8 @@ CREATE TABLE EstarEn (
 
 --- Restricciones:
 --PK
-ALTER TABLE Planta ADD CONSTRAINT planta_pkey PRIMARY KEY (NombrePlanta);
-ALTER TABLE Vivero ADD CONSTRAINT NombreVivero_pkey PRIMARY KEY (NombreVivero);
+ALTER TABLE Planta ADD CONSTRAINT Planta_pkey PRIMARY KEY (NombrePlanta);
+ALTER TABLE Vivero ADD CONSTRAINT Vivero_pkey PRIMARY KEY (NombreVivero);
 ALTER TABLE ViveroTelefono ADD CONSTRAINT ViveroTelefono_pkey PRIMARY KEY (NombreVivero, Telefono);
 ALTER TABLE Cliente ADD CONSTRAINT Cliente_pkey PRIMARY KEY (IdCliente);
 ALTER TABLE ClienteTelefono ADD CONSTRAINT ClienteTelefono_pkey PRIMARY KEY (IdCliente, Telefono);
@@ -225,6 +225,7 @@ COMMENT ON COLUMN Planta.TipoOrigen IS '';
 COMMENT ON COLUMN Planta.FechaGerminacion IS '';
 COMMENT ON COLUMN Planta.IdVentaFisica IS '';
 COMMENT ON COLUMN Planta.IdVentaElectronica IS '';
+COMMENT ON CONSTRAINT Planta_pkey ON Planta IS '';
 
 COMMENT ON TABLE Vivero IS '';
 COMMENT ON COLUMN Vivero.NombreVivero IS '';
@@ -233,10 +234,12 @@ COMMENT ON COLUMN Vivero.Estado IS '';
 COMMENT ON COLUMN Vivero.CP IS '';
 COMMENT ON COLUMN Vivero.Calle IS '';
 COMMENT ON COLUMN Vivero.NumeroExterior IS '';
+COMMENT ON CONSTRAINT Vivero_pkey ON Vivero Is '';
 
 COMMENT ON TABLE ViveroTelefono IS '';
 COMMENT ON COLUMN ViveroTelefono.NombreVivero IS '';
 COMMENT ON COLUMN ViveroTelefono.Telefono IS '';
+COMMENT ON CONSTRAINT ViveroTelefono_pkey ON ViveroTelefono IS '';
 
 COMMENT ON TABLE Cliente IS '';
 COMMENT ON COLUMN Cliente.IdCliente IS '';
@@ -248,10 +251,12 @@ COMMENT ON COLUMN Cliente.Estado IS '';
 COMMENT ON COLUMN Cliente.CP IS '';
 COMMENT ON COLUMN Cliente.Calle IS '';
 COMMENT ON COLUMN Cliente.NumeroExterior IS '';
+COMMENT ON CONSTRAINT Cliente_pkey ON Cliente IS '';
 
 COMMENT ON TABLE ClienteTelefono IS '';
 COMMENT ON COLUMN ClienteTelefono.IdCliente IS '';
 COMMENT ON COLUMN ClienteTelefono.Telefono IS '';
+COMMENT ON CONSTRAINT ClienteTelefono_pkey IS '';
 
 COMMENT ON TABLE VentaElectronica IS '';
 COMMENT ON COLUMN VentaElectronica.IdVentaElectronica IS '';
@@ -264,8 +269,8 @@ COMMENT ON COLUMN VentaElectronica.Estado IS '';
 COMMENT ON COLUMN VentaElectronica.CP IS '';
 COMMENT ON COLUMN VentaElectronica.Calle IS '';
 COMMENT ON COLUMN VentaElectronica.NumeroExterior IS '';
+COMMENT ON CONSTRAINT VentaElectronica_pkey IS '';
 
-COMMENT ON TABLE Empleado IS '';
 COMMENT ON COLUMN Empleado.IdEmpleado IS '';
 COMMENT ON COLUMN Empleado.NombreVivero IS '';
 COMMENT ON COLUMN Empleado.FechaNacimiento IS '';
@@ -278,14 +283,17 @@ COMMENT ON COLUMN Empleado.Calle IS '';
 COMMENT ON COLUMN Empleado.NumeroExterior IS '';
 COMMENT ON COLUMN Empleado.Rol IS '';
 COMMENT ON COLUMN Empleado.Salario IS '';
+COMMENT ON CONSTRAINT Empleado_pkey ON Empleado IS '';
 
 COMMENT ON TABLE EmpleadoTelefono IS '';
 COMMENT ON COLUMN EmpleadoTelefono.IdEmpleado IS '';
 COMMENT ON COLUMN EmpleadoTelefono.TELEFONO IS '';
+COMMENT ON CONSTRAINT EmpleadoTelefono_pkey ON EmpleadoTelefono IS '';
 
 COMMENT ON TABLE EmpleadoCorreoElectronico IS '';
 COMMENT ON COLUMN EmpleadoCorreoElectronico.IdEmpleado IS '';
 COMMENT ON COLUMN EmpleadoCorreoElectronico.CorreoElectronico IS '';
+COMMENT ON CONSTRAINT EmpleadoCorreoElectronico_pkey ON EmpleadoCorreoElectronico IS '';
 
 COMMENT ON TABLE VentaFisica IS '';
 COMMENT ON COLUMN VentaFisica.IdVentaFisica IS '';
@@ -294,6 +302,7 @@ COMMENT ON COLUMN VentaFisica.AyudarIdEmpleado IS '';
 COMMENT ON COLUMN VentaFisica.CobrarIdEmpleado IS '';
 COMMENT ON COLUMN VentaFisica.NumeroProductos IS '';
 COMMENT ON COLUMN VentaFisica.MetodoPago IS '';
+COMMENT ON CONSTRAINT VentaFisica_pkey ON VentaFisica IS '';
 
 COMMENT ON TABLE EntregarVentaFisica IS '';
 COMMENT ON COLUMN EntregarVentaFisica.IdVentaFisica IS '';
