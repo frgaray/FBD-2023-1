@@ -1,0 +1,13 @@
+
+Con respecto a esta practica:
+1. Les falto comentar sobre la tabla clientecorreoelectronico.
+2. Les falto comentar los atributos de clientecorreoelectronico.
+3. Les falto comentar los constraints de clientecorreoelectronico.
+4. Les falto comentar en empleado el atributo empleado_nombrevivero_fkey
+5. Les falto comentar en empleadotelefono el constraint empleadotelefono_idempleado_fkey
+6. Les falto comentar en entregarventaelectronica los constraint entregarventaelectronica_idventaelectronica_fkey , entregarventaelectronica_nombreplanta_fkey
+7. Les falto comentar en entregarventafisica los constraint entregarventafisica_idventafisica_fkey, entregarventafisica_nombreplanta_fkey
+8. Les falto comentar en estaren los constraint estaren_nombreplanta_fkey, estaren_nombrevivero_fkey
+9. Les falto comentar en planta los constraint planta_idventaelectronica_fkey, planta_idventafisica_fkey
+10. Les falto comentar en ventaelectronica el constraint ventaelectronica_idcliente_fkey
+11. Les falto comentar en ventafisica los constraint ventafisica_ayudaridempleado_fkey, ventafisica_cobraridempleado_fkey, ventafisica_idcliente_fkey
