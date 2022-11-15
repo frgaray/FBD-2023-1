@@ -1,11 +1,22 @@
 --CREATE DATABASE gran_vivero
 
+--Cambiar las ids integer a: SERIAL
+
 DROP SCHEMA IF EXISTS public CASCADE;
 CREATE SCHEMA public;
 
 CREATE TYPE asoleo_planta AS ENUM ('sol', 'sombra', 'resolana');
 CREATE TYPE metodo_pago AS ENUM ('efectivo', 'debito', 'credito', 'transferencia', 'otro');
 
+-- Nota para evaluador:
+--  No nos parece que tenga sentido que sea la tabla de planta la que lleve la información
+-- de las ventas, por que esto fuerza a que solo pueda haber una venta por cada planta diferente.
+--  Si tuvieramos que repetir los datos de la planta por cada venta de ella que se hace entonces
+-- tendríamos mucha redundancia.
+--  Finalmente, si se desea obtener las ventas correspondientes a una planta lo podemos hacer
+-- haciendo joins con las tablas EntregarVentaFisica y EntregarVentaElectronica.
+--
+-- Las dejamos en el archivo pero estarán comentadas.
 CREATE TABLE Planta (
 	NombrePlanta VARCHAR(256),
 	Cuidado TEXT,
@@ -13,9 +24,9 @@ CREATE TABLE Planta (
 	Precio INTEGER,--decimal en centavos
 	TipoAsoleo asoleo_planta,
 	TipoOrigen VARCHAR(128),
-	FechaGerminacion DATE,
-	IdVentaFisica INTEGER,
-	IdVentaElectronica INTEGER
+	FechaGerminacion DATE
+	--IdVentaFisica INTEGER,
+	--IdVentaElectronica INTEGER
 );
 
 CREATE TABLE Vivero (
@@ -133,8 +144,8 @@ ALTER TABLE EmpleadoCorreoElectronico ADD CONSTRAINT EmpleadoCorreoElectronico_p
 ALTER TABLE VentaFisica ADD CONSTRAINT VentaFisica_pkey PRIMARY KEY (IdVentaFisica);
 
 --FK
-ALTER TABLE Planta ADD FOREIGN KEY (IdVentaFisica) REFERENCES VentaFisica(IdVentaFisica) ON UPDATE CASCADE ON DELETE SET NULL;
-ALTER TABLE Planta ADD FOREIGN KEY (IdVentaElectronica) REFERENCES VentaElectronica(IdVentaElectronica) ON UPDATE CASCADE ON DELETE SET NULL;
+--ALTER TABLE Planta ADD FOREIGN KEY (IdVentaFisica) REFERENCES VentaFisica(IdVentaFisica) ON UPDATE CASCADE ON DELETE SET NULL;
+--ALTER TABLE Planta ADD FOREIGN KEY (IdVentaElectronica) REFERENCES VentaElectronica(IdVentaElectronica) ON UPDATE CASCADE ON DELETE SET NULL;
 
 ALTER TABLE Empleado ADD FOREIGN KEY (NombreVivero) REFERENCES Vivero(NombreVivero) ON UPDATE CASCADE ON DELETE SET NULL;
 
@@ -232,8 +243,8 @@ COMMENT ON COLUMN Planta.Precio IS 'Costo de la planta';
 COMMENT ON COLUMN Planta.TipoAsoleo IS 'Asoleo que requiere recibir la planta';
 COMMENT ON COLUMN Planta.TipoOrigen IS 'Sustrato que requiere la planta';
 COMMENT ON COLUMN Planta.FechaGerminacion IS 'Fecha en la que la planta germina';
-COMMENT ON COLUMN Planta.IdVentaFisica IS '';
-COMMENT ON COLUMN Planta.IdVentaElectronica IS '';
+-- COMMENT ON COLUMN Planta.IdVentaFisica IS '';
+-- COMMENT ON COLUMN Planta.IdVentaElectronica IS '';
 COMMENT ON CONSTRAINT Planta_pkey ON Planta IS 'Llave primaria de la tabla Planta';
 COMMENT ON CONSTRAINT dinero ON Planta IS 'Nos aseguramos que el valor de la columna Precio no sea negativo';
 
