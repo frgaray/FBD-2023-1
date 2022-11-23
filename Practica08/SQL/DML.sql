@@ -119,6 +119,7 @@ insert into Planta (NombrePlanta, Cuidado, Genero, Precio, TipoAsoleo, TipoOrige
 insert into Planta (NombrePlanta, Cuidado, Genero, Precio, TipoAsoleo, TipoOrigen, FechaGerminacion) values ('Canyon Liveforever', 'odio consequat varius integer ac leo pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit', 'Astropythum', 592867, 'sombra', 'Africana', '2021-05-19');
 insert into Planta (NombrePlanta, Cuidado, Genero, Precio, TipoAsoleo, TipoOrigen, FechaGerminacion) values ('Dumbcane', 'faucibus orci luctus et ultrices posuere cubilia curae donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin', 'Ariocarpus', 489144, 'sombra', 'Cactus', '2020-07-28');
 insert into Planta (NombrePlanta, Cuidado, Genero, Precio, TipoAsoleo, TipoOrigen, FechaGerminacion) values ('Tulare Gooseberry', 'in consequat ut nulla sed accumsan felis ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis', 'Gasteria', 613982, 'sol', 'Africana', '2021-09-06');
+
 --Vivero
 insert into Vivero (NombreVivero, FechaApertura, Estado, CP, Calle, NumeroExterior) values ('Mosinee', '2022-02-25', 'Queretaro', '52508', 'Mosinee', '882d');
 insert into Vivero (NombreVivero, FechaApertura, Estado, CP, Calle, NumeroExterior) values ('Carey', '2022-07-02', 'Sinaloa', '53293', 'Carey', '164');
@@ -221,6 +222,7 @@ insert into Vivero (NombreVivero, FechaApertura, Estado, CP, Calle, NumeroExteri
 insert into Vivero (NombreVivero, FechaApertura, Estado, CP, Calle, NumeroExterior) values ('Browning', '2021-12-04', 'Chiapas', '55319', 'Browning', '753d');
 insert into Vivero (NombreVivero, FechaApertura, Estado, CP, Calle, NumeroExterior) values ('Delladonna', '2020-03-22', 'Puebla', '31102', 'Delladonna', '773d');
 insert into Vivero (NombreVivero, FechaApertura, Estado, CP, Calle, NumeroExterior) values ('Donald', '2022-05-19', 'Puebla', '58880', 'Donald', '192');
+
 -- Cliente
 insert into Cliente (IdCliente, FechaNacimiento, Nombre, ApellidoP, ApellidoM, Estado, CP, Calle, NumeroExterior) values (1634, '1981-06-14', 'Léa', 'Bain', 'Conti', 'Durango', '70505', 'Lyons', '829d');
 insert into Cliente (IdCliente, FechaNacimiento, Nombre, ApellidoP, ApellidoM, Estado, CP, Calle, NumeroExterior) values (2431, '1968-04-05', 'Maëly', 'Dayes', 'Pumphreys', 'Yucatán', '77255', 'Stuart', '954a');
@@ -371,6 +373,7 @@ insert into Cliente (IdCliente, FechaNacimiento, Nombre, ApellidoP, ApellidoM, E
 insert into Cliente (IdCliente, FechaNacimiento, Nombre, ApellidoP, ApellidoM, Estado, CP, Calle, NumeroExterior) values (1044, '1985-12-31', 'Cléopatre', 'Brun', 'Jirousek', 'CDMX', '25627', 'Declaration', '849');
 insert into Cliente (IdCliente, FechaNacimiento, Nombre, ApellidoP, ApellidoM, Estado, CP, Calle, NumeroExterior) values (1175, '1973-07-24', 'Gisèle', 'Hubeaux', 'Dalgarnowch', 'Hidalgo', '74529', 'Buhler', '039c');
 insert into Cliente (IdCliente, FechaNacimiento, Nombre, ApellidoP, ApellidoM, Estado, CP, Calle, NumeroExterior) values (742, '1912-10-09', 'Maï', 'Lightbowne', 'Purkins', 'Quintana Roo', '21892', 'Sauthoff', '695a');
+
 -- Empleado
 insert into Empleado (IdEmpleado, NombreVivero, FechaNacimiento, Nombre, ApellidoP, ApellidoM, Estado, CP, Calle, NumeroExterior, Rol, Salario) values (2224, 'Stang', '1900-12-24', 'Marylène', 'Spurgin', 'Collihole', 'Baja California sur', '95', 'Straubel', '587b', 'gerente', 11140191);
 insert into Empleado (IdEmpleado, NombreVivero, FechaNacimiento, Nombre, ApellidoP, ApellidoM, Estado, CP, Calle, NumeroExterior, Rol, Salario) values (1993, 'Hallows', '1988-12-25', 'Lóng', 'Lambdean', 'Willman', 'Colima', '45', 'Luster', '472c', 'cuidador de plantas', 10092276);
@@ -486,6 +489,7 @@ insert into Empleado (IdEmpleado, NombreVivero, FechaNacimiento, Nombre, Apellid
 insert into Empleado (IdEmpleado, NombreVivero, FechaNacimiento, Nombre, ApellidoP, ApellidoM, Estado, CP, Calle, NumeroExterior, Rol, Salario) values (1263, 'Dwight', '2018-01-22', 'Maëline', 'Dillimore', 'Costello', 'Baja California', '65', 'Sunbrook', '799', 'cuidador de plantas', 5507980);
 insert into Empleado (IdEmpleado, NombreVivero, FechaNacimiento, Nombre, ApellidoP, ApellidoM, Estado, CP, Calle, NumeroExterior, Rol, Salario) values (888, 'Maywood', '1962-02-22', 'Réjane', 'Littlefield', 'Willmore', 'Quintana Roo', '25', 'Ridgeway', '771', 'gerente', 11118620);
 insert into Empleado (IdEmpleado, NombreVivero, FechaNacimiento, Nombre, ApellidoP, ApellidoM, Estado, CP, Calle, NumeroExterior, Rol, Salario) values (144, 'Graedel', '2015-02-11', 'Edmée', 'Lamey', 'Fairman', 'Tabasco', '25', 'Erie', '392', 'cuidador de plantas', 11536239);
+
 -- EmpleadoTelefono
 insert into EmpleadoTelefono (IdEmpleado, Telefono) values (1759, '1914510847');
 insert into EmpleadoTelefono (IdEmpleado, Telefono) values (1993, '6724590495');
@@ -607,6 +611,7 @@ insert into EmpleadoTelefono (IdEmpleado, Telefono) values (2089, '3753479882');
 insert into EmpleadoTelefono (IdEmpleado, Telefono) values (2273, '3734073596');
 insert into EmpleadoTelefono (IdEmpleado, Telefono) values (939, '6179265522');
 insert into EmpleadoTelefono (IdEmpleado, Telefono) values (878, '6071059207');
+
 -- EmpleadoCorreoElectronico
 insert into EmpleadoCorreoElectronico (IdEmpleado, CorreoElectronico) values (2971, 'belger0@unblog.fr');
 insert into EmpleadoCorreoElectronico (IdEmpleado, CorreoElectronico) values (1939, 'covise1@privacy.gov.au');
@@ -728,6 +733,7 @@ insert into EmpleadoCorreoElectronico (IdEmpleado, CorreoElectronico) values (21
 insert into EmpleadoCorreoElectronico (IdEmpleado, CorreoElectronico) values (1992, 'lmor39@blogger.com');
 insert into EmpleadoCorreoElectronico (IdEmpleado, CorreoElectronico) values (925, 'mkarpov3a@jiathis.com');
 insert into EmpleadoCorreoElectronico (IdEmpleado, CorreoElectronico) values (1131, 'ailett3b@people.com.cn');
+
 -- ViveroTelefono
 insert into ViveroTelefono (NombreVivero, Telefono) values ('Ramsey', '5433568867');
 insert into ViveroTelefono (NombreVivero, Telefono) values ('Duke', '2215623827');
@@ -861,6 +867,7 @@ insert into ViveroTelefono (NombreVivero, Telefono) values ('Graedel', '50497308
 insert into ViveroTelefono (NombreVivero, Telefono) values ('Mesta', '6115323800');
 insert into ViveroTelefono (NombreVivero, Telefono) values ('Kedzie', '8914158730');
 insert into ViveroTelefono (NombreVivero, Telefono) values ('Lunder', '3991920468');
+
 -- ClienteTelefono
 insert into ClienteTelefono (IdCliente, Telefono) values ('2452', '9775780102');
 insert into ClienteTelefono (IdCliente, Telefono) values ('1531', '1574789388');
@@ -997,6 +1004,7 @@ insert into ClienteTelefono (IdCliente, Telefono) values ('742', '6505095775');
 insert into ClienteTelefono (IdCliente, Telefono) values ('3754', '7265004940');
 insert into ClienteTelefono (IdCliente, Telefono) values ('2431', '8404584922');
 insert into ClienteTelefono (IdCliente, Telefono) values ('2477', '7346517737');
+
 -- ClienteCorreoElectronico
 insert into ClienteCorreoElectronico (IdCliente, CorreoElectronico) values ('2925', 'lvansalzberger0@washingtonpost.com');
 insert into ClienteCorreoElectronico (IdCliente, CorreoElectronico) values ('1801', 'jeggleson1@webmd.com');
