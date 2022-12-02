@@ -12,57 +12,139 @@
 - Documento de consultas
 - App ?
 
-## Specificación del proyecto
-"TeleLlamadas"
-- entrenadores: {
-	nombre completo, domicilio, fecha nacimiento, teléfono,
-	correo electrónico, CURP, NSS, fotografía {nombre y extensión},
-	fecha ingreso, horas por semana, salario }
-- agentes telefónicos: {
-	nombre completo, domicilio, fecha nacimiento, teléfono,
-	correo electrónico, CURP, fotografía, días de entrenamiento,
-	horario de entrenamiento (matutino o vespertino), salario}
-- salas de capacitación:
+## Especificación del proyecto
 
-- edificio: {ubicación, cantidad de pisos, cantidad de salas por piso, cantidad de estaciones por piso}
---entre 8 y 10 pisos, capacitación o piso de operaciones, estatus {disponible, ocupado}
+ents: entrenadores, agentes, edificios, pisos, salas, cursos, clientes
 
-- estaciones (computadoras) {OS {windows/linux}, mouse, teclado, headset}
--- inventariados, conocer edificio piso y sala en la que estan ubicados
--- os depende de necesidades del cliente
+entrenadores:
+Nombre completo
+domicilio
+fecha nacimiento
+telefono cel
+correo
+CURP
+número seguridad social
+foto (nombre de archivo + extensión)
+fecha ingreso
+horas/semana
+salario
 
-- entrenadores y agentes estan asignados a un piso y solo tienen acceso a ese,
--- dia y horas de entrada y salida a este piso.
+agentes telefónicos:
+Nombre completo
+domicilio
+fecha nacimiento
+teléfono cel
+correo
+CURP
+foto (nombre de archivo + extensión)
+dias entrenamiento + horario entrenamiento (matutino o vespertino)
+salario
 
--curso capacitación: {nombre, duración, dias, linea/presencial, cliente que contrata}
+Edificios:
+ubicación
+cantidad pisos
+salas por piso
+cantidad estaciones por piso
+> entre 8 y 10 pisos 
 
--cliente: {razón social, RFC, telefono contacto, persona contacto, correo contacto}
--- número de horas de entrenamiento (lunes a sabado)
--- Maximo 42 horas impartidas
+Pisos:
+> pisos son de capacitación u operaciones
+> pisos estatus: disponible u ocupado
 
-- entrenador imparte varios cursos, pero no simultaneamente.
--- max 20 agentes
--- asigna piso y sala en particular
+Estaciones:
+OS {Linux, Windows}
+mouse, teclado, headset
+> conocer edificio, piso (si aplica) y sala de ubi
+> sospecho que OS no varia por piso
 
-- sala puede impartir en ambos horarios (matutino/vespertino),
--- conocer cursos y entrenadores asignados a cada sala y periodo
+> entrenadores único piso asociado
 
--pisos repartido entre salas de capacitacion y ops,
---asignan a un cliente total o en partes
---Si ops entonces no se pueden asignar cursos durante el periodo de reserva
+> hora de entrada y salida de piso para cada entrenador
+> agentes único piso asociado
+> hora de entrada y salida de piso para cada agente
 
--asistencia, tres inasistencias implican una baja
--registro de horas de capacitación que cumplen por dia.
--$40 hora agente, $70 hora entrendador
+Cursos:
+> los toman los agentes
+> pertenecen a un cliente
+nombre
+duración
+días de imparte
+línea o presencial
 
--Evaluación de cada curso.
---Un agente puede pasar a un piso de ops solo si tiene almenos 8 de calif, si es menor
---se dan de baja
+Cliente:
+razón social
+RFC
+teléfono contacto
+persona contacto
+correo de contacto
+> contratan un cierto número de horas de entrenamiento
+> horas de entrenamiento repartidas de lunes a sábado
+> max 42 horas por semana
 
--agentes en capacitación estan asignados a un único cliente y único edificio
+> A un entrenador le corresponden muchos cursos (diferentes clientes)
+> Un entrenador solo puede impartir un curso en el mismo período
+> entrenador entrena máximo 20 agentes (por sesión)
+> curso/entrenador asignado un piso y sala particular
 
--$5000 por dia, es el costo de una sala de entrenamiento.
--Cada piso máx 8 salas de entrenamiento.
--cada edificio max 4 pisos, mitad de espacio reservada para oeraciones
--Conocer monto que paga cada cliente que ha reservado espacio por dia y para todo su periodo.
-..EN UNA BD
+> horarios en (matutino, vespertino)
+>> sala,periodo,cursos,entrenadores
+
+> pisos repartidos entre salas de capacitación y/o operaciones
+> cliente tiene reservado todo el piso o una parte
+> si piso reservado como ops, no puede haber cursos durante el periodo de reserva (para el cliente)
+
+> Asistencia agentes
+> 3 inasistencia registran como baja
+> horas de capacitación agentes (por día)
+
+> $40 hora pago a agentes
+> $70 hora pago a entrenadores
+
+> agentes tienen evaluación por curso, mínimo 8 para pasar a ops, si es menor es baja
+> agente en capacitación tienen un solo cliente, asociados a un solo edificio
+
+> salas tienen costo de $5,000.00 al dia
+> piso tiene max 8 salas de entrenamiento
+> "Cada edificio tiene como máximo 4 pisos que tendrán la mitad del espacio (4 salas) reservado para piso
+de operaciones"
+> conocer monto que paga cada cliente por dia y/o para todo su periodo (capacitación o piso ops)
+
+---
+## ER:
+
+- añadi HorasPorSemana a Entrenador
+- Cambie salario, a salario semanal que es calculado (todos los entrenadores ganan $70 la hora)
+- Quité baja de impartir y moví calificación a Tomar
+- Moví baja a Agente de Tomar
+- Añadi SalarioSemanal como calculado a Agente (ganan $40 la hora) ¿Debería de ser como salario a corte o algo así?
+- En curso cambié duración por HorasTotales
+- A persona de contacto añadí los subcampos de un nombre completo
+- Trabajar ahora tiene participación forzada del lado de Agente
+
+Aún falta:
+-  en Edificio nos falta modelar salas por piso "pisos, cantidad de salas por piso"
+	¿O cómo esta forzado, significa?
+-  igual con estaciones
+-  falta constraint de que los edificios tienen entre 8 y 10 pisos
+-  Hay un constraint extra para el OS "El sistema operativo del las estaciones se define en
+	función de los requerimientos del cliente y todas deben asignarse del mismo sistema, según se solicite."
+-  entrenador único piso asociado no esta marcada/forzada
+	" Los entrenadores y agentes están asociados a un piso en particular y solo tienen acceso a ese piso."
+	//creo que bastaría mover la rel trabajar hacia piso
+	Agente tiene esto bien
+-  Las horas contratadas por el cliente no pueden ser en domingo
+-  constraint de que un entrenador solo puede impartir un curso por periodo
+- nuestro modelo no satisface bien :
+	> entrenador entrena máximo 20 agentes (por sesión)
+	> curso/entrenador asignado un piso y sala particular
+- COMO SE RELACIONAN SALA CON PISO ?
+-  Asistencia de agentes (creo que debería ser diferente)
+-  Notar que un piso solo puede tener hasta 8 salas de entrenamiento
+-  Notar que el monto total del cliente (por dia  y para todo su periodo)
+-  Notar 
+	"Cada edificio tiene como máximo 4 pisos que tendrán la mitad del espacio (4 salas) reservado para piso de operaciones"
+-  Restricción a 20 agentes por curso (por momento)
+-  Agente (tomar un curso excluye a trabajar?, me parece que sí)
+-  Agente::Baja deberia de ser un bool + un trigger de algún tipo
+-  Cuando los cursos son en linea ocupamos una sala ?
+-  ¿Por qúe un curso puede ser dado por muchos entrenadores?
