@@ -14,7 +14,7 @@
 
 ## Especificación del proyecto
 
-ents: entrenadores, agentes, edificios, pisos, salas, cursos, clientes
+ents: entrenadores, agentes, edificios, pisos, salas, cursos, clientes, estaciones
 
 entrenadores:
 Nombre completo
@@ -121,30 +121,17 @@ de operaciones"
 - A persona de contacto añadí los subcampos de un nombre completo
 - Trabajar ahora tiene participación forzada del lado de Agente
 
-Aún falta:
--  en Edificio nos falta modelar salas por piso "pisos, cantidad de salas por piso"
-	¿O cómo esta forzado, significa?
--  igual con estaciones
--  falta constraint de que los edificios tienen entre 8 y 10 pisos
--  Hay un constraint extra para el OS "El sistema operativo del las estaciones se define en
-	función de los requerimientos del cliente y todas deben asignarse del mismo sistema, según se solicite."
--  entrenador único piso asociado no esta marcada/forzada
-	" Los entrenadores y agentes están asociados a un piso en particular y solo tienen acceso a ese piso."
-	//creo que bastaría mover la rel trabajar hacia piso
-	Agente tiene esto bien
--  Las horas contratadas por el cliente no pueden ser en domingo
--  constraint de que un entrenador solo puede impartir un curso por periodo
-- nuestro modelo no satisface bien :
-	> entrenador entrena máximo 20 agentes (por sesión)
-	> curso/entrenador asignado un piso y sala particular
-- COMO SE RELACIONAN SALA CON PISO ?
--  Asistencia de agentes (creo que debería ser diferente)
--  Notar que un piso solo puede tener hasta 8 salas de entrenamiento
--  Notar que el monto total del cliente (por dia  y para todo su periodo)
--  Notar 
-	"Cada edificio tiene como máximo 4 pisos que tendrán la mitad del espacio (4 salas) reservado para piso de operaciones"
--  Restricción a 20 agentes por curso (por momento)
--  Agente (tomar un curso excluye a trabajar?, me parece que sí)
--  Agente::Baja deberia de ser un bool + un trigger de algún tipo
--  Cuando los cursos son en linea ocupamos una sala ?
--  ¿Por qúe un curso puede ser dado por muchos entrenadores?
+notas para doc:
+Constraint Edificios entre 8 y 10 pisos
+Mouse, teclado y headset solo registran sus números de inventario
+
+--
+## Relacional
+notas:
+-añadí id a edifício
+-deberiamos denotar la pk de sala a edificio ?
+-(Los sistemas operativos se asignan a la reservación por que reinstalar el OS en cada máquina sería imposible.
+Suponemos/Proponemos que se utilice un sistema de netboot para satisfacer que Linux este disponible en una hora y
+windows en la siguiente)
+- Que sala sea una entidad debil hace que nuestras FK sean enormes bro
+- Reservar no puede ser relación por que una sala puede que la abarquen dos turnos diferentes etc
