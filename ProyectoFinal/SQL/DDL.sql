@@ -25,7 +25,7 @@ CREATE TABLE Piso (
 );
 
 CREATE TABLE Cliente (
- RFC varchar(13),
+ RFC char(13),
  RazonSocial varchar(255) NOT NULL,
  Correo varchar(255) NOT NULL,
  ContactoApellidoPaterno varchar(255) NOT NULL,
@@ -66,7 +66,7 @@ CREATE TABLE Curso (
 );
 
 CREATE TABLE Agente (
- CURP varchar(18),
+ CURP char(18),
  ApellidoMaterno varchar(255) NOT NULL,
  ApellidoPaterno varchar(255) NOT NULL,
  Nombre varchar(255) NOT NULL,
@@ -83,14 +83,14 @@ CREATE TABLE Agente (
 );
 
 CREATE TABLE AgenteTelefono (
- CURP varchar(18),
+ CURP char(18),
  Telefono int,
  PRIMARY KEY (CURP, Telefono)
 );
 
 
 CREATE TABLE AgenteHorario (
- CURP varchar(18),
+ CURP char(18),
  Dia DIA,
  HoraEntrada TIME,
  HoraSalida TIME,
@@ -98,7 +98,7 @@ CREATE TABLE AgenteHorario (
 );
 
 CREATE TABLE Entrenador (
- CURP varchar(18),
+ CURP char(18),
  Domicilio varchar(255) NOT NULL,
  ApellidoPaterno varchar(255) NOT NULL,
  ApellidoMaterno varchar(255) NOT NULL,
@@ -115,13 +115,13 @@ CREATE TABLE Entrenador (
 );
 
 CREATE TABLE EntrenadorTelefono (
- CURP varchar(18),
+ CURP char(18),
  Telefono INT,
  PRIMARY KEY (CURP, Telefono)
 );
 
 CREATE TABLE EntrenadorHorario (
- CURP varchar(18),
+ CURP char(18),
  Dia DIA,
  HoraEntrada TIME,
  HoraSalida TIME,
@@ -152,7 +152,7 @@ CREATE TABLE Ocupar (
 
 CREATE TABLE Impartir (
  IdCurso serial REFERENCES Curso ON UPDATE CASCADE ON DELETE CASCADE,
- CURP varchar(18) REFERENCES Entrenador ON UPDATE CASCADE ON DELETE CASCADE,
+ CURP char(18) REFERENCES Entrenador ON UPDATE CASCADE ON DELETE CASCADE,
  Dia DIA,
  Horas TIME,
  PRIMARY KEY (IdCurso, CURP, Dia, Horas)
@@ -166,7 +166,7 @@ CREATE TABLE HorasContratadasCurso (
 );
 
 CREATE TABLE TomarHorasPorDia (
- CURP varchar(18) REFERENCES Agente ON UPDATE CASCADE ON DELETE CASCADE,
+ CURP char(18) REFERENCES Agente ON UPDATE CASCADE ON DELETE CASCADE,
  Dia DIA,
  Horas TIME,
  Asistencia boolean,
