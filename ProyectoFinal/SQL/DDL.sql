@@ -45,7 +45,8 @@ CREATE TABLE Sala (
 
 CREATE TABLE Reservacion (
  IdReservacion serial,
- Duracion TIME NOT NULL,
+ FechaInicio DATE NOT NULL,
+ FechaFin DATE NOT NULL,
  Turno TURNO NOT NULL,
  SistemaOperativo SO NOT NULL,
  IdSala integer,
@@ -141,7 +142,8 @@ CREATE TABLE Estacion (
 
 CREATE TABLE ReservacionDias (
  IdReservacion serial REFERENCES Reservacion ON UPDATE CASCADE ON DELETE CASCADE,
- Dia DIA,
+ Dia DIA NOT NULL,
+ Horas integer NOT NULL,
  PRIMARY KEY (IdReservacion, Dia)
 );
 
