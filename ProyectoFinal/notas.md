@@ -135,3 +135,7 @@ Suponemos/Proponemos que se utilice un sistema de netboot para satisfacer que Li
 windows en la siguiente)
 - Que sala sea una entidad debil hace que nuestras FK sean enormes bro
 - Reservar no puede ser relación por que una sala puede que la abarquen dos turnos diferentes etc
+
+--
+## CONSTRAINTS PARA CHECK O TRIGGER
+edificios
