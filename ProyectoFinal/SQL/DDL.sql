@@ -34,6 +34,12 @@ CREATE TABLE Cliente (
  PRIMARY KEY (RFC)
 );
 
+CREATE TABLE ClienteTelefono (
+ RFC char(13),
+ Telefono char(10),
+ PRIMARY KEY (RFC, Telefono)
+);
+
 CREATE TABLE Sala (
  IdSala serial,
  Tipo TIPOSALA,
@@ -85,7 +91,7 @@ CREATE TABLE Agente (
 
 CREATE TABLE AgenteTelefono (
  CURP char(18),
- Telefono int,
+ Telefono char(10),
  PRIMARY KEY (CURP, Telefono)
 );
 
@@ -135,7 +141,7 @@ CREATE TABLE Estacion (
  Mouse varchar(255) NOT NULL,
  Teclado varchar(255) NOT NULL,
  HeadSet varchar(255) NOT NULL,
- IdSala serial,
+ IdSala integer,
  PRIMARY KEY (IdEstacion),
  FOREIGN KEY (IdSala) REFERENCES Sala ON UPDATE CASCADE ON DELETE CASCADE
 );
