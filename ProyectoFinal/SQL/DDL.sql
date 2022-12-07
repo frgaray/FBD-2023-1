@@ -137,34 +137,34 @@ CREATE TABLE Estacion (
 );
 
 CREATE TABLE ReservacionDias (
- IdReservacion serial REFERENCES Reservacion,
+ IdReservacion serial REFERENCES Reservacion ON UPDATE CASCADE ON DELETE CASCADE,
  Dia DIA,
  PRIMARY KEY (IdReservacion, Dia)
 );
 
 CREATE TABLE Ocupar (
- IdReservacion serial REFERENCES Reservacion,
- IdSala serial REFERENCES Sala,
+ IdReservacion serial REFERENCES Reservacion ON UPDATE CASCADE ON DELETE CASCADE,
+ IdSala serial REFERENCES Sala ON UPDATE CASCADE ON DELETE CASCADE,
  PRIMARY KEY (IdReservacion, IdSala)
 );
 
 CREATE TABLE Impartir (
- IdCurso serial REFERENCES Curso,
- CURP varchar(18) REFERENCES Entrenador,
+ IdCurso serial REFERENCES Curso ON UPDATE CASCADE ON DELETE CASCADE,
+ CURP varchar(18) REFERENCES Entrenador ON UPDATE CASCADE ON DELETE CASCADE,
  Dia DIA,
  Horas TIME,
  PRIMARY KEY (IdCurso, CURP, Dia, Horas)
 );
 
 CREATE TABLE HorasContratadasCurso (
- IdCurso serial REFERENCES Curso,
+ IdCurso serial REFERENCES Curso ON UPDATE CASCADE ON DELETE CASCADE,
  Dia DIA,
  Horas TIME,
  PRIMARY KEY (IdCurso, Dia, Horas)
 );
 
 CREATE TABLE TomarHorasPorDia (
- CURP varchar(18) REFERENCES Agente,
+ CURP varchar(18) REFERENCES Agente ON UPDATE CASCADE ON DELETE CASCADE,
  Dia DIA,
  Horas TIME,
  Asistencia boolean,
