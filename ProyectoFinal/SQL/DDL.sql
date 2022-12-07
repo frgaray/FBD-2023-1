@@ -116,8 +116,9 @@ CREATE TABLE Entrenador (
 
 CREATE TABLE EntrenadorTelefono (
  CURP char(18),
- Telefono INT,
- PRIMARY KEY (CURP, Telefono)
+ Telefono char(10),
+ PRIMARY KEY (CURP, Telefono),
+ FOREIGN KEY (CURP) REFERENCES Entrenador ON UPDATE CASCADE ON DELETE CASCADE
 );
 
 CREATE TABLE EntrenadorHorario (
