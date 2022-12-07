@@ -2,6 +2,9 @@ DROP SCHEMA IF EXISTS public CASCADE;
 CREATE SCHEMA public;
 
 CREATE TYPE DIA AS ENUM('Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado', 'Domingo');
+CREATE TYPE ESTATUS AS ENUM('Disponible', 'Ocupado');
+CREATE TYPE SO AS ENUM('Linux', 'Windows');
+CREATE TYPE TURNO AS ENUM('Matutino', 'Vespertino');
 
 CREATE TABLE Edificio (
  IdEdificio INT,
@@ -13,7 +16,7 @@ CREATE TABLE Edificio (
 CREATE TABLE Piso (
  IdEdificio INT REFERENCES Edificio,
  IdPiso INT,
- Estatus varchar(255) NOT NULL,
+ Estatus ESTATUS NOT NULL,
  PRIMARY KEY (IdEdificio, IdPiso)
 );
 
@@ -32,7 +35,7 @@ CREATE TABLE Agente (
 );
 
 CREATE TABLE AgenteTelefono (
- CURP varchar(255),
+ CURP varchar(18),
  Telefono int,
  PRIMARY KEY (CURP, Telefono)
 );
@@ -40,9 +43,9 @@ CREATE TABLE AgenteTelefono (
 
 CREATE TABLE AgenteHorario (
  CURP varchar(18),
- Dia varchar(255),
- HoraEntrada INT,
- HoraSalida INT,
+ Dia DIA,
+ HoraEntrada TIME,
+ HoraSalida TIME,
  PRIMARY KEY (CURP, Dia, HoraEntrada, HoraSalida)
 );
 
@@ -80,8 +83,8 @@ CREATE TABLE EntrenadorTelefono (
 CREATE TABLE EntrenadorHorario (
  CURP varchar(18),
  Dia DIA,
- HoraEntrada INT,
- HoraSalida INT,
+ HoraEntrada TIME,
+ HoraSalida TIME,
  PRIMARY KEY (CURP, Dia, HoraEntrada, HoraSalida)
 );
 
@@ -96,7 +99,7 @@ CREATE TABLE Estacion (
 );
 
 CREATE TABLE Cliente (
- RFC varchar(255),
+ RFC varchar(13),
  RazonSocial INT NOT NULL,
  Correo varchar(255) NOT NULL,
  ContactoApellidoPaterno varchar(255) NOT NULL,
@@ -107,11 +110,11 @@ CREATE TABLE Cliente (
 
 CREATE TABLE Reservacion (
  IdReservacion INT,
- Duracion INT NOT NULL,
- Turno INT NOT NULL,
- SistemaOperativo INT NOT NULL,
+ Duracion TIME NOT NULL,
+ Turno TURNO NOT NULL,
+ SistemaOperativo SO NOT NULL,
  IdSala INT,
- IdCliente varchar(255),
+ IdCliente varchar(13),
  PRIMARY KEY (IdReservacion),
  FOREIGN KEY (IdSala) REFERENCES Sala ON UPDATE CASCADE ON DELETE CASCADE,
  FOREIGN KEY (IdCliente) REFERENCES Cliente ON UPDATE CASCADE ON DELETE CASCADE
