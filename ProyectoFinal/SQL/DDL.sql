@@ -73,7 +73,7 @@ CREATE TABLE Agente (
  FechaNacimiento DATE NOT NULL,
  Correo varchar(255) NOT NULL,
  Fotografia varchar(255) NOT NULL,
- TomarCalificacion decimal,
+ TomarCalificacion decimal CHECK (TomarCalificacion >= 0 and TomarCalificacion <= 10),
  IdEdificio serial,
  IdPiso serial,
  IdCurso serial,
