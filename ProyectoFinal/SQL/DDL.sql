@@ -37,8 +37,8 @@ CREATE TABLE Cliente (
 CREATE TABLE Sala (
  IdSala serial,
  Tipo TIPOSALA,
- IdPiso integer, --not null
- IdEdificio integer, --not null
+ IdPiso integer NOT NULL, 
+ IdEdificio integer NOT NULL,
  PRIMARY KEY (IdSala),
  FOREIGN KEY (IdEdificio, IdPiso) REFERENCES Piso ON UPDATE CASCADE ON DELETE CASCADE
 );     	     	
@@ -175,3 +175,4 @@ CREATE TABLE TomarHorasPorDia (
  Asistencia boolean,
  PRIMARY KEY (CURP, Dia, Horas)
 );
+
