@@ -1,3 +1,5 @@
+--DROP DATABASE IF EXISTS tele_llamada;
+--CREATE DATABASE tele_llamada;
 DROP SCHEMA IF EXISTS public CASCADE;
 CREATE SCHEMA public;
 
@@ -16,7 +18,7 @@ CREATE TABLE Edificio (
 
 
 CREATE TABLE Piso (
- IdEdificio serial REFERENCES Edificio,
+ IdEdificio integer REFERENCES Edificio,
  IdPiso serial ,
  Estatus ESTATUS NOT NULL,
  PRIMARY KEY (IdEdificio, IdPiso)
@@ -35,8 +37,8 @@ CREATE TABLE Cliente (
 CREATE TABLE Sala (
  IdSala serial,
  Tipo TIPOSALA,
- IdPiso serial,
- IdEdificio serial,
+ IdPiso integer, --not null
+ IdEdificio integer, --not null
  PRIMARY KEY (IdSala),
  FOREIGN KEY (IdPiso, IdEdificio) REFERENCES Piso ON UPDATE CASCADE ON DELETE CASCADE
 );     	     	
