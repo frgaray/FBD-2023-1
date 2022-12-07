@@ -40,7 +40,7 @@ CREATE TABLE Sala (
  IdPiso integer, --not null
  IdEdificio integer, --not null
  PRIMARY KEY (IdSala),
- FOREIGN KEY (IdPiso, IdEdificio) REFERENCES Piso ON UPDATE CASCADE ON DELETE CASCADE
+ FOREIGN KEY (IdEdificio, IdPiso) REFERENCES Piso ON UPDATE CASCADE ON DELETE CASCADE
 );     	     	
 
 CREATE TABLE Reservacion (
