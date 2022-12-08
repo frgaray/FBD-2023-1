@@ -16,7 +16,6 @@ CREATE TABLE Edificio (
  PRIMARY KEY (IdEdificio)
 );
 
-
 CREATE TABLE Piso (
  IdEdificio integer REFERENCES Edificio,
  IdPiso serial ,
@@ -81,9 +80,9 @@ CREATE TABLE Agente (
  Correo varchar(255) NOT NULL,
  Fotografia varchar(255) NOT NULL,
  TomarCalificacion decimal CHECK (TomarCalificacion >= 0 and TomarCalificacion <= 10),
- IdEdificio serial,
- IdPiso serial,
- IdCurso serial,
+ IdEdificio integer,
+ IdPiso integer,
+ IdCurso integer,
  PRIMARY KEY (CURP),
  FOREIGN KEY (IdEdificio, IdPiso) REFERENCES Piso ON UPDATE CASCADE ON DELETE CASCADE,
  FOREIGN KEY (IdCurso) REFERENCES Curso ON UPDATE CASCADE ON DELETE CASCADE
@@ -162,7 +161,7 @@ CREATE TABLE Impartir (
  IdCurso integer REFERENCES Curso ON UPDATE CASCADE ON DELETE CASCADE,
  CURP char(18) REFERENCES Entrenador ON UPDATE CASCADE ON DELETE CASCADE,
  Dia DIA,
- Horas TIME,
+ Horas integer CHECK (Horas > 0),
  PRIMARY KEY (IdCurso, CURP, Dia, Horas)
 );
 
@@ -175,9 +174,8 @@ CREATE TABLE HorasContratadasCurso (
 
 CREATE TABLE TomarHorasPorDia (
  CURP char(18) REFERENCES Agente ON UPDATE CASCADE ON DELETE CASCADE,
- Dia DIA,
- Horas TIME,
+ Dia DATE,
+ Horas integer,
  Asistencia boolean,
  PRIMARY KEY (CURP, Dia, Horas)
 );
-
