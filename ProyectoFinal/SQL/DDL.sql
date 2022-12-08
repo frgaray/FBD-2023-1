@@ -56,7 +56,7 @@ CREATE TABLE Reservacion (
  Turno TURNO NOT NULL,
  SistemaOperativo SO NOT NULL,
  IdSala integer,
- IdCliente varchar(13),
+ IdCliente char(13),
  PRIMARY KEY (IdReservacion),
  FOREIGN KEY (IdSala) REFERENCES Sala ON UPDATE CASCADE ON DELETE CASCADE,
  FOREIGN KEY (IdCliente) REFERENCES Cliente ON UPDATE CASCADE ON DELETE CASCADE
@@ -67,7 +67,7 @@ CREATE TABLE Curso (
  Modalidad MODALIDAD NOT NULL,
  Turno TURNO NOT NULL,
  Nombre varchar(255) NOT NULL,
- IdReservacion serial,
+ IdReservacion integer,
  PRIMARY KEY (IdCurso),
  FOREIGN KEY (IdReservacion) REFERENCES Reservacion ON UPDATE CASCADE ON DELETE CASCADE 
 );
@@ -147,20 +147,19 @@ CREATE TABLE Estacion (
 );
 
 CREATE TABLE ReservacionDias (
- IdReservacion serial REFERENCES Reservacion ON UPDATE CASCADE ON DELETE CASCADE,
+ IdReservacion integer REFERENCES Reservacion ON UPDATE CASCADE ON DELETE CASCADE,
  Dia DIA NOT NULL,
- Horas integer NOT NULL,
  PRIMARY KEY (IdReservacion, Dia)
 );
 
 CREATE TABLE Ocupar (
- IdReservacion serial REFERENCES Reservacion ON UPDATE CASCADE ON DELETE CASCADE,
- IdSala serial REFERENCES Sala ON UPDATE CASCADE ON DELETE CASCADE,
+ IdReservacion integer REFERENCES Reservacion ON UPDATE CASCADE ON DELETE CASCADE,
+ IdSala integer REFERENCES Sala ON UPDATE CASCADE ON DELETE CASCADE,
  PRIMARY KEY (IdReservacion, IdSala)
 );
 
 CREATE TABLE Impartir (
- IdCurso serial REFERENCES Curso ON UPDATE CASCADE ON DELETE CASCADE,
+ IdCurso integer REFERENCES Curso ON UPDATE CASCADE ON DELETE CASCADE,
  CURP char(18) REFERENCES Entrenador ON UPDATE CASCADE ON DELETE CASCADE,
  Dia DIA,
  Horas TIME,
@@ -168,10 +167,10 @@ CREATE TABLE Impartir (
 );
 
 CREATE TABLE HorasContratadasCurso (
- IdCurso serial REFERENCES Curso ON UPDATE CASCADE ON DELETE CASCADE,
+ IdCurso integer REFERENCES Curso ON UPDATE CASCADE ON DELETE CASCADE,
  Dia DIA,
- Horas TIME,
- PRIMARY KEY (IdCurso, Dia, Horas)
+ Horas integer CHECK (Horas > 0),
+ PRIMARY KEY (IdCurso, Dia)
 );
 
 CREATE TABLE TomarHorasPorDia (
