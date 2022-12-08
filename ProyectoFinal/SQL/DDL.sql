@@ -149,7 +149,7 @@ CREATE TABLE Estacion (
 CREATE TABLE ReservacionDias (
  IdReservacion serial REFERENCES Reservacion ON UPDATE CASCADE ON DELETE CASCADE,
  Dia DIA NOT NULL,
- Horas integer NOT NULL,
+ Horas TIME NOT NULL,
  PRIMARY KEY (IdReservacion, Dia)
 );
 
